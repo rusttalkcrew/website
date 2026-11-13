@@ -58,6 +58,21 @@ test('history excludes wrong components, empty platforms and checksum-only relea
   assert.deepEqual(Array.from(api.history(releases, 'server'), r => r.tag_name), ['v8.0.0+server.abcdef1', 'v4.0.0']);
 });
 
+test('Windows x64 server assets, per-asset legacy fallback and duplicate consistency', () => {
+  const winServer = 'rusttalk-server-windows.exe';
+  const r = release('v2.0.0+server.abcdef1', [winServer, winServer + '.sha256']);
+  assert.equal(api.history([r], 'server')[0].tag_name, r.tag_name);
+  const legacy = release('v2.0.0', [client]);
+  const partial = release('v2.0.0+client.abcdef1', [linux]);
+  for (const list of [[legacy, partial], [partial, legacy]]) {
+    assert.equal(api.select(list, 'client', client).release.tag_name, legacy.tag_name);
+    assert.equal(api.history(list, 'windows')[0].tag_name, legacy.tag_name);
+    assert.equal(api.history(list, 'linux')[0].tag_name, partial.tag_name);
+  }
+  assert.equal(api.candidates([legacy, legacy], 'client').length, 1);
+  assert.throws(() => api.candidates([legacy, release(legacy.tag_name, [])], 'client'), /Inconsistent/);
+});
+
 test('pagination uses fixed URLs, never external Link URLs; later failures reject whole listing', async () => {
   const calls = [];
   const result = await api.load(async url => { calls.push(url); return response(calls.length === 1 ? [release('v1.0.0')] : [], '<https://evil.example/>; rel="' + (calls.length === 1 ? 'next' : 'prev') + '"'); });

@@ -429,17 +429,26 @@ docker compose logs rusttalk</code></pre>
     return a.browser_download_url === expected || a.browser_download_url === expected.replace(/%2B/g, '+');
   }
   function candidates(releases, component) {
-    const versions = new Map();
+    const versions = new Map(), seen = new Map(), entries = [];
     for (const r of releases) {
       const t = tag(r.tag_name);
       if (r.draft || r.prerelease || !t || (t.component && t.component !== component)) continue;
-      const old = versions.get(t.core);
-      if (old && old.t.component && t.component && old.r.tag_name !== r.tag_name) throw Error('Ambiguous component release');
-      if (!old || t.component || !old.t.component) versions.set(t.core, { r, t });
+      const bytes = JSON.stringify(r);
+      if (seen.has(r.tag_name)) {
+        if (seen.get(r.tag_name) !== bytes) throw Error('Inconsistent duplicate release');
+        continue;
+      }
+      seen.set(r.tag_name, bytes);
+      if (t.component) {
+        const old = versions.get(t.core);
+        if (old && old !== r.tag_name) throw Error('Ambiguous component release');
+        versions.set(t.core, r.tag_name);
+      }
+      entries.push({ r, t });
     }
-    return [...versions.values()].sort((a, b) => {
+    return entries.sort((a, b) => {
       for (let i = 0; i < 3; i++) if (a.t.numbers[i] !== b.t.numbers[i]) return a.t.numbers[i] > b.t.numbers[i] ? -1 : 1;
-      return 0;
+      return Number(Boolean(b.t.component)) - Number(Boolean(a.t.component));
     }).map(x => x.r);
   }
   function select(releases, component, name) {
@@ -452,13 +461,15 @@ docker compose logs rusttalk</code></pre>
   }
   function kindAssets(r, kind) {
     return r.assets.filter(a => safeAsset(a, r) && (kind === 'server'
-      ? /^rusttalk-server-(linux|windows)-/.test(a.name)
+      ? /^rusttalk-server-(?:linux-(?:x86_64|aarch64)(?:\.tar\.gz)?|windows(?:-arm64)?\.exe)(?:\.sha256)?$/.test(a.name)
       : kind === 'windows' ? /^rusttalk-windows(?:-arm64)?\.exe(?:\.sha256)?$/.test(a.name)
         : /^rusttalk-linux-(x86_64|aarch64)\.AppImage(?:\.sha256)?$/.test(a.name)));
   }
   function history(releases, kind) {
+    const seen = new Set();
     return candidates(releases, kind === 'server' ? 'server' : 'client')
-      .filter(r => kindAssets(r, kind).some(a => !a.name.endsWith('.sha256')));
+      .filter(r => kindAssets(r, kind).some(a => !a.name.endsWith('.sha256')))
+      .filter(r => { const core = tag(r.tag_name).core; if (seen.has(core)) return false; seen.add(core); return true; });
   }
   async function readPage(response) {
     if (!response.ok || !response.body) throw Error('Release request failed');

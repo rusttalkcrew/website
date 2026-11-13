@@ -9,6 +9,8 @@ from pathlib import Path
 
 
 def transform(html):
+    if '<script id="component-releases">' in html:
+        return html
     prefix = 'https://github.com/rusttalkcrew/RustTalk/releases'
     html = re.sub(r'href="' + re.escape(prefix) + r'/latest/download/([A-Za-z0-9._-]+)"',
                   lambda m: 'href="' + prefix + '" data-component="' +

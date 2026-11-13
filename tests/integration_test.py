@@ -28,6 +28,10 @@ class Integration(unittest.TestCase):
     def test_newer_main_preserved(self):
         before = subprocess.check_output(['git', 'show', 'origin/main:website/index.html'], cwd=SITE, text=True)
         after = transform(before)
+        self.assertEqual(transform(after), after)
+        if '<script id="component-releases">' in before:
+            self.assertEqual(after, before)
+            return
         old_tags, new_tags = Tags(before).tags, Tags(after).tags
         self.assertEqual(len(old_tags) + 1, len(new_tags))  # one inline loader
         for (old_name, old), (new_name, new) in zip(old_tags[:-2], new_tags[:-3]):
