@@ -223,8 +223,8 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
         <p data-l="de">TLS für die Steuerverbindung mit Zertifikat-Pinning, ChaCha20-Poly1305 für Sprache und Video.</p></div>
       <div class="card"><div class="ic">🏠</div>
         <h3 data-l="en">Self-hosted, no accounts</h3><h3 data-l="de">Selbst gehostet, ohne Accounts</h3>
-        <p data-l="en">Your server, your data. Pick a name and connect. Optional password or invite links.</p>
-        <p data-l="de">Dein Server, deine Daten. Namen wählen und verbinden. Optional mit Passwort oder Einladungslinks.</p></div>
+        <p data-l="en">Your server, your data. Create a local identity and connect with a server invitation.</p>
+        <p data-l="de">Dein Server, deine Daten. Lokale Identität erstellen und mit einer Server-Einladung verbinden.</p></div>
       <div class="card"><div class="ic">🛡️</div>
         <h3 data-l="en">Roles &amp; moderation</h3><h3 data-l="de">Rollen &amp; Moderation</h3>
         <p data-l="en">Admins and moderators, move, kick and ban, audit log. Poke someone with a message, TeamSpeak style.</p>
@@ -326,78 +326,18 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
 
     <div class="steps" data-panel="systemd">
       <div>
-        <h3 data-l="en">Download and unpack (as root)</h3><h3 data-l="de">Herunterladen und entpacken (als root)</h3>
-        <p class="small" data-l="en">On ARM servers replace <code>x86_64</code> with <code>aarch64</code>.</p>
-        <p class="small" data-l="de">Auf ARM-Servern <code>x86_64</code> durch <code>aarch64</code> ersetzen.</p>
-<pre><code>mkdir rusttalk-server && cd rusttalk-server
-# Download rusttalk-server-linux-x86_64.tar.gz from
-# https://github.com/rusttalkcrew/RustTalk/releases
-# Choose a stable server or combined release, then unpack:
-tar xzf rusttalk-server-linux-x86_64.tar.gz</code></pre>
-      </div>
-      <div>
-        <h3 data-l="en">Install the service</h3><h3 data-l="de">Dienst installieren</h3>
-        <p data-l="en">Creates the user <code>rusttalk</code>, installs to <code>/opt/rusttalk/server/</code> and starts the service. Name, password and channels are set in <code>server.toml</code>.</p>
-        <p data-l="de">Legt den Benutzer <code>rusttalk</code> an, installiert nach <code>/opt/rusttalk/server/</code> und startet den Dienst. Name, Passwort und Kanäle stellst du in der <code>server.toml</code> ein.</p>
-<pre><code>useradd --system --shell /usr/sbin/nologin rusttalk
-D=/opt/rusttalk/server
-install -d -o rusttalk -g rusttalk $D $D/bin
-install -m 755 rusttalk-server $D/bin/
-install -o rusttalk -g rusttalk -m 644 server.toml $D/
-cp deploy/rusttalk-server.service /etc/systemd/system/
-systemctl daemon-reload
-systemctl enable --now rusttalk-server</code></pre>
-      </div>
-      <div>
-        <h3 data-l="en">Open the port</h3><h3 data-l="de">Port freigeben</h3>
-        <p data-l="en">Allow <b>7331 TCP and UDP</b> in your firewall and in your hosting provider's firewall.</p>
-        <p data-l="de">Erlaube <b>7331 TCP und UDP</b> in deiner Firewall und in der Firewall deines Hosters.</p>
-      </div>
-      <div>
-        <h3 data-l="en">Connect and become admin</h3><h3 data-l="de">Verbinden und Admin werden</h3>
-        <p data-l="en">Connect with the app to <code>your-server</code> and use “Become admin” in the server menu. Then create channels, invites and roles right in the app.</p>
-        <p data-l="de">Verbinde dich mit der App zu <code>dein-server</code> und wähle „Admin werden“ im Servermenü. Kanäle, Einladungen und Rollen legst du dann direkt in der App an.</p>
-      </div>
-      <div>
-        <h3 data-l="en">Update the systemd server</h3><h3 data-l="de">systemd-Server aktualisieren</h3>
-        <p data-l="en">Paste this on your server from any directory (bash or fish). Uses the standard install path, downloads the latest release for your architecture, verifies SHA-256 and checks that the binary starts before replacing it:</p>
-        <p data-l="de">Auf deinem Server in einem beliebigen Verzeichnis einfügen (bash oder fish). Verwendet den Standard-Installationspfad, lädt die neueste Version für deine Architektur, prüft SHA-256 und testet vor dem Austausch, ob die Datei startet:</p>
-<pre><code>sudo /opt/rusttalk/server/bin/rusttalk-server update --no-restart &amp;&amp;
-sudo systemctl restart rusttalk-server.service &amp;&amp;
-systemctl --no-pager --full status rusttalk-server.service &amp;&amp;
-/opt/rusttalk/server/bin/rusttalk-server --version</code></pre>
-        <p class="small" data-l="en">Each command runs only if the previous one succeeds. Restarting briefly disconnects users. Config, database and TLS identity files stay in place; update clients too when the protocol changes. The previous binary is kept as <code>rusttalk-server.old</code>. <a href="https://github.com/rusttalkcrew/RustTalk#update-the-systemd-server-copy-and-paste" rel="noopener">Update checks, rollback and troubleshooting</a>.</p>
-        <p class="small" data-l="de">Jeder Befehl läuft nur, wenn der vorherige erfolgreich war. Der Neustart trennt Benutzer kurzzeitig. Konfiguration, Datenbank und TLS-Identitätsdateien bleiben erhalten; bei Protokolländerungen auch die Clients aktualisieren. Die vorherige Datei bleibt als <code>rusttalk-server.old</code> erhalten. <a href="https://github.com/rusttalkcrew/RustTalk#update-the-systemd-server-copy-and-paste" rel="noopener">Update-Prüfung, Rückkehr zur vorherigen Version und Fehlerbehebung</a>.</p>
+        <h3 data-l="en">Identity-only server setup</h3><h3 data-l="de">Server mit Identitäten einrichten</h3>
+        <p data-l="en">Provision protected identity storage, initialize the signed server endpoint, and give the first administrator a single-use invitation. Start with <code>rusttalk-server identity serve</code> and the protected receipt. Old databases are never automatically converted or reset.</p>
+        <p data-l="de">Geschützten Identitätsspeicher einrichten, den signierten Server-Endpunkt initialisieren und dem ersten Administrator eine einmalige Einladung geben. Start mit <code>rusttalk-server identity serve</code> und dem geschützten Beleg. Alte Datenbanken werden niemals automatisch konvertiert oder zurückgesetzt.</p>
+        <p><a href="https://github.com/rusttalkcrew/RustTalk#server">Identity setup instructions</a></p>
       </div>
     </div>
 
     <div class="steps" data-panel="docker" hidden>
       <div>
-        <h3 data-l="en">Get the compose file</h3><h3 data-l="de">Compose-Datei holen</h3>
-        <p data-l="en">Official image <code>ghcr.io/rusttalkcrew/rusttalk-server</code> for amd64 and arm64, hardened and read-only.</p>
-        <p data-l="de">Offizielles Image <code>ghcr.io/rusttalkcrew/rusttalk-server</code> für amd64 und arm64, gehärtet und schreibgeschützt.</p>
-<pre><code>mkdir rusttalk && cd rusttalk
-curl -fsSLO https://raw.githubusercontent.com/rusttalkcrew/RustTalk/main/Server/deploy/docker-compose.yml</code></pre>
-      </div>
-      <div>
-        <h3 data-l="en">Create the admin password</h3><h3 data-l="de">Admin-Passwort anlegen</h3>
-        <p data-l="en">The container does not start without it. Read it later with <code>sudo cat admin_password.txt</code>.</p>
-        <p data-l="de">Ohne Passwort startet der Container nicht. Später auslesen mit <code>sudo cat admin_password.txt</code>.</p>
-<pre><code>openssl rand -base64 32 > admin_password.txt
-sudo chown 65532:65532 admin_password.txt
-sudo chmod 0400 admin_password.txt</code></pre>
-      </div>
-      <div>
-        <h3 data-l="en">Start it</h3><h3 data-l="de">Starten</h3>
-        <p data-l="en">The log shows the TLS fingerprint you can give your users.</p>
-        <p data-l="de">Im Log steht der TLS-Fingerabdruck für deine Nutzer.</p>
-<pre><code>docker compose up -d
-docker compose logs rusttalk</code></pre>
-      </div>
-      <div>
-        <h3 data-l="en">Open the port and log in as admin</h3><h3 data-l="de">Port freigeben und als Admin anmelden</h3>
-        <p data-l="en">Allow <b>7331 TCP and UDP</b>. In the app, open Server Settings &gt; Roles and enter the admin password.</p>
-        <p data-l="de">Erlaube <b>7331 TCP und UDP</b>. In der App unter Servereinstellungen &gt; Rollen das Admin-Passwort eingeben.</p>
+        <h3 data-l="en">Container deployment</h3><h3 data-l="de">Container-Betrieb</h3>
+        <p data-l="en">The identity-only container requires explicitly provisioned protected storage and its receipt. Container deployment is not yet validated. It has no password bootstrap or automatic reset. Follow the repository deployment documentation before use.</p>
+        <p data-l="de">Der Container benötigt ausdrücklich eingerichteten geschützten Speicher und dessen Beleg. Der Container-Betrieb ist noch nicht validiert. Es gibt weder Passwort-Initialisierung noch automatisches Zurücksetzen. Vor Verwendung die Deployment-Dokumentation im Repository lesen.</p>
       </div>
     </div>
     <p class="small more-docs"><span data-l="en">More options (backups, Windows server) in the</span><span data-l="de">Mehr Optionen (Backups, Windows-Server) im</span> <a href="https://github.com/rusttalkcrew/RustTalk#setup" rel="noopener">README</a>.</p>
