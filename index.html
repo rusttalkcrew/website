@@ -336,8 +336,8 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
     <div class="steps" data-panel="docker" hidden>
       <div>
         <h3 data-l="en">Container deployment</h3><h3 data-l="de">Container-Betrieb</h3>
-        <p data-l="en">The identity-only container requires explicitly provisioned protected storage and its receipt. Container deployment is not yet validated. It has no password bootstrap or automatic reset. Follow the repository deployment documentation before use.</p>
-        <p data-l="de">Der Container benötigt ausdrücklich eingerichteten geschützten Speicher und dessen Beleg. Der Container-Betrieb ist noch nicht validiert. Es gibt weder Passwort-Initialisierung noch automatisches Zurücksetzen. Vor Verwendung die Deployment-Dokumentation im Repository lesen.</p>
+        <p data-l="en">The identity-only container provisions its own protected storage on a named volume (local ext4 or XFS) and runs the server without privileges. It was validated with rootful Docker on Linux. It has no password bootstrap or automatic reset. Follow the repository deployment documentation before use.</p>
+        <p data-l="de">Der Container richtet seinen geschützten Speicher selbst auf einem benannten Volume (lokales ext4 oder XFS) ein und betreibt den Server ohne Privilegien. Er wurde mit Docker (rootful) unter Linux validiert. Es gibt weder Passwort-Initialisierung noch automatisches Zurücksetzen. Vor Verwendung die Deployment-Dokumentation im Repository lesen.</p>
       </div>
     </div>
     <p class="small more-docs"><span data-l="en">More options (backups, Windows server) in the</span><span data-l="de">Mehr Optionen (Backups, Windows-Server) im</span> <a href="https://github.com/rusttalkcrew/RustTalk#setup" rel="noopener">README</a>.</p>
