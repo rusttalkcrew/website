@@ -47,6 +47,7 @@ nav .wrap{display:flex;align-items:center;gap:20px;height:64px}
 .btn.ghost:hover{background:#3a3c42}
 .btn svg{width:20px;height:20px;flex:none}
 .ver{margin-top:14px;color:var(--dim);font-size:14px}
+.ver a{color:inherit}
 .shot-hero{margin:56px auto 0;max-width:980px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.55)}
 .shot-hero img{display:block;width:100%;height:auto}
 /* sections */
@@ -69,6 +70,10 @@ h2{font-size:clamp(28px,4vw,38px);margin:0 0 10px;letter-spacing:-.01em}
 .dl .card{display:flex;flex-direction:column;gap:12px}
 .dl .card h3{display:flex;align-items:center;gap:10px;font-size:20px}
 .dl .card h3 svg{width:24px;height:24px;flex:none}
+.later{list-style:none;margin:0;padding:0}
+.later li{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)}
+.later svg{width:20px;height:20px;flex:none}
+.later li>span{margin-left:auto;text-align:right;color:var(--dim);font-size:13.5px}
 .dl .card>.btn{align-self:flex-start}
 .alt-link{font-size:13.5px;color:var(--dim);text-decoration:underline;text-underline-offset:3px}
 .alt-link:hover{color:var(--text)}
@@ -181,7 +186,7 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
         <span data-l="en">Host a server</span><span data-l="de">Server hosten</span>
       </a>
     </div>
-    <div class="ver"><span class="js-ver"></span><span data-l="en">Open source · Windows · Linux · macOS soon · Self-hosted</span><span data-l="de">Open Source · Windows · Linux · macOS bald · Selbst gehostet</span></div>
+    <div class="ver"><span class="js-ver"></span><span data-l="en"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> · Windows · Linux · macOS soon · Self-hosted</span><span data-l="de"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open Source</a> · Windows · Linux · macOS bald · Selbst gehostet</span></div>
     <div class="shot-hero"><img src="img/voice.png" width="1100" height="731" alt="RustTalk voice channel with four people"></div>
   </div>
 </header>
@@ -216,28 +221,28 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
         <p data-l="de">Opus-Audio, KI-Rauschunterdrückung, Echounterdrückung und automatische Lautstärke. Push-to-Talk oder Sprachaktivierung.</p></div>
       <div class="card"><div class="ic">🖥️</div>
         <h3 data-l="en">Screen share &amp; camera</h3><h3 data-l="de">Bildschirm &amp; Kamera</h3>
-        <p data-l="en">Share a screen or a single window with computer audio, up to 1080p. Webcam at the same time.</p>
-        <p data-l="de">Bildschirm oder einzelnes Fenster mit Systemton teilen, bis 1080p. Webcam gleichzeitig.</p></div>
+        <p data-l="en">Share a screen or a single window, with the sound of the apps you pick. Camera at the same time.</p>
+        <p data-l="de">Bildschirm oder einzelnes Fenster teilen, mit dem Ton der Apps, die du auswählst. Kamera gleichzeitig.</p></div>
       <div class="card"><div class="ic">💬</div>
         <h3 data-l="en">Text chat</h3><h3 data-l="de">Text-Chat</h3>
-        <p data-l="en">Channels with history, images and GIFs, replies, @mentions, editing and search.</p>
-        <p data-l="de">Kanäle mit Verlauf, Bildern und GIFs, Antworten, @Erwähnungen, Bearbeiten und Suche.</p></div>
+        <p data-l="en">Channels and direct messages with history, replies and editing.</p>
+        <p data-l="de">Kanäle und Direktnachrichten mit Verlauf, Antworten und Bearbeiten.</p></div>
       <div class="card"><div class="ic">🔒</div>
-        <h3 data-l="en">Encrypted</h3><h3 data-l="de">Verschlüsselt</h3>
-        <p data-l="en">TLS for the control connection with certificate pinning, ChaCha20-Poly1305 for voice and video.</p>
-        <p data-l="de">TLS für die Steuerverbindung mit Zertifikat-Pinning, ChaCha20-Poly1305 für Sprache und Video.</p></div>
-      <div class="card"><div class="ic">🏠</div>
-        <h3 data-l="en">Self-hosted, no accounts</h3><h3 data-l="de">Selbst gehostet, ohne Accounts</h3>
-        <p data-l="en">Your server, your data. Create a local identity and connect with a server invitation.</p>
-        <p data-l="de">Dein Server, deine Daten. Lokale Identität erstellen und mit einer Server-Einladung verbinden.</p></div>
+        <h3 data-l="en">End-to-end encrypted</h3><h3 data-l="de">Ende-zu-Ende-verschlüsselt</h3>
+        <p data-l="en">Messages, files, voice and video are encrypted on your device. The server only stores and forwards ciphertext, and even channel, role and profile names are encrypted. It does see who is a member, IP addresses and timing.</p>
+        <p data-l="de">Nachrichten, Dateien, Sprache und Video werden auf deinem Gerät verschlüsselt. Der Server speichert und verteilt nur verschlüsselte Daten, sogar Kanal-, Rollen- und Profilnamen sind verschlüsselt. Er sieht aber, wer Mitglied ist, IP-Adressen und Zeitpunkte.</p></div>
+      <div class="card"><div class="ic">🔑</div>
+        <h3 data-l="en">No account, no email</h3><h3 data-l="de">Kein Account, keine E&#8209;Mail</h3>
+        <p data-l="en">Your identity is a 24-word recovery phrase on your device. No email, no phone number. Settings and servers sync between your devices.</p>
+        <p data-l="de">Deine Identität ist eine Wiederherstellungsphrase aus 24 Wörtern auf deinem Gerät. Keine E-Mail, keine Telefonnummer. Einstellungen und Server werden zwischen deinen Geräten synchronisiert.</p></div>
       <div class="card"><div class="ic">🛡️</div>
         <h3 data-l="en">Roles &amp; moderation</h3><h3 data-l="de">Rollen &amp; Moderation</h3>
-        <p data-l="en">Admins and moderators, move, kick and ban, audit log. Poke someone with a message, TeamSpeak style.</p>
-        <p data-l="de">Admins und Moderatoren, verschieben, kicken, bannen, Audit-Log. Jemanden mit Nachricht anstupsen, wie bei TeamSpeak.</p></div>
-      <div class="card"><div class="ic">⚡</div>
-        <h3 data-l="en">Lightweight</h3><h3 data-l="de">Leichtgewichtig</h3>
-        <p data-l="en">One small app. The server runs in Docker on a small VPS.</p>
-        <p data-l="de">Eine kleine App. Der Server läuft mit Docker auf einem kleinen VPS.</p></div>
+        <p data-l="en">Roles with permissions, kick and ban, audit log. Removed people lose access to new messages, because the keys change.</p>
+        <p data-l="de">Rollen mit Rechten, Kicken und Bannen, Audit-Log. Wer entfernt wird, kann neue Nachrichten nicht mehr lesen, weil die Schlüssel wechseln.</p></div>
+      <div class="card"><div class="ic">📎</div>
+        <h3 data-l="en">File sharing</h3><h3 data-l="de">Dateien teilen</h3>
+        <p data-l="en">Share files in chat, calls and DMs, end-to-end encrypted. Store them encrypted on your server, with size limits and expiry, or send them directly to the people in the conversation, never stored on the server.</p>
+        <p data-l="de">Dateien in Chat, Anrufen und Direktnachrichten teilen, Ende-zu-Ende-verschlüsselt. Entweder verschlüsselt auf deinem Server gespeichert, mit Größenlimits und Ablaufzeit, oder direkt an die Leute im Gespräch geschickt, ohne Speicherung auf dem Server.</p></div>
       <div class="card"><div class="ic">🔄</div>
         <h3 data-l="en">Auto updates</h3><h3 data-l="de">Automatische Updates</h3>
         <p data-l="en">The app installs signed updates with one click. The server updates by pulling the new Docker images.</p>
@@ -261,8 +266,8 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
       <figure style="display:flex;flex-direction:column;justify-content:center;padding:28px;gap:14px">
         <h3 style="margin:0;font-size:22px" data-l="en">Get started in a minute</h3>
         <h3 style="margin:0;font-size:22px" data-l="de">In einer Minute startklar</h3>
-        <p style="margin:0;color:var(--muted)" data-l="en">Download the app, enter the server address and your name, and you are in. No sign-up, no email.</p>
-        <p style="margin:0;color:var(--muted)" data-l="de">App herunterladen, Serveradresse und Namen eingeben, fertig. Keine Registrierung, keine E-Mail.</p>
+        <p style="margin:0;color:var(--muted)" data-l="en">Download the app and create your identity once: you get a 24-word recovery phrase to keep safe. Then open an invite link from a server, and you are in. No sign-up, no email.</p>
+        <p style="margin:0;color:var(--muted)" data-l="de">App herunterladen und einmal deine Identität anlegen: Du bekommst eine Wiederherstellungsphrase aus 24 Wörtern, die du sicher aufbewahrst. Dann einen Einladungslink eines Servers öffnen, fertig. Keine Registrierung, keine E-Mail.</p>
         <div style="display:flex"><a class="btn primary dl-win" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span></a><a class="btn primary dl-linux" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span></a><a class="btn ghost dl-mac" style="align-self:flex-start" href="#download" aria-disabled="true"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">macOS: coming soon</span><span data-l="de">macOS: bald verfügbar</span></a><a class="btn primary dl-other" style="align-self:flex-start" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span></a></div>
       </figure>
     </div>
@@ -297,10 +302,12 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
         <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span></a></p></div></details>
       </div>
       <div class="card">
-        <h3><svg aria-hidden="true"><use href="#i-apple"/></svg> macOS <span class="soon"><span data-l="en">Coming soon</span><span data-l="de">Bald verfügbar</span></span></h3>
-        <p class="small" data-l="en">There is no macOS build yet. It is planned.</p>
-        <p class="small" data-l="de">Einen macOS-Build gibt es noch nicht. Er ist geplant.</p>
-        <a class="btn ghost" href="#download" aria-disabled="true"><span data-l="en">Coming soon</span><span data-l="de">Bald verfügbar</span></a>
+        <h3><span data-l="en">Coming later</span><span data-l="de">Kommt später</span></h3>
+        <ul class="later">
+          <li><svg aria-hidden="true"><use href="#i-apple"/></svg><b>macOS</b><span>Apple Silicon</span></li>
+          <li><svg aria-hidden="true"><use href="#i-apple"/></svg><b>iOS</b><span><span data-l="en">Unsigned IPA for sideloading</span><span data-l="de">Unsignierte IPA zum Sideloaden</span></span></li>
+        </ul>
+        <a class="alt-link" href="roadmap.html"><span data-l="en">See the roadmap</span><span data-l="de">Zur Roadmap</span></a>
       </div>
       <div class="card wide">
         <h3><svg aria-hidden="true"><use href="#i-server"/></svg> <span data-l="en">Server</span><span data-l="de">Server</span></h3>
