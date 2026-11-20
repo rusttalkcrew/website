@@ -9,8 +9,7 @@ Static project website (English/German, no build step, no cookies, no tracking).
 | `impressum.html`, `datenschutz.html` | Legal notice and privacy policy (required in Germany) |
 | `legal.css`, `lang.js` | Shared style and DE/EN switch for the legal pages |
 | `img/` | Screenshots and logo PNGs |
-| `Caddyfile` | Web server config (HTTPS via Let's Encrypt, 80 → 443) |
-| `deploy.sh` | Uploads the site to the server |
+| `Dockerfile`, `Caddyfile` | Container image (Caddy serving the site on plain HTTP, port 8080) |
 
 Download buttons default to the GitHub releases page. The inline release loader resolves exact
 assets from stable client/server or legacy combined releases, ordered by numeric
@@ -30,33 +29,36 @@ The server setup example deliberately asks users to choose a stable server or
 combined release and download its Linux archive before unpacking. It does not
 assume the repository-wide latest release contains a server.
 
-## Offline checks and integration
+## Offline checks
 
-Run `make -C website test` (Node and Python standard libraries only).
-`tests/integrate.py INPUT OUTPUT` applies the focused loader/link edit to either
-the older bound HTML or the newer main HTML. It preserves the OS chooser, layout,
-architecture buttons and history containers; it replaces only release discovery,
-static download links and the server download instruction. When cherry-picking
-across the newer main website, resolve `index.html` with this transform against
-that version, not by replacing the whole file with the older checkout's HTML.
-The integration test reads main through `git show` into a temporary fixture and
-checks preservation. It does not edit another checkout.
+Run `make test` (Node standard library only).
 
 ## Preview
 
-Open `index.html` in a browser, or serve the folder with any static file server.
+```bash
+docker build -t rusttalk-website .
+docker run --rm -p 8080:8080 rusttalk-website
+```
+
+Open <http://localhost:8080>. Or open `index.html` directly in a browser.
 
 ## Deploy
 
+CI pushes `ghcr.io/rusttalkcrew/website` (`latest` on every push to `main`, plus `<version>` on `v*` tags).
+Run it on the server and let the host's Caddy terminate TLS in front of it:
+
 ```bash
-RUSTTALK_WEB_HOST=user@your-server RUSTTALK_WEB_PORT=22 bash website/deploy.sh
+docker run -d --restart unless-stopped -p 127.0.0.1:8080:8080 ghcr.io/rusttalkcrew/website:latest
 ```
 
-First-time server setup (Debian/Ubuntu):
+```caddy
+rusttalk.com {
+	reverse_proxy 127.0.0.1:8080
+}
 
-```bash
-apt install caddy
-cp website/Caddyfile /etc/caddy/Caddyfile && systemctl reload caddy
+www.rusttalk.com {
+	redir https://rusttalk.com{uri} permanent
+}
 ```
 
 DNS: `rusttalk.com` may be proxied by Cloudflare. A RustTalk voice server on the same host needs its own **DNS only** record, because the Cloudflare proxy does not forward port 7331 or UDP.
