@@ -34,6 +34,8 @@ nav .wrap{display:flex;align-items:center;gap:20px;height:64px}
 .lang button{background:none;border:0;color:var(--muted);padding:5px 10px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
 .lang button.on{background:var(--accent);color:#fff}
 @media(max-width:720px){.links a.opt{display:none}}
+.brand,.links a,.lang button{white-space:nowrap}
+@media(max-width:440px){.links{gap:12px}.links>a{display:none}.lang button{padding:5px 8px}}
 /* hero */
 .hero{padding:80px 0 40px;text-align:center;background:radial-gradient(900px 400px at 50% -80px,rgba(183,65,14,.35),transparent)}
 .hero h1{font-size:clamp(36px,6vw,62px);line-height:1.08;margin:0 0 18px;letter-spacing:-.02em}
@@ -56,7 +58,10 @@ h2{font-size:clamp(28px,4vw,38px);margin:0 0 10px;letter-spacing:-.01em}
 .sub{color:var(--muted);margin:0 0 40px;max-width:640px}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
 .card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
-.card .ic{width:42px;height:42px;border-radius:10px;background:rgba(183,65,14,.18);display:grid;place-items:center;margin-bottom:14px;font-size:21px}
+.card .ic{width:44px;height:44px;border-radius:12px;background:rgba(183,65,14,.16);color:#f08a4b;display:grid;place-items:center;margin-bottom:16px}
+.card .ic svg{width:22px;height:22px}
+.feat{grid-auto-rows:1fr}
+.feat .card p{font-size:14.5px;line-height:1.55}
 .card h3{margin:0 0 6px;font-size:18px}
 .card p{margin:0;color:var(--muted);font-size:15px}
 /* gallery */
@@ -137,18 +142,29 @@ details.files summary:hover{color:var(--text)}
 #lb.on{display:flex}
 #lb img{max-width:100%;max-height:100%;border-radius:10px}
 /* i18n */
-html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
+html[lang=en] [data-l]:not([data-l=en]),html[lang=de] [data-l]:not([data-l=de]),html[lang=nl] [data-l]:not([data-l=nl]),html[lang=ja] [data-l]:not([data-l=ja]){display:none!important}
+html[lang=ja] body{font-family:system-ui,-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Meiryo","Noto Sans JP",sans-serif;line-break:strict;overflow-wrap:anywhere}
+html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
 .ln{display:block;padding-left:1.6em;text-indent:-1.6em}
-@media(max-width:640px){pre{font-size:12.5px;padding:12px;padding-top:40px}.copy{top:6px}.steps>div{padding-left:0}.steps>div::before{position:static;display:grid;margin-bottom:10px}}
+@media(max-width:640px){.feat{grid-auto-rows:auto}.feat .card{padding:20px}pre{font-size:12.5px;padding:12px;padding-top:40px}.copy{top:6px}.steps>div{padding-left:0}.steps>div::before{position:static;display:grid;margin-bottom:10px}}
 </style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-<!-- Windows, Linux (Tux) and Apple logos: Simple Icons, CC0 (simpleicons.org). Server icon: Lucide "server", ISC (lucide.dev). -->
+<!-- Windows, Linux (Tux) and Apple logos: Simple Icons, CC0 (simpleicons.org). Android logo: Simple Icons, CC0. Server and feature icons: Lucide, ISC (lucide.dev). -->
 <symbol id="i-win" viewBox="0 0 24 24"><path fill="currentColor" d="M0,0H11.377V11.372H0ZM12.623,0H24V11.372H12.623ZM0,12.623H11.377V24H0Zm12.623,0H24V24H12.623"/></symbol>
 <symbol id="i-linux" viewBox="0 0 24 24"><path fill="currentColor" d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139zm.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105a.086.086 0 01-.004-.021l-.004-.024a1.807 1.807 0 01-.15.706.953.953 0 01-.213.335.71.71 0 00-.088-.042c-.104-.045-.198-.064-.284-.133a1.312 1.312 0 00-.22-.066c.05-.06.146-.133.183-.198.053-.128.082-.264.088-.402v-.02a1.21 1.21 0 00-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 00-.205.334 1.18 1.18 0 00-.09.4v.019c.002.089.008.179.02.267-.193-.067-.438-.135-.607-.202a1.635 1.635 0 01-.018-.2v-.02a1.772 1.772 0 01.15-.768c.082-.22.232-.406.43-.533a.985.985 0 01.594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2.012-.09.013-.18.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.613.613 0 00-.166-.267.248.248 0 00-.183-.064h-.021c-.071.006-.13.04-.186.132a.552.552 0 00-.12.27.944.944 0 00-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268.01.009.02.018.034.024-.07.057-.117.07-.176.136a.304.304 0 01-.131.068 2.62 2.62 0 01-.275-.402 1.772 1.772 0 01-.155-.667 1.759 1.759 0 01.08-.668 1.43 1.43 0 01.283-.535c.128-.133.26-.2.418-.2zm1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.571.571 0 01.016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.139 1.139 0 01-.448-.067 3.566 3.566 0 01-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71-.07-.268-.005-.47.193-.6.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.645 2.645 0 00-.402-.533 1.45 1.45 0 00-.275-.333c.182 0 .338-.03.465-.067a.615.615 0 00.314-.334c.108-.267 0-.697-.345-1.163-.345-.467-.931-.995-1.788-1.521-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.123 8.123 0 01.647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335.039.003.075.006.11.006.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01c.053 0 .105.005.157.014.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602-.369-.066-.61-.2-.723-.4-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336zm7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8.097 8.097 0 01-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065zm-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"/></symbol>
 <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
+<symbol id="i-android" viewBox="0 0 24 24"><path fill="currentColor" d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"/></symbol>
 <symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><path d="M6 6h.01M6 18h.01"/></g></symbol>
+<symbol id="f-mic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></g></symbol>
+<symbol id="f-screen" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 10 3-3 3 3"/><path d="M12 13V7"/><rect width="20" height="14" x="2" y="3" rx="2"/><path d="M12 17v4"/><path d="M8 21h8"/></g></symbol>
+<symbol id="f-chat" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9a2 2 0 0 1-2 2H6l-4 4V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2z"/><path d="M18 9h2a2 2 0 0 1 2 2v11l-4-4h-6a2 2 0 0 1-2-2v-1"/></g></symbol>
+<symbol id="f-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></g></symbol>
+<symbol id="f-key" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></g></symbol>
+<symbol id="f-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+<symbol id="f-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></g></symbol>
+<symbol id="f-update" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></g></symbol>
 </svg>
 
 <nav>
@@ -158,13 +174,13 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
       RustTalk
     </a>
     <div class="links">
-      <a class="opt" href="#features"><span data-l="en">Features</span><span data-l="de">Funktionen</span></a>
-      <a class="opt" href="#screenshots">Screenshots</a>
-      <a class="opt" href="#server"><span data-l="en">Host a server</span><span data-l="de">Server hosten</span></a>
-      <a href="roadmap.html">Roadmap</a>
+      <a class="opt" href="#features"><span data-l="en">Features</span><span data-l="de">Funktionen</span><span data-l="nl">Functies</span><span data-l="ja">機能</span></a>
+      <a class="opt" href="#screenshots"><span data-l="en">Screenshots</span><span data-l="de">Screenshots</span><span data-l="nl">Screenshots</span><span data-l="ja">スクリーンショット</span></a>
+      <a class="opt" href="#server"><span data-l="en">Host a server</span><span data-l="de">Server hosten</span><span data-l="nl">Server hosten</span><span data-l="ja">サーバーを立てる</span></a>
+      <a href="roadmap.html"><span data-l="en">Roadmap</span><span data-l="de">Roadmap</span><span data-l="nl">Roadmap</span><span data-l="ja">ロードマップ</span></a>
       <a class="opt" href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">GitHub</a>
       <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button>
+        <button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button><button type="button" data-set="nl">NL</button><button type="button" data-set="ja">JP</button>
       </div>
     </div>
   </div>
@@ -174,19 +190,23 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
   <div class="wrap">
     <h1 data-l="en">Your conversations.<br><span>Your server. Your data.</span></h1>
     <h1 data-l="de">Deine Gespräche.<br><span>Dein Server. Deine Daten.</span></h1>
+    <h1 data-l="nl">Jouw gesprekken.<br><span>Jouw server. Jouw data.</span></h1>
+    <h1 data-l="ja">あなたの会話。<br><span>あなたのサーバー。あなたのデータ。</span></h1>
     <p class="lead" data-l="en">RustTalk is encrypted voice, video and text chat that you run yourself. No accounts, no ads, no tracking. What you say stays between you and the people you talk to.</p>
     <p class="lead" data-l="de">RustTalk ist verschlüsselter Voice-, Video- und Text-Chat, den du selbst betreibst. Keine Accounts, keine Werbung, kein Tracking. Was du sagst, bleibt zwischen dir und den Menschen, mit denen du sprichst.</p>
+    <p class="lead" data-l="nl">RustTalk is versleutelde spraak-, video- en tekstchat die je zelf draait. Geen accounts, geen advertenties, geen tracking. Wat je zegt, blijft tussen jou en de mensen met wie je praat.</p>
+    <p class="lead" data-l="ja">RustTalkは、自分で運用する暗号化された音声・ビデオ・テキストチャットです。アカウント登録なし、広告なし、トラッキングなし。話した内容は、あなたと相手の間だけにとどまります。</p>
     <div class="cta">
-      <a class="btn primary dl-win" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span></a>
-      <a class="btn primary dl-linux" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span></a>
-      <a class="btn ghost dl-mac" href="#download" aria-disabled="true"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">macOS: coming soon</span><span data-l="de">macOS: bald verfügbar</span></a>
-      <a class="btn primary dl-other" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span></a>
+      <a class="btn primary dl-win" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span><span data-l="nl">Downloaden voor Windows</span><span data-l="ja">Windows版をダウンロード</span></a>
+      <a class="btn primary dl-linux" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span><span data-l="nl">Downloaden voor Linux</span><span data-l="ja">Linux版をダウンロード</span></a>
+      <a class="btn ghost dl-mac" href="#download" aria-disabled="true"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">macOS: coming soon</span><span data-l="de">macOS: bald verfügbar</span><span data-l="nl">macOS: binnenkort</span><span data-l="ja">macOS版：近日公開</span></a>
+      <a class="btn primary dl-other" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span><span data-l="nl">Naar de downloads</span><span data-l="ja">ダウンロードへ</span></a>
       <a class="btn ghost" href="#server">
         <svg aria-hidden="true"><use href="#i-server"/></svg>
-        <span data-l="en">Host a server</span><span data-l="de">Server hosten</span>
+        <span data-l="en">Host a server</span><span data-l="de">Server hosten</span><span data-l="nl">Server hosten</span><span data-l="ja">サーバーを立てる</span>
       </a>
     </div>
-    <div class="ver"><span class="js-ver"></span><span data-l="en"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> · Windows · Linux · macOS soon · Self-hosted</span><span data-l="de"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open Source</a> · Windows · Linux · macOS bald · Selbst gehostet</span></div>
+    <div class="ver"><span class="js-ver"></span><span data-l="en"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> · Windows · Linux · macOS soon · Self-hosted</span><span data-l="de"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open Source</a> · Windows · Linux · macOS bald · Selbst gehostet</span><span data-l="nl"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> · Windows · Linux · macOS binnenkort · Zelf gehost</span><span data-l="ja"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">オープンソース</a> · Windows · Linux · macOS（近日対応） · セルフホスト</span></div>
     <div class="shot-hero"><img src="img/voice.png" width="1100" height="731" alt="RustTalk voice channel with four people"></div>
   </div>
 </header>
@@ -195,15 +215,19 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
   <div class="wrap">
     <h2 data-l="en">If it's free, you are the product.<br><span>Not here.</span></h2>
     <h2 data-l="de">Wenn es nichts kostet, bist du das Produkt.<br><span>Hier nicht.</span></h2>
+    <h2 data-l="nl">Als het gratis is, ben jij het product.<br><span>Hier niet.</span></h2>
+    <h2 data-l="ja">無料なら、商品はあなた自身。<br><span>ここでは違います。</span></h2>
     <p class="manifest" data-l="en">Most chat apps cost nothing because you pay with your data: who you talk to, when, how often and for how long. We are not up for that. RustTalk has no business built on your data and nothing to sell. The code is open, the server belongs to you, and your conversations never leave it. Owning your data again should not be a project for experts. It should be normal.</p>
     <p class="manifest" data-l="de">Die meisten Chat-Apps kosten nichts, weil du mit deinen Daten bezahlst: mit wem du sprichst, wann, wie oft und wie lange. Darauf haben wir keine Lust. Hinter RustTalk steckt kein Geschäft mit deinen Daten und nichts, das verkauft wird. Der Code ist offen, der Server gehört dir, und deine Gespräche verlassen ihn nicht. Die eigenen Daten wieder selbst zu besitzen sollte kein Projekt für Experten sein, sondern selbstverständlich.</p>
+    <p class="manifest" data-l="nl">De meeste chatapps kosten niets omdat je betaalt met je data: met wie je praat, wanneer, hoe vaak en hoe lang. Daar hebben wij geen zin in. Achter RustTalk zit geen verdienmodel met jouw data en er valt niets te verkopen. De code is open, de server is van jou en je gesprekken verlaten hem nooit. Weer baas zijn over je eigen data zou geen project voor experts moeten zijn. Het zou normaal moeten zijn.</p>
+    <p class="manifest" data-l="ja">多くのチャットアプリが無料なのは、あなたがデータで支払っているからです。誰と、いつ、どれくらいの頻度で、どれだけ長く話したか。私たちはそれに付き合うつもりはありません。RustTalkには、あなたのデータで稼ぐビジネスも、売るものもありません。コードは公開され、サーバーはあなたのもので、会話がそこから出ていくことはありません。自分のデータを自分の手に取り戻すのは、専門家だけの話であってはいけません。当たり前のことであるべきです。</p>
     <div class="pillars">
-      <div><b data-l="en">Your server, your rules</b><b data-l="de">Dein Server, deine Regeln</b>
-        <span data-l="en">You decide who joins, what is stored and for how long.</span><span data-l="de">Du entscheidest, wer reinkommt, was gespeichert wird und wie lange.</span></div>
-      <div><b data-l="en">Nothing to sell</b><b data-l="de">Nichts zu verkaufen</b>
-        <span data-l="en">No ads, no analytics, no profiles. There is nobody to sell your data to.</span><span data-l="de">Keine Werbung, keine Analyse, keine Profile. Es gibt niemanden, an den deine Daten gehen.</span></div>
-      <div><b data-l="en">Open, nothing hidden</b><b data-l="de">Offen, nichts versteckt</b>
-        <span data-l="en">Every line of code is public. Anyone can check what RustTalk does.</span><span data-l="de">Jede Zeile Code ist öffentlich. Jeder kann nachprüfen, was RustTalk tut.</span></div>
+      <div><b data-l="en">Your server, your rules</b><b data-l="de">Dein Server, deine Regeln</b><b data-l="nl">Jouw server, jouw regels</b><b data-l="ja">あなたのサーバー、あなたのルール</b>
+        <span data-l="en">You decide who joins, what is stored and for how long.</span><span data-l="de">Du entscheidest, wer reinkommt, was gespeichert wird und wie lange.</span><span data-l="nl">Jij bepaalt wie erbij mag, wat er wordt bewaard en hoe lang.</span><span data-l="ja">誰が参加できるか、何をどれだけの期間保存するかは、あなたが決めます。</span></div>
+      <div><b data-l="en">Nothing to sell</b><b data-l="de">Nichts zu verkaufen</b><b data-l="nl">Niets te verkopen</b><b data-l="ja">売るものはありません</b>
+        <span data-l="en">No ads, no analytics, no profiles. There is nobody to sell your data to.</span><span data-l="de">Keine Werbung, keine Analyse, keine Profile. Es gibt niemanden, an den deine Daten gehen.</span><span data-l="nl">Geen advertenties, geen analytics, geen profielen. Er is niemand aan wie je data wordt verkocht.</span><span data-l="ja">広告も、アクセス解析も、プロファイリングもありません。あなたのデータを売る相手もいません。</span></div>
+      <div><b data-l="en">Open, nothing hidden</b><b data-l="de">Offen, nichts versteckt</b><b data-l="nl">Open, niets verborgen</b><b data-l="ja">オープンで、隠し事なし</b>
+        <span data-l="en">Every line of code is public. Anyone can check what RustTalk does.</span><span data-l="de">Jede Zeile Code ist öffentlich. Jeder kann nachprüfen, was RustTalk tut.</span><span data-l="nl">Elke regel code is openbaar. Iedereen kan nagaan wat RustTalk doet.</span><span data-l="ja">コードはすべて公開されています。RustTalkが何をしているか、誰でも確認できます。</span></div>
     </div>
   </div>
 </section>
@@ -212,63 +236,89 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
   <div class="wrap">
     <h2 data-l="en">Everything a group needs</h2>
     <h2 data-l="de">Alles, was eine Gruppe braucht</h2>
-    <p class="sub" data-l="en">Built in Rust for low latency and low CPU usage. One small app, one small server.</p>
-    <p class="sub" data-l="de">In Rust gebaut für geringe Latenz und wenig CPU-Last. Eine kleine App, ein kleiner Server.</p>
-    <div class="grid">
-      <div class="card"><div class="ic">🎙️</div>
-        <h3 data-l="en">Crystal-clear voice</h3><h3 data-l="de">Glasklare Sprache</h3>
-        <p data-l="en">Opus audio, noise suppression, echo cancellation and automatic gain. Push-to-talk or voice activity.</p>
-        <p data-l="de">Opus-Audio, Rauschunterdrückung, Echounterdrückung und automatische Lautstärke. Push-to-Talk oder Sprachaktivierung.</p></div>
-      <div class="card"><div class="ic">🖥️</div>
-        <h3 data-l="en">Screen share &amp; camera</h3><h3 data-l="de">Bildschirm &amp; Kamera</h3>
-        <p data-l="en">Share a screen or a single window, with the sound of the apps you pick. Camera at the same time.</p>
-        <p data-l="de">Bildschirm oder einzelnes Fenster teilen, mit dem Ton der Apps, die du auswählst. Kamera gleichzeitig.</p></div>
-      <div class="card"><div class="ic">💬</div>
-        <h3 data-l="en">Text chat</h3><h3 data-l="de">Text-Chat</h3>
-        <p data-l="en">Channels and direct messages with history, replies and editing.</p>
-        <p data-l="de">Kanäle und Direktnachrichten mit Verlauf, Antworten und Bearbeiten.</p></div>
-      <div class="card"><div class="ic">🔒</div>
-        <h3 data-l="en">End-to-end encrypted</h3><h3 data-l="de">Ende-zu-Ende-verschlüsselt</h3>
-        <p data-l="en">Messages, files, voice and video are encrypted on your device. The server only stores and forwards ciphertext, and even channel, role and profile names are encrypted. It does see who is a member, IP addresses and timing.</p>
-        <p data-l="de">Nachrichten, Dateien, Sprache und Video werden auf deinem Gerät verschlüsselt. Der Server speichert und verteilt nur verschlüsselte Daten, sogar Kanal-, Rollen- und Profilnamen sind verschlüsselt. Er sieht aber, wer Mitglied ist, IP-Adressen und Zeitpunkte.</p></div>
-      <div class="card"><div class="ic">🔑</div>
-        <h3 data-l="en">No account, no email</h3><h3 data-l="de">Kein Account, keine E&#8209;Mail</h3>
-        <p data-l="en">Your identity is a 24-word recovery phrase on your device. No email, no phone number. Settings and servers sync between your devices.</p>
-        <p data-l="de">Deine Identität ist eine Wiederherstellungsphrase aus 24 Wörtern auf deinem Gerät. Keine E-Mail, keine Telefonnummer. Einstellungen und Server werden zwischen deinen Geräten synchronisiert.</p></div>
-      <div class="card"><div class="ic">🛡️</div>
-        <h3 data-l="en">Roles &amp; moderation</h3><h3 data-l="de">Rollen &amp; Moderation</h3>
-        <p data-l="en">Roles with permissions, kick and ban, audit log. Removed people lose access to new messages, because the keys change.</p>
-        <p data-l="de">Rollen mit Rechten, Kicken und Bannen, Audit-Log. Wer entfernt wird, kann neue Nachrichten nicht mehr lesen, weil die Schlüssel wechseln.</p></div>
-      <div class="card"><div class="ic">📎</div>
-        <h3 data-l="en">File sharing</h3><h3 data-l="de">Dateien teilen</h3>
-        <p data-l="en">Share files in chat, calls and DMs, end-to-end encrypted. Store them encrypted on your server, with size limits and expiry, or send them directly to the people in the conversation, never stored on the server.</p>
-        <p data-l="de">Dateien in Chat, Anrufen und Direktnachrichten teilen, Ende-zu-Ende-verschlüsselt. Entweder verschlüsselt auf deinem Server gespeichert, mit Größenlimits und Ablaufzeit, oder direkt an die Leute im Gespräch geschickt, ohne Speicherung auf dem Server.</p></div>
-      <div class="card"><div class="ic">🔄</div>
-        <h3 data-l="en">Auto updates</h3><h3 data-l="de">Automatische Updates</h3>
-        <p data-l="en">The app installs signed updates with one click. The server updates by pulling the new Docker images.</p>
-        <p data-l="de">Die App installiert signierte Updates mit einem Klick. Der Server aktualisiert sich durch das Laden der neuen Docker-Images.</p></div>
+    <h2 data-l="nl">Alles wat een groep nodig heeft</h2>
+    <h2 data-l="ja">グループに必要なものがすべて</h2>
+    <p class="sub" data-l="en">A native desktop app written in Rust, and a server you run yourself with Docker.</p>
+    <p class="sub" data-l="de">Eine native Desktop-App in Rust und ein Server, den du selbst mit Docker betreibst.</p>
+    <p class="sub" data-l="nl">Een native desktopapp in Rust, en een server die je zelf draait met Docker.</p>
+    <p class="sub" data-l="ja">Rustで書かれたネイティブのデスクトップアプリと、Dockerで自分で運用するサーバー。</p>
+    <div class="grid feat">
+      <div class="card"><div class="ic"><svg aria-hidden="true"><use href="#f-mic"/></svg></div>
+        <h3 data-l="en">Clear voice</h3><h3 data-l="de">Klare Sprache</h3><h3 data-l="nl">Heldere spraak</h3><h3 data-l="ja">クリアな音声</h3>
+        <p data-l="en">Opus audio with noise suppression, echo cancellation and auto gain. Push-to-talk or voice activity.</p>
+        <p data-l="de">Opus-Audio mit Rausch- und Echounterdrückung und automatischer Lautstärke. Push-to-Talk oder Sprachaktivierung.</p>
+        <p data-l="nl">Opus-audio met ruis- en echo-onderdrukking en automatisch volume. Push-to-talk of spraakactivering.</p>
+        <p data-l="ja">Opus音声に、ノイズ抑制・エコーキャンセル・自動ゲイン調整。プッシュトゥトークか音声検出で話せます。</p></div>
+      <div class="card"><div class="ic"><svg aria-hidden="true"><use href="#f-screen"/></svg></div>
+        <h3 data-l="en">Screen &amp; camera</h3><h3 data-l="de">Bildschirm &amp; Kamera</h3><h3 data-l="nl">Scherm &amp; camera</h3><h3 data-l="ja">画面共有とカメラ</h3>
+        <p data-l="en">Share a screen or one window, with the sound of the apps you pick. Camera at the same time.</p>
+        <p data-l="de">Bildschirm oder ein Fenster teilen, mit dem Ton der Apps deiner Wahl. Kamera gleichzeitig.</p>
+        <p data-l="nl">Deel een scherm of één venster, met het geluid van de apps die jij kiest. Tegelijk je camera.</p>
+        <p data-l="ja">画面全体や1つのウィンドウを、選んだアプリの音と一緒に共有。カメラも同時に使えます。</p></div>
+      <div class="card"><div class="ic"><svg aria-hidden="true"><use href="#f-chat"/></svg></div>
+        <h3 data-l="en">Channels &amp; DMs</h3><h3 data-l="de">Kanäle &amp; DMs</h3><h3 data-l="nl">Kanalen &amp; DM's</h3><h3 data-l="ja">チャンネルとDM</h3>
+        <p data-l="en">Text channels and direct messages, with history, replies and edits.</p>
+        <p data-l="de">Textkanäle und Direktnachrichten, mit Verlauf, Antworten und Bearbeiten.</p>
+        <p data-l="nl">Tekstkanalen en privéberichten, met geschiedenis, antwoorden en bewerken.</p>
+        <p data-l="ja">テキストチャンネルとダイレクトメッセージ。履歴、返信、編集に対応しています。</p></div>
+      <div class="card"><div class="ic"><svg aria-hidden="true"><use href="#f-lock"/></svg></div>
+        <h3 data-l="en">End-to-end encrypted</h3><h3 data-l="de">Ende-zu-Ende verschlüsselt</h3><h3 data-l="nl">End-to-end versleuteld</h3><h3 data-l="ja">エンドツーエンド暗号化</h3>
+        <p data-l="en">Messages, files, calls and even names. The server sees ciphertext, plus members, IP addresses and timing.</p>
+        <p data-l="de">Nachrichten, Dateien, Anrufe und sogar Namen. Der Server sieht nur Chiffretext, dazu Mitglieder, IP-Adressen und Zeitpunkte.</p>
+        <p data-l="nl">Berichten, bestanden, gesprekken en zelfs namen. De server ziet alleen versleutelde data, plus leden, IP-adressen en tijdstippen.</p>
+        <p data-l="ja">メッセージ、ファイル、通話、さらに名前まで。サーバーに見えるのは暗号文と、メンバー、IPアドレス、時刻だけです。</p></div>
+      <div class="card"><div class="ic"><svg aria-hidden="true"><use href="#f-key"/></svg></div>
+        <h3 data-l="en">No account</h3><h3 data-l="de">Kein Account</h3><h3 data-l="nl">Geen account</h3><h3 data-l="ja">アカウント不要</h3>
+        <p data-l="en">Your identity is a 24-word recovery phrase. No email, no phone number. Syncs across your devices.</p>
+        <p data-l="de">Deine Identität ist eine Phrase aus 24 Wörtern. Keine E-Mail, keine Telefonnummer. Synchron auf all deinen Geräten.</p>
+        <p data-l="nl">Je identiteit is een herstelzin van 24 woorden. Geen e-mail, geen telefoonnummer. Gesynchroniseerd op al je apparaten.</p>
+        <p data-l="ja">あなたのIDは24単語のリカバリーフレーズ。メールアドレスも電話番号も不要で、すべての端末で同期されます。</p></div>
+      <div class="card"><div class="ic"><svg aria-hidden="true"><use href="#f-shield"/></svg></div>
+        <h3 data-l="en">Roles &amp; moderation</h3><h3 data-l="de">Rollen &amp; Moderation</h3><h3 data-l="nl">Rollen &amp; moderatie</h3><h3 data-l="ja">ロールとモデレーション</h3>
+        <p data-l="en">Roles, kick, ban and an audit log. Removed people cannot read new messages: the keys change.</p>
+        <p data-l="de">Rollen, Kicken, Bannen und Audit-Log. Wer entfernt wird, liest keine neuen Nachrichten mehr: Die Schlüssel wechseln.</p>
+        <p data-l="nl">Rollen, kicken, bannen en een auditlog. Wie verwijderd is, leest geen nieuwe berichten meer: de sleutels veranderen.</p>
+        <p data-l="ja">ロール、キック、BAN、監査ログ。鍵が切り替わるので、削除された人は新しいメッセージを読めません。</p></div>
+      <div class="card"><div class="ic"><svg aria-hidden="true"><use href="#f-file"/></svg></div>
+        <h3 data-l="en">Share files</h3><h3 data-l="de">Dateien teilen</h3><h3 data-l="nl">Bestanden delen</h3><h3 data-l="ja">ファイル共有</h3>
+        <p data-l="en">In chats, calls and DMs. Stored encrypted with limits and expiry, or sent live and never stored.</p>
+        <p data-l="de">In Chats, Anrufen und DMs. Verschlüsselt gespeichert mit Limits und Ablaufzeit, oder live gesendet und nie gespeichert.</p>
+        <p data-l="nl">In chats, gesprekken en DM's. Versleuteld opgeslagen met limieten en verloopdatum, of live verstuurd en nooit opgeslagen.</p>
+        <p data-l="ja">チャット、通話、DMで。上限と有効期限つきで暗号化して保存するか、保存せずにその場で直接送信します。</p></div>
+      <div class="card"><div class="ic"><svg aria-hidden="true"><use href="#f-update"/></svg></div>
+        <h3 data-l="en">Signed updates</h3><h3 data-l="de">Signierte Updates</h3><h3 data-l="nl">Ondertekende updates</h3><h3 data-l="ja">署名付きアップデート</h3>
+        <p data-l="en">The app installs signed updates in one click. The server updates by pulling new Docker images.</p>
+        <p data-l="de">Die App installiert signierte Updates mit einem Klick. Der Server holt einfach neue Docker-Images.</p>
+        <p data-l="nl">De app installeert ondertekende updates met één klik. De server werk je bij door nieuwe Docker-images op te halen.</p>
+        <p data-l="ja">アプリは署名付きアップデートをワンクリックでインストール。サーバーは新しいDockerイメージを取得するだけで更新できます。</p></div>
     </div>
   </div>
 </section>
 
 <section id="screenshots" class="alt">
   <div class="wrap">
-    <h2>Screenshots</h2>
+    <h2><span data-l="en">Screenshots</span><span data-l="de">Screenshots</span><span data-l="nl">Screenshots</span><span data-l="ja">スクリーンショット</span></h2>
     <p class="sub" data-l="en">Dark, clean and familiar. Click to enlarge.</p>
     <p class="sub" data-l="de">Dunkel, aufgeräumt und vertraut. Zum Vergrößern anklicken.</p>
+    <p class="sub" data-l="nl">Donker, overzichtelijk en vertrouwd. Klik om te vergroten.</p>
+    <p class="sub" data-l="ja">ダークで、すっきりとした、なじみのあるデザイン。クリックで拡大します。</p>
     <div class="gallery">
       <figure><img src="img/voice.png" width="1100" height="731" loading="lazy" alt="Voice channel">
-        <figcaption><span data-l="en">Voice channel: see who is talking at a glance.</span><span data-l="de">Sprachkanal: auf einen Blick sehen, wer spricht.</span></figcaption></figure>
+        <figcaption><span data-l="en">Voice channel: see who is talking at a glance.</span><span data-l="de">Sprachkanal: auf einen Blick sehen, wer spricht.</span><span data-l="nl">Spraakkanaal: zie in één oogopslag wie er praat.</span><span data-l="ja">ボイスチャンネル：誰が話しているかが一目でわかります。</span></figcaption></figure>
       <figure><img src="img/chat.png" width="1100" height="731" loading="lazy" alt="Text chat">
-        <figcaption><span data-l="en">Text channels with history.</span><span data-l="de">Textkanäle mit Verlauf.</span></figcaption></figure>
+        <figcaption><span data-l="en">Text channels with history.</span><span data-l="de">Textkanäle mit Verlauf.</span><span data-l="nl">Tekstkanalen met geschiedenis.</span><span data-l="ja">履歴付きのテキストチャンネル。</span></figcaption></figure>
       <figure><img src="img/settings.png" width="900" height="633" loading="lazy" alt="Voice settings">
-        <figcaption><span data-l="en">Voice settings: devices, push-to-talk, mic test.</span><span data-l="de">Spracheinstellungen: Geräte, Push-to-Talk, Mikrofontest.</span></figcaption></figure>
+        <figcaption><span data-l="en">Voice settings: devices, push-to-talk, mic test.</span><span data-l="de">Spracheinstellungen: Geräte, Push-to-Talk, Mikrofontest.</span><span data-l="nl">Spraakinstellingen: apparaten, push-to-talk, microfoontest.</span><span data-l="ja">音声設定：デバイス、プッシュトゥトーク、マイクテスト。</span></figcaption></figure>
       <figure style="display:flex;flex-direction:column;justify-content:center;padding:28px;gap:14px">
         <h3 style="margin:0;font-size:22px" data-l="en">Get started in a minute</h3>
         <h3 style="margin:0;font-size:22px" data-l="de">In einer Minute startklar</h3>
+        <h3 style="margin:0;font-size:22px" data-l="nl">In een minuut aan de slag</h3>
+        <h3 style="margin:0;font-size:22px" data-l="ja">1分で始められます</h3>
         <p style="margin:0;color:var(--muted)" data-l="en">Download the app and create your identity once: you get a 24-word recovery phrase to keep safe. Then open an invite link from a server, and you are in. No sign-up, no email.</p>
         <p style="margin:0;color:var(--muted)" data-l="de">App herunterladen und einmal deine Identität anlegen: Du bekommst eine Wiederherstellungsphrase aus 24 Wörtern, die du sicher aufbewahrst. Dann einen Einladungslink eines Servers öffnen, fertig. Keine Registrierung, keine E-Mail.</p>
-        <div style="display:flex"><a class="btn primary dl-win" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span></a><a class="btn primary dl-linux" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span></a><a class="btn ghost dl-mac" style="align-self:flex-start" href="#download" aria-disabled="true"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">macOS: coming soon</span><span data-l="de">macOS: bald verfügbar</span></a><a class="btn primary dl-other" style="align-self:flex-start" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span></a></div>
+        <p style="margin:0;color:var(--muted)" data-l="nl">Download de app en maak eenmalig je identiteit aan: je krijgt een herstelzin van 24 woorden die je veilig bewaart. Open daarna een uitnodigingslink van een server en je bent binnen. Geen registratie, geen e-mail.</p>
+        <p style="margin:0;color:var(--muted)" data-l="ja">アプリをダウンロードして、IDを一度だけ作成します。24単語のリカバリーフレーズが表示されるので、大切に保管してください。あとはサーバーの招待リンクを開けば参加できます。登録もメールアドレスも不要です。</p>
+        <div style="display:flex"><a class="btn primary dl-win" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span><span data-l="nl">Downloaden voor Windows</span><span data-l="ja">Windows版をダウンロード</span></a><a class="btn primary dl-linux" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span><span data-l="nl">Downloaden voor Linux</span><span data-l="ja">Linux版をダウンロード</span></a><a class="btn ghost dl-mac" style="align-self:flex-start" href="#download" aria-disabled="true"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">macOS: coming soon</span><span data-l="de">macOS: bald verfügbar</span><span data-l="nl">macOS: binnenkort</span><span data-l="ja">macOS版：近日公開</span></a><a class="btn primary dl-other" style="align-self:flex-start" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span><span data-l="nl">Naar de downloads</span><span data-l="ja">ダウンロードへ</span></a></div>
       </figure>
     </div>
   </div>
@@ -276,46 +326,55 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
 
 <section id="download">
   <div class="wrap">
-    <h2>Download</h2>
+    <h2><span data-l="en">Download</span><span data-l="de">Download</span><span data-l="nl">Download</span><span data-l="ja">ダウンロード</span></h2>
     <p class="sub" data-l="en">All downloads come straight from the official GitHub releases. <span class="js-ver2"></span></p>
     <p class="sub" data-l="de">Alle Downloads kommen direkt aus den offiziellen GitHub-Releases. <span class="js-ver2"></span></p>
+    <p class="sub" data-l="nl">Alle downloads komen rechtstreeks uit de officiële GitHub-releases. <span class="js-ver2"></span></p>
+    <p class="sub" data-l="ja">すべてのダウンロードは公式のGitHubリリースから直接提供されます。<span class="js-ver2"></span></p>
     <div class="dl">
       <div class="card">
-        <h3><svg aria-hidden="true"><use href="#i-win"/></svg> <span data-l="en">Windows app</span><span data-l="de">Windows-App</span></h3>
+        <h3><svg aria-hidden="true"><use href="#i-win"/></svg> <span data-l="en">Windows app</span><span data-l="de">Windows-App</span><span data-l="nl">Windows-app</span><span data-l="ja">Windows版アプリ</span></h3>
         <p class="small" data-l="en">Windows 10/11. Installs itself for your user, no admin rights needed. Updates in the app.</p>
         <p class="small" data-l="de">Windows 10/11. Installiert sich für deinen Benutzer, ohne Adminrechte. Updates direkt in der App.</p>
-        <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><span data-l="en">Download (x64)</span><span data-l="de">Herunterladen (x64)</span></a>
-        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-aarch64.exe"><span data-l="en">ARM64 version</span><span data-l="de">ARM64-Version</span></a>
-        <details class="files" data-kind="windows"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span></summary>
-        <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span> <select class="ver-sel" aria-label="Version"></select></label></div>
-        <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span></a></p></div></details>
+        <p class="small" data-l="nl">Windows 10/11. Installeert voor jouw gebruiker, zonder beheerdersrechten. Updates in de app.</p>
+        <p class="small" data-l="ja">Windows 10/11対応。ユーザー単位でインストールされ、管理者権限は不要です。アップデートはアプリ内で行えます。</p>
+        <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><span data-l="en">Download (x64)</span><span data-l="de">Herunterladen (x64)</span><span data-l="nl">Downloaden (x64)</span><span data-l="ja">ダウンロード（x64）</span></a>
+        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-aarch64.exe"><span data-l="en">ARM64 version</span><span data-l="de">ARM64-Version</span><span data-l="nl">ARM64-versie</span><span data-l="ja">ARM64版</span></a>
+        <details class="files" data-kind="windows"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span><span data-l="nl">Alle bestanden &amp; oudere versies</span><span data-l="ja">すべてのファイルと旧バージョン</span></summary>
+        <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span><span data-l="nl">Versie</span><span data-l="ja">バージョン</span> <select class="ver-sel" aria-label="Version"></select></label></div>
+        <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span><span data-l="nl">Releases op GitHub openen</span><span data-l="ja">GitHubでリリースを開く</span></a></p></div></details>
       </div>
       <div class="card">
-        <h3><svg aria-hidden="true"><use href="#i-linux"/></svg> <span data-l="en">Linux app</span><span data-l="de">Linux-App</span></h3>
+        <h3><svg aria-hidden="true"><use href="#i-linux"/></svg> <span data-l="en">Linux app</span><span data-l="de">Linux-App</span><span data-l="nl">Linux-app</span><span data-l="ja">Linux版アプリ</span></h3>
         <p class="small" data-l="en">AppImage: download, make it executable, run. Updates in the app.</p>
         <p class="small" data-l="de">AppImage: herunterladen, ausführbar machen, starten. Updates direkt in der App.</p>
-        <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><span data-l="en">Download (x86_64)</span><span data-l="de">Herunterladen (x86_64)</span></a>
-        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-aarch64.AppImage"><span data-l="en">ARM64 version</span><span data-l="de">ARM64-Version</span></a>
-        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener"><span data-l="en">Source code</span><span data-l="de">Quellcode</span></a>
-        <details class="files" data-kind="linux"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span></summary>
-        <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span> <select class="ver-sel" aria-label="Version"></select></label></div>
-        <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span></a></p></div></details>
+        <p class="small" data-l="nl">AppImage: downloaden, uitvoerbaar maken, starten. Updates in de app.</p>
+        <p class="small" data-l="ja">AppImage形式：ダウンロードして実行権限を付け、起動するだけ。アップデートはアプリ内で行えます。</p>
+        <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><span data-l="en">Download (x86_64)</span><span data-l="de">Herunterladen (x86_64)</span><span data-l="nl">Downloaden (x86_64)</span><span data-l="ja">ダウンロード（x86_64）</span></a>
+        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-aarch64.AppImage"><span data-l="en">ARM64 version</span><span data-l="de">ARM64-Version</span><span data-l="nl">ARM64-versie</span><span data-l="ja">ARM64版</span></a>
+        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener"><span data-l="en">Source code</span><span data-l="de">Quellcode</span><span data-l="nl">Broncode</span><span data-l="ja">ソースコード</span></a>
+        <details class="files" data-kind="linux"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span><span data-l="nl">Alle bestanden &amp; oudere versies</span><span data-l="ja">すべてのファイルと旧バージョン</span></summary>
+        <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span><span data-l="nl">Versie</span><span data-l="ja">バージョン</span> <select class="ver-sel" aria-label="Version"></select></label></div>
+        <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span><span data-l="nl">Releases op GitHub openen</span><span data-l="ja">GitHubでリリースを開く</span></a></p></div></details>
       </div>
       <div class="card">
-        <h3><span data-l="en">Coming later</span><span data-l="de">Kommt später</span></h3>
+        <h3><span data-l="en">Coming later</span><span data-l="de">Kommt später</span><span data-l="nl">Komt later</span><span data-l="ja">今後対応予定</span></h3>
         <ul class="later">
           <li><svg aria-hidden="true"><use href="#i-apple"/></svg><b>macOS</b><span>Apple Silicon</span></li>
-          <li><svg aria-hidden="true"><use href="#i-apple"/></svg><b>iOS</b><span><span data-l="en">Unsigned IPA for sideloading</span><span data-l="de">Unsignierte IPA zum Sideloaden</span></span></li>
+          <li><svg aria-hidden="true"><use href="#i-apple"/></svg><b>iOS</b><span><span data-l="en">Unsigned IPA for sideloading</span><span data-l="de">Unsignierte IPA zum Sideloaden</span><span data-l="nl">Ongesigneerde IPA voor sideloaden</span><span data-l="ja">サイドロード用の未署名IPA</span></span></li>
+          <li><svg aria-hidden="true"><use href="#i-android"/></svg><b>Android</b><span><span data-l="en">Planned</span><span data-l="de">Geplant</span><span data-l="nl">Gepland</span><span data-l="ja">計画中</span></span></li>
         </ul>
-        <a class="alt-link" href="roadmap.html"><span data-l="en">See the roadmap</span><span data-l="de">Zur Roadmap</span></a>
+        <a class="alt-link" href="roadmap.html"><span data-l="en">See the roadmap</span><span data-l="de">Zur Roadmap</span><span data-l="nl">Bekijk de roadmap</span><span data-l="ja">ロードマップを見る</span></a>
       </div>
       <div class="card wide">
-        <h3><svg aria-hidden="true"><use href="#i-server"/></svg> <span data-l="en">Server</span><span data-l="de">Server</span></h3>
+        <h3><svg aria-hidden="true"><use href="#i-server"/></svg> <span data-l="en">Server</span><span data-l="de">Server</span><span data-l="nl">Server</span><span data-l="ja">サーバー</span></h3>
         <div class="row">
         <p class="small" data-l="en">Runs with Docker Compose on a Linux server. Ports: 443/tcp, 7881/tcp and 7882/udp, plus 80/tcp with a domain.</p>
         <p class="small" data-l="de">Läuft mit Docker Compose auf einem Linux-Server. Ports: 443/tcp, 7881/tcp und 7882/udp, mit Domain zusätzlich 80/tcp.</p>
-        <a class="btn ghost" href="#server"><span data-l="en">Setup guide</span><span data-l="de">Anleitung</span></a>
-        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">All releases</span><span data-l="de">Alle Releases</span></a>
+        <p class="small" data-l="nl">Draait met Docker Compose op een Linux-server. Poorten: 443/tcp, 7881/tcp en 7882/udp, plus 80/tcp met een domein.</p>
+        <p class="small" data-l="ja">LinuxサーバーでDocker Composeを使って動作します。ポート：443/tcp、7881/tcp、7882/udp。ドメインを使う場合は80/tcpも必要です。</p>
+        <a class="btn ghost" href="#server"><span data-l="en">Setup guide</span><span data-l="de">Anleitung</span><span data-l="nl">Installatiegids</span><span data-l="ja">セットアップガイド</span></a>
+        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">All releases</span><span data-l="de">Alle Releases</span><span data-l="nl">Alle releases</span><span data-l="ja">すべてのリリース</span></a>
         </div>
       </div>
     </div>
@@ -326,34 +385,44 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
   <div class="wrap">
     <h2 data-l="en">Host your own server</h2>
     <h2 data-l="de">Eigenen Server hosten</h2>
+    <h2 data-l="nl">Host je eigen server</h2>
+    <h2 data-l="ja">自分のサーバーを立てる</h2>
     <p class="sub" data-l="en">A small Linux VPS is enough for a group of friends. Setup is a handful of commands.</p>
     <p class="sub" data-l="de">Ein kleiner Linux-VPS reicht für einen Freundeskreis. Die Einrichtung sind nur ein paar Befehle.</p>
+    <p class="sub" data-l="nl">Een kleine Linux-VPS is genoeg voor een vriendengroep. De installatie is een handvol commando's.</p>
+    <p class="sub" data-l="ja">友人グループなら、小さなLinux VPSで十分です。セットアップはいくつかのコマンドだけ。</p>
     <div class="steps">
       <div>
-        <h3 data-l="en">What you need</h3><h3 data-l="de">Was du brauchst</h3>
+        <h3 data-l="en">What you need</h3><h3 data-l="de">Was du brauchst</h3><h3 data-l="nl">Wat je nodig hebt</h3><h3 data-l="ja">必要なもの</h3>
         <p data-l="en">A Linux server with Docker and a public IPv4 address. Open ports 443/tcp, 7881/tcp and 7882/udp, and 80/tcp if you use a domain. A domain name pointing at the server is optional: it gets a normal certificate. Without one, the server makes its own certificate and the invite link tells the app to trust it.</p>
         <p data-l="de">Ein Linux-Server mit Docker und einer öffentlichen IPv4-Adresse. Öffne die Ports 443/tcp, 7881/tcp und 7882/udp, mit Domain zusätzlich 80/tcp. Eine Domain, die auf den Server zeigt, ist optional: Damit gibt es ein normales Zertifikat. Ohne Domain erstellt der Server ein eigenes Zertifikat, und der Einladungslink sagt der App, dass sie ihm vertrauen kann.</p>
+        <p data-l="nl">Een Linux-server met Docker en een publiek IPv4-adres. Open de poorten 443/tcp, 7881/tcp en 7882/udp, en 80/tcp als je een domein gebruikt. Een domeinnaam die naar de server wijst is optioneel: daarmee krijg je een normaal certificaat. Zonder domein maakt de server zijn eigen certificaat en vertelt de uitnodigingslink de app dat die het kan vertrouwen.</p>
+        <p data-l="ja">DockerとパブリックIPv4アドレスのあるLinuxサーバー。ポート443/tcp、7881/tcp、7882/udpを開放し、ドメインを使う場合は80/tcpも開けます。サーバーを指すドメイン名は任意で、あれば通常の証明書が使えます。ドメインがない場合はサーバーが独自の証明書を作成し、招待リンクを通じてアプリがその証明書を信頼します。</p>
       </div>
       <div>
-        <h3 data-l="en">Get the files</h3><h3 data-l="de">Dateien holen</h3>
+        <h3 data-l="en">Get the files</h3><h3 data-l="de">Dateien holen</h3><h3 data-l="nl">Bestanden ophalen</h3><h3 data-l="ja">ファイルを取得</h3>
         <pre><code>git clone https://github.com/rusttalkcrew/rusttalk-next.git
 cd rusttalk-next/deploy</code></pre>
       </div>
       <div>
-        <h3 data-l="en">Configure</h3><h3 data-l="de">Einstellen</h3>
+        <h3 data-l="en">Configure</h3><h3 data-l="de">Einstellen</h3><h3 data-l="nl">Instellen</h3><h3 data-l="ja">設定</h3>
         <p data-l="en">Copy the example settings, then edit <code>.env</code>: set <code>RUSTTALK_IP</code> to the server's public IP address and <code>LIVEKIT_API_SECRET</code> to a random secret from <code>openssl rand -hex 32</code>. With a domain, also set <code>RUSTTALK_DOMAIN</code>.</p>
         <p data-l="de">Beispiel-Einstellungen kopieren, dann <code>.env</code> bearbeiten: <code>RUSTTALK_IP</code> auf die öffentliche IP-Adresse des Servers setzen und <code>LIVEKIT_API_SECRET</code> auf ein zufälliges Geheimnis aus <code>openssl rand -hex 32</code>. Mit Domain zusätzlich <code>RUSTTALK_DOMAIN</code> setzen.</p>
+        <p data-l="nl">Kopieer de voorbeeldinstellingen en bewerk daarna <code>.env</code>: zet <code>RUSTTALK_IP</code> op het publieke IP-adres van de server en <code>LIVEKIT_API_SECRET</code> op een willekeurig geheim uit <code>openssl rand -hex 32</code>. Met een domein stel je ook <code>RUSTTALK_DOMAIN</code> in.</p>
+        <p data-l="ja">サンプル設定をコピーしてから<code>.env</code>を編集します。<code>RUSTTALK_IP</code>にサーバーのパブリックIPアドレスを、<code>LIVEKIT_API_SECRET</code>に<code>openssl rand -hex 32</code>で作ったランダムな秘密鍵を設定します。ドメインを使う場合は<code>RUSTTALK_DOMAIN</code>も設定してください。</p>
         <pre><code>cp .env.example .env
 openssl rand -hex 32</code></pre>
       </div>
       <div>
-        <h3 data-l="en">Start</h3><h3 data-l="de">Starten</h3>
+        <h3 data-l="en">Start</h3><h3 data-l="de">Starten</h3><h3 data-l="nl">Starten</h3><h3 data-l="ja">起動</h3>
         <pre><code>docker compose pull &amp;&amp; docker compose up -d --wait</code></pre>
       </div>
       <div>
-        <h3 data-l="en">Claim your server</h3><h3 data-l="de">Server übernehmen</h3>
+        <h3 data-l="en">Claim your server</h3><h3 data-l="de">Server übernehmen</h3><h3 data-l="nl">Claim je server</h3><h3 data-l="ja">サーバーのオーナーになる</h3>
         <p data-l="en">Print your owner invite and open it in the RustTalk app. Keep it private: whoever uses it first owns the server. Use the last line that fits your setup and fill in your IP address or domain.</p>
         <p data-l="de">Gib deine Besitzer-Einladung aus und öffne sie in der RustTalk-App. Halte sie geheim: Wer sie zuerst benutzt, besitzt den Server. Nimm die letzte Zeile, die zu deinem Setup passt, und trage deine IP-Adresse oder Domain ein.</p>
+        <p data-l="nl">Toon je eigenaarsuitnodiging en open die in de RustTalk-app. Houd hem privé: wie hem als eerste gebruikt, wordt eigenaar van de server. Gebruik de laatste regel die bij jouw opzet past en vul je IP-adres of domein in.</p>
+        <p data-l="ja">オーナー招待を表示して、RustTalkアプリで開きます。最初に使った人がサーバーのオーナーになるので、他人には教えないでください。最後の2行から自分の構成に合うものを選び、IPアドレスかドメインを入れてください。</p>
         <pre><code>code=$(docker compose exec -T api rusttalk-api owner-invite)
 id=$(docker compose exec -T api rusttalk-api server-id)
 pin=$(docker compose logs --no-log-prefix cert | sed -n 's/^TLS pin: //p' | tail -1)
@@ -361,46 +430,43 @@ echo "rusttalk://&lt;ip&gt;/i/$code#$id.$pin"   # IP-only mode
 echo "rusttalk://&lt;domain&gt;/i/$code#$id"    # domain mode</code></pre>
       </div>
       <div>
-        <h3 data-l="en">Update later</h3><h3 data-l="de">Später aktualisieren</h3>
+        <h3 data-l="en">Update later</h3><h3 data-l="de">Später aktualisieren</h3><h3 data-l="nl">Later bijwerken</h3><h3 data-l="ja">あとからアップデート</h3>
         <p data-l="en">Back up first (see the full guide). Set <code>RUSTTALK_VERSION</code> in <code>.env</code> to the new version, check out the matching release, then run:</p>
         <p data-l="de">Vorher ein Backup machen (siehe ausführliche Anleitung). <code>RUSTTALK_VERSION</code> in <code>.env</code> auf die neue Version setzen, das passende Release auschecken und dann:</p>
+        <p data-l="nl">Maak eerst een back-up (zie de volledige gids). Zet <code>RUSTTALK_VERSION</code> in <code>.env</code> op de nieuwe versie, check de bijbehorende release uit en voer dan uit:</p>
+        <p data-l="ja">まずバックアップを取ってください（詳しいガイドを参照）。<code>.env</code>の<code>RUSTTALK_VERSION</code>を新しいバージョンにし、対応するリリースをチェックアウトしてから、次を実行します：</p>
         <pre><code>docker compose pull &amp;&amp; docker compose up -d --wait</code></pre>
       </div>
     </div>
-    <p class="small more-docs"><span data-l="en">Already run Caddy, nginx or Traefik on port 443?</span><span data-l="de">Läuft schon Caddy, nginx oder Traefik auf Port 443?</span> <a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/docs/operations.md#behind-your-own-reverse-proxy" rel="noopener"><span data-l="en">Run behind your own reverse proxy</span><span data-l="de">Hinter eigenem Reverse Proxy betreiben</span></a>.<br>
-    <span data-l="en">Backups, upgrades and all settings:</span><span data-l="de">Backups, Upgrades und alle Einstellungen:</span> <a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/docs/operations.md" rel="noopener"><span data-l="en">Full guide</span><span data-l="de">Ausführliche Anleitung</span></a>.</p>
+    <p class="small more-docs"><span data-l="en">Already run Caddy, nginx or Traefik on port 443?</span><span data-l="de">Läuft schon Caddy, nginx oder Traefik auf Port 443?</span><span data-l="nl">Draai je al Caddy, nginx of Traefik op poort 443?</span><span data-l="ja">すでにポート443でCaddy、nginx、Traefikを使っていますか？</span> <a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/docs/operations.md#behind-your-own-reverse-proxy" rel="noopener"><span data-l="en">Run behind your own reverse proxy</span><span data-l="de">Hinter eigenem Reverse Proxy betreiben</span><span data-l="nl">Draai achter je eigen reverse proxy</span><span data-l="ja">自前のリバースプロキシの背後で動かす</span></a>.<br>
+    <span data-l="en">Backups, upgrades and all settings:</span><span data-l="de">Backups, Upgrades und alle Einstellungen:</span><span data-l="nl">Back-ups, upgrades en alle instellingen:</span><span data-l="ja">バックアップ、アップグレード、すべての設定：</span> <a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/docs/operations.md" rel="noopener"><span data-l="en">Full guide</span><span data-l="de">Ausführliche Anleitung</span><span data-l="nl">Volledige gids</span><span data-l="ja">詳しいガイド</span></a>.</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div>© RustTalk · <span data-l="en">Open source on</span><span data-l="de">Open Source auf</span> <a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">GitHub</a></div>
-    <div><a href="roadmap.html">Roadmap</a> · <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener"><span data-l="en">Report a bug</span><span data-l="de">Fehler melden</span></a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html"><span data-l="en">Privacy</span><span data-l="de">Datenschutz</span></a></div>
+    <div>© RustTalk · <span data-l="en">Open source on</span><span data-l="de">Open Source auf</span><span data-l="nl">Open source op</span><span data-l="ja">オープンソース：</span> <a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">GitHub</a></div>
+    <div><a href="roadmap.html"><span data-l="en">Roadmap</span><span data-l="de">Roadmap</span><span data-l="nl">Roadmap</span><span data-l="ja">ロードマップ</span></a> · <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener"><span data-l="en">Report a bug</span><span data-l="de">Fehler melden</span><span data-l="nl">Bug melden</span><span data-l="ja">不具合を報告</span></a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html"><span data-l="en">Privacy</span><span data-l="de">Datenschutz</span><span data-l="nl">Privacy</span><span data-l="ja">プライバシー</span></a></div>
   </div>
 </footer>
 
 <div id="lb" role="dialog" aria-label="Screenshot"><img alt=""></div>
 
+<script src="lang.js"></script>
 <script>
 (function(){
   var root=document.documentElement;
-  function setLang(l){
-    root.lang=l;
-    document.querySelectorAll('.lang button').forEach(function(b){b.classList.toggle('on',b.dataset.set===l)});
-    try{localStorage.setItem('lang',l)}catch(e){}
-  }
-  var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
-  setLang(saved||((navigator.language||'en').toLowerCase().indexOf('de')===0?'de':'en'));
-  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set)})});
+  var COPY={en:['Copy','Copied'],de:['Kopieren','Kopiert'],nl:['Kopiëren','Gekopieerd'],ja:['コピー','コピーしました']};
+  function t(i){return (COPY[root.lang]||COPY.en)[i]}
 
   document.querySelectorAll('pre').forEach(function(pre){
     var code=pre.querySelector('code'),text=code.textContent;
     code.textContent='';
     text.split('\n').forEach(function(line){var s=document.createElement('span');s.className='ln';s.textContent=line;code.appendChild(s)});
     var b=document.createElement('button');b.type='button';b.className='copy';
-    function label(){b.textContent=root.lang==='de'?'Kopieren':'Copy'}label();
+    function label(){b.textContent=t(0)}label();
     b.addEventListener('click',function(){
-      var done=function(){b.textContent=root.lang==='de'?'Kopiert':'Copied';b.classList.add('ok');setTimeout(function(){b.classList.remove('ok');label()},1500)};
+      var done=function(){b.textContent=t(1);b.classList.add('ok');setTimeout(function(){b.classList.remove('ok');label()},1500)};
       if(navigator.clipboard){navigator.clipboard.writeText(text).then(done,function(){})}
     });
     pre.appendChild(b);
@@ -516,7 +582,7 @@ echo "rusttalk://&lt;domain&gt;/i/$code#$id"    # domain mode</code></pre>
       const hash = typeof a.digest === 'string' ? a.digest.replace(/^sha256:/, '') : '';
       if (/^[0-9a-f]{64}$/.test(hash)) {
         const row = el(doc, 'div', null, 'sha'), code = el(doc, 'code', hash);
-        code.title = 'Click to copy SHA-256';
+        code.title = 'SHA-256';
         code.addEventListener('click', () => { if (root.navigator.clipboard) root.navigator.clipboard.writeText(hash).catch(() => {}); });
         row.appendChild(el(doc, 'b', 'SHA-256')); row.appendChild(code); li.appendChild(row);
       }
@@ -533,8 +599,8 @@ echo "rusttalk://&lt;domain&gt;/i/$code#$id"    # domain mode</code></pre>
     doc.querySelectorAll('details.files').forEach(det => {
       const items = lists[det.dataset.kind] || [], sel = det.querySelector('.ver-sel');
       sel.textContent = '';
-      items.forEach((r, i) => {
-        const option = el(doc, 'option', r.tag_name + (i === 0 ? ' (latest)' : ''));
+      items.forEach(r => {
+        const option = el(doc, 'option', r.tag_name);
         option.value = r.tag_name; sel.appendChild(option);
       });
       if (!items.length) return;
