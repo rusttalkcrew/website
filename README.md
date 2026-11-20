@@ -11,23 +11,21 @@ Static project website (English/German, no build step, no cookies, no tracking).
 | `img/` | Screenshots and logo PNGs |
 | `Dockerfile`, `Caddyfile` | Container image (Caddy serving the site on plain HTTP, port 8080) |
 
-Download buttons default to the GitHub releases page. The inline release loader resolves exact
-assets from stable client/server or legacy combined releases, ordered by numeric
-version. Build metadata does not affect order; component tags take precedence over
-same-version legacy tags. Ambiguous component versions refuse discovery before
-asset filtering. Index-server releases do not qualify. History menus show only
-releases containing files for their component and platform; checksums remain visible.
+Download buttons are static `releases/latest/download/RustTalk-<platform>` links to
+`rusttalkcrew/rusttalk-next`, so they work without JavaScript. The inline release loader
+only fills the version label and the "All files & older versions" pickers: stable `vX.Y.Z`
+releases ordered by numeric version, listing the versioned installers
+(`rusttalk-<version>-<os>-<arch>.<ext>`) with the SHA-256 from the API's `digest` field.
 
 The browser reads the existing GitHub API (disclosed in `datenschutz.html`), using
 at most 10 requests of 100 releases, with a streamed 2 MiB response limit per page
 and a 15-second overall deadline. URLs are constructed locally; pagination links
-are never followed. Incomplete pagination, malformed responses, errors, ambiguity
-or missing assets leave safe releases-page links. Downloads accept only exact
-HTTPS asset URLs in `rusttalkcrew/RustTalk`. No API strings become HTML.
+are never followed. Errors or malformed responses leave the static links and the
+releases-page link. Listed files must have the exact HTTPS asset URL in
+`rusttalkcrew/rusttalk-next`. No API strings become HTML.
 
-The server setup example deliberately asks users to choose a stable server or
-combined release and download its Linux archive before unpacking. It does not
-assume the repository-wide latest release contains a server.
+The server setup steps follow the "Run a server" section of the rusttalk-next README
+and `docs/operations.md`. Keep them in sync when those change.
 
 ## Offline checks
 
@@ -61,7 +59,7 @@ www.rusttalk.com {
 }
 ```
 
-DNS: `rusttalk.com` may be proxied by Cloudflare. A RustTalk voice server on the same host needs its own **DNS only** record, because the Cloudflare proxy does not forward port 7331 or UDP.
+DNS: `rusttalk.com` may be proxied by Cloudflare. A RustTalk server on the same host needs its own **DNS only** record, because the Cloudflare proxy does not forward the media ports (7881/tcp, 7882/udp).
 
 ## Screenshots
 

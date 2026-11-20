@@ -68,6 +68,7 @@ h2{font-size:clamp(28px,4vw,38px);margin:0 0 10px;letter-spacing:-.01em}
 .dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
 .dl .card{display:flex;flex-direction:column;gap:12px}
 .dl .card h3{display:flex;align-items:center;gap:10px;font-size:20px}
+.dl .card h3 svg{width:24px;height:24px;flex:none}
 .dl .card>.btn{align-self:flex-start}
 .alt-link{font-size:13.5px;color:var(--dim);text-decoration:underline;text-underline-offset:3px}
 .alt-link:hover{color:var(--text)}
@@ -76,9 +77,6 @@ pre{position:relative;background:#111214;border:1px solid var(--line);border-rad
 .copy{position:absolute;top:8px;right:8px;background:#2b2d31;border:1px solid var(--line);color:var(--muted);border-radius:7px;padding:4px 10px;font:600 12px/1.4 system-ui,sans-serif;cursor:pointer}
 .copy:hover{color:var(--text);background:#3a3c42}
 .copy.ok{color:#fff;background:var(--green);border-color:var(--green)}
-.tabs{display:inline-flex;gap:4px;background:#1e1f22;border:1px solid var(--line);border-radius:10px;padding:4px;margin:0 0 28px}
-.tabs button{background:none;border:0;color:var(--muted);font:600 15px/1 system-ui,sans-serif;padding:10px 16px;border-radius:7px;cursor:pointer}
-.tabs button.on{background:var(--accent);color:#fff}
 [hidden]{display:none!important}
 .more-docs{margin-top:24px}
 .more-docs a{color:var(--muted)}
@@ -136,10 +134,17 @@ details.files summary:hover{color:var(--text)}
 /* i18n */
 html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
 .ln{display:block;padding-left:1.6em;text-indent:-1.6em}
-@media(max-width:640px){pre{font-size:12.5px;padding:12px;padding-top:40px}.copy{top:6px}.steps>div{padding-left:0}.steps>div::before{position:static;display:grid;margin-bottom:10px}.tabs{display:flex}.tabs button{flex:1}}
+@media(max-width:640px){pre{font-size:12.5px;padding:12px;padding-top:40px}.copy{top:6px}.steps>div{padding-left:0}.steps>div::before{position:static;display:grid;margin-bottom:10px}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<!-- Windows, Linux (Tux) and Apple logos: Simple Icons, CC0 (simpleicons.org). Server icon: Lucide "server", ISC (lucide.dev). -->
+<symbol id="i-win" viewBox="0 0 24 24"><path fill="currentColor" d="M0,0H11.377V11.372H0ZM12.623,0H24V11.372H12.623ZM0,12.623H11.377V24H0Zm12.623,0H24V24H12.623"/></symbol>
+<symbol id="i-linux" viewBox="0 0 24 24"><path fill="currentColor" d="M12.504 0c-.155 0-.315.008-.48.021-4.226.333-3.105 4.807-3.17 6.298-.076 1.092-.3 1.953-1.05 3.02-.885 1.051-2.127 2.75-2.716 4.521-.278.832-.41 1.684-.287 2.489a.424.424 0 00-.11.135c-.26.268-.45.6-.663.839-.199.199-.485.267-.797.4-.313.136-.658.269-.864.68-.09.189-.136.394-.132.602 0 .199.027.4.055.536.058.399.116.728.04.97-.249.68-.28 1.145-.106 1.484.174.334.535.47.94.601.81.2 1.91.135 2.774.6.926.466 1.866.67 2.616.47.526-.116.97-.464 1.208-.946.587-.003 1.23-.269 2.26-.334.699-.058 1.574.267 2.577.2.025.134.063.198.114.333l.003.003c.391.778 1.113 1.132 1.884 1.071.771-.06 1.592-.536 2.257-1.306.631-.765 1.683-1.084 2.378-1.503.348-.199.629-.469.649-.853.023-.4-.2-.811-.714-1.376v-.097l-.003-.003c-.17-.2-.25-.535-.338-.926-.085-.401-.182-.786-.492-1.046h-.003c-.059-.054-.123-.067-.188-.135a.357.357 0 00-.19-.064c.431-1.278.264-2.55-.173-3.694-.533-1.41-1.465-2.638-2.175-3.483-.796-1.005-1.576-1.957-1.56-3.368.026-2.152.236-6.133-3.544-6.139zm.529 3.405h.013c.213 0 .396.062.584.198.19.135.33.332.438.533.105.259.158.459.166.724 0-.02.006-.04.006-.06v.105a.086.086 0 01-.004-.021l-.004-.024a1.807 1.807 0 01-.15.706.953.953 0 01-.213.335.71.71 0 00-.088-.042c-.104-.045-.198-.064-.284-.133a1.312 1.312 0 00-.22-.066c.05-.06.146-.133.183-.198.053-.128.082-.264.088-.402v-.02a1.21 1.21 0 00-.061-.4c-.045-.134-.101-.2-.183-.333-.084-.066-.167-.132-.267-.132h-.016c-.093 0-.176.03-.262.132a.8.8 0 00-.205.334 1.18 1.18 0 00-.09.4v.019c.002.089.008.179.02.267-.193-.067-.438-.135-.607-.202a1.635 1.635 0 01-.018-.2v-.02a1.772 1.772 0 01.15-.768c.082-.22.232-.406.43-.533a.985.985 0 01.594-.2zm-2.962.059h.036c.142 0 .27.048.399.135.146.129.264.288.344.465.09.199.14.4.153.667v.004c.007.134.006.2-.002.266v.08c-.03.007-.056.018-.083.024-.152.055-.274.135-.393.2.012-.09.013-.18.003-.267v-.015c-.012-.133-.04-.2-.082-.333a.613.613 0 00-.166-.267.248.248 0 00-.183-.064h-.021c-.071.006-.13.04-.186.132a.552.552 0 00-.12.27.944.944 0 00-.023.33v.015c.012.135.037.2.08.334.046.134.098.2.166.268.01.009.02.018.034.024-.07.057-.117.07-.176.136a.304.304 0 01-.131.068 2.62 2.62 0 01-.275-.402 1.772 1.772 0 01-.155-.667 1.759 1.759 0 01.08-.668 1.43 1.43 0 01.283-.535c.128-.133.26-.2.418-.2zm1.37 1.706c.332 0 .733.065 1.216.399.293.2.523.269 1.052.468h.003c.255.136.405.266.478.399v-.131a.571.571 0 01.016.47c-.123.31-.516.643-1.063.842v.002c-.268.135-.501.333-.775.465-.276.135-.588.292-1.012.267a1.139 1.139 0 01-.448-.067 3.566 3.566 0 01-.322-.198c-.195-.135-.363-.332-.612-.465v-.005h-.005c-.4-.246-.616-.512-.686-.71-.07-.268-.005-.47.193-.6.224-.135.38-.271.483-.336.104-.074.143-.102.176-.131h.002v-.003c.169-.202.436-.47.839-.601.139-.036.294-.065.466-.065zm2.8 2.142c.358 1.417 1.196 3.475 1.735 4.473.286.534.855 1.659 1.102 3.024.156-.005.33.018.513.064.646-1.671-.546-3.467-1.089-3.966-.22-.2-.232-.335-.123-.335.59.534 1.365 1.572 1.646 2.757.13.535.16 1.104.021 1.67.067.028.135.06.205.067 1.032.534 1.413.938 1.23 1.537v-.043c-.06-.003-.12 0-.18 0h-.016c.151-.467-.182-.825-1.065-1.224-.915-.4-1.646-.336-1.77.465-.008.043-.013.066-.018.135-.068.023-.139.053-.209.064-.43.268-.662.669-.793 1.187-.13.533-.17 1.156-.205 1.869v.003c-.02.334-.17.838-.319 1.35-1.5 1.072-3.58 1.538-5.348.334a2.645 2.645 0 00-.402-.533 1.45 1.45 0 00-.275-.333c.182 0 .338-.03.465-.067a.615.615 0 00.314-.334c.108-.267 0-.697-.345-1.163-.345-.467-.931-.995-1.788-1.521-.63-.4-.986-.87-1.15-1.396-.165-.534-.143-1.085-.015-1.645.245-1.07.873-2.11 1.274-2.763.107-.065.037.135-.408.974-.396.751-1.14 2.497-.122 3.854a8.123 8.123 0 01.647-2.876c.564-1.278 1.743-3.504 1.836-5.268.048.036.217.135.289.202.218.133.38.333.59.465.21.201.477.335.876.335.039.003.075.006.11.006.412 0 .73-.134.997-.268.29-.134.52-.334.74-.4h.005c.467-.135.835-.402 1.044-.7zm2.185 8.958c.037.6.343 1.245.882 1.377.588.134 1.434-.333 1.791-.765l.211-.01c.315-.007.577.01.847.268l.003.003c.208.199.305.53.391.876.085.4.154.78.409 1.066.486.527.645.906.636 1.14l.003-.007v.018l-.003-.012c-.015.262-.185.396-.498.595-.63.401-1.746.712-2.457 1.57-.618.737-1.37 1.14-2.036 1.191-.664.053-1.237-.2-1.574-.898l-.005-.003c-.21-.4-.12-1.025.056-1.69.176-.668.428-1.344.463-1.897.037-.714.076-1.335.195-1.814.12-.465.308-.797.641-.984l.045-.022zm-10.814.049h.01c.053 0 .105.005.157.014.376.055.706.333 1.023.752l.91 1.664.003.003c.243.533.754 1.064 1.189 1.637.434.598.77 1.131.729 1.57v.006c-.057.744-.48 1.148-1.125 1.294-.645.135-1.52.002-2.395-.464-.968-.536-2.118-.469-2.857-.602-.369-.066-.61-.2-.723-.4-.11-.2-.113-.602.123-1.23v-.004l.002-.003c.117-.334.03-.752-.027-1.118-.055-.401-.083-.71.043-.94.16-.334.396-.4.69-.533.294-.135.64-.202.915-.47h.002v-.002c.256-.268.445-.601.668-.838.19-.201.38-.336.663-.336zm7.159-9.074c-.435.201-.945.535-1.488.535-.542 0-.97-.267-1.28-.466-.154-.134-.28-.268-.373-.335-.164-.134-.144-.333-.074-.333.109.016.129.134.199.2.096.066.215.2.36.333.292.2.68.467 1.167.467.485 0 1.053-.267 1.398-.466.195-.135.445-.334.648-.467.156-.136.149-.267.279-.267.128.016.034.134-.147.332a8.097 8.097 0 01-.69.468zm-1.082-1.583V5.64c-.006-.02.013-.042.029-.05.074-.043.18-.027.26.004.063 0 .16.067.15.135-.006.049-.085.066-.135.066-.055 0-.092-.043-.141-.068-.052-.018-.146-.008-.163-.065zm-.551 0c-.02.058-.113.049-.166.066-.047.025-.086.068-.14.068-.05 0-.13-.02-.136-.068-.01-.066.088-.133.15-.133.08-.031.184-.047.259-.005.019.009.036.03.03.05v.02h.003z"/></symbol>
+<symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
+<symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><path d="M6 6h.01M6 18h.01"/></g></symbol>
+</svg>
 
 <nav>
   <div class="wrap">
@@ -152,7 +157,7 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
       <a class="opt" href="#screenshots">Screenshots</a>
       <a class="opt" href="#server"><span data-l="en">Host a server</span><span data-l="de">Server hosten</span></a>
       <a href="roadmap.html">Roadmap</a>
-      <a class="opt" href="https://github.com/rusttalkcrew/RustTalk" rel="noopener">GitHub</a>
+      <a class="opt" href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">GitHub</a>
       <div class="lang" role="group" aria-label="Language">
         <button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button>
       </div>
@@ -167,12 +172,12 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
     <p class="lead" data-l="en">RustTalk is encrypted voice, video and text chat that you run yourself. No accounts, no ads, no tracking. What you say stays between you and the people you talk to.</p>
     <p class="lead" data-l="de">RustTalk ist verschlüsselter Voice-, Video- und Text-Chat, den du selbst betreibst. Keine Accounts, keine Werbung, kein Tracking. Was du sagst, bleibt zwischen dir und den Menschen, mit denen du sprichst.</p>
     <div class="cta">
-      <a class="btn primary dl-win" href="https://github.com/rusttalkcrew/RustTalk/releases" data-component="client" data-asset="rusttalk-windows.exe"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zm8.5-1.2L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zm8.5 0H21V21l-9.5-1.3z"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span></a>
-      <a class="btn primary dl-linux" href="https://github.com/rusttalkcrew/RustTalk/releases" data-component="client" data-asset="rusttalk-linux-x86_64.AppImage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span></a>
-      <a class="btn ghost dl-mac" href="#download" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">macOS: coming soon</span><span data-l="de">macOS: bald verfügbar</span></a>
+      <a class="btn primary dl-win" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span></a>
+      <a class="btn primary dl-linux" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span></a>
+      <a class="btn ghost dl-mac" href="#download" aria-disabled="true"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">macOS: coming soon</span><span data-l="de">macOS: bald verfügbar</span></a>
       <a class="btn primary dl-other" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span></a>
       <a class="btn ghost" href="#server">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/></svg>
+        <svg aria-hidden="true"><use href="#i-server"/></svg>
         <span data-l="en">Host a server</span><span data-l="de">Server hosten</span>
       </a>
     </div>
@@ -231,12 +236,12 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
         <p data-l="de">Admins und Moderatoren, verschieben, kicken, bannen, Audit-Log. Jemanden mit Nachricht anstupsen, wie bei TeamSpeak.</p></div>
       <div class="card"><div class="ic">⚡</div>
         <h3 data-l="en">Lightweight</h3><h3 data-l="de">Leichtgewichtig</h3>
-        <p data-l="en">A single exe for the app and a single binary for the server. Runs on a tiny VPS.</p>
-        <p data-l="de">Eine einzige exe für die App und eine einzige Datei für den Server. Läuft auf einem kleinen VPS.</p></div>
+        <p data-l="en">One small app. The server runs in Docker on a small VPS.</p>
+        <p data-l="de">Eine kleine App. Der Server läuft mit Docker auf einem kleinen VPS.</p></div>
       <div class="card"><div class="ic">🔄</div>
         <h3 data-l="en">Auto updates</h3><h3 data-l="de">Automatische Updates</h3>
-        <p data-l="en">The app updates itself with one click. The server updates with one command. Both verify SHA-256.</p>
-        <p data-l="de">Die App aktualisiert sich mit einem Klick, der Server mit einem Befehl. Beide prüfen SHA-256.</p></div>
+        <p data-l="en">The app installs signed updates with one click. The server updates by pulling the new Docker images.</p>
+        <p data-l="de">Die App installiert signierte Updates mit einem Klick. Der Server aktualisiert sich durch das Laden der neuen Docker-Images.</p></div>
     </div>
   </div>
 </section>
@@ -258,7 +263,7 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
         <h3 style="margin:0;font-size:22px" data-l="de">In einer Minute startklar</h3>
         <p style="margin:0;color:var(--muted)" data-l="en">Download the app, enter the server address and your name, and you are in. No sign-up, no email.</p>
         <p style="margin:0;color:var(--muted)" data-l="de">App herunterladen, Serveradresse und Namen eingeben, fertig. Keine Registrierung, keine E-Mail.</p>
-        <div style="display:flex"><a class="btn primary dl-win" style="align-self:flex-start" href="https://github.com/rusttalkcrew/RustTalk/releases" data-component="client" data-asset="rusttalk-windows.exe"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 5.5 10.5 4.5v7H3zm8.5-1.2L21 3v8.5h-9.5zM3 12.5h7.5v7L3 18.5zm8.5 0H21V21l-9.5-1.3z"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span></a><a class="btn primary dl-linux" style="align-self:flex-start" href="https://github.com/rusttalkcrew/RustTalk/releases" data-component="client" data-asset="rusttalk-linux-x86_64.AppImage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span></a><a class="btn ghost dl-mac" style="align-self:flex-start" href="#download" aria-disabled="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">macOS: coming soon</span><span data-l="de">macOS: bald verfügbar</span></a><a class="btn primary dl-other" style="align-self:flex-start" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span></a></div>
+        <div style="display:flex"><a class="btn primary dl-win" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span></a><a class="btn primary dl-linux" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span></a><a class="btn ghost dl-mac" style="align-self:flex-start" href="#download" aria-disabled="true"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">macOS: coming soon</span><span data-l="de">macOS: bald verfügbar</span></a><a class="btn primary dl-other" style="align-self:flex-start" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span></a></div>
       </figure>
     </div>
   </div>
@@ -271,43 +276,40 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
     <p class="sub" data-l="de">Alle Downloads kommen direkt aus den offiziellen GitHub-Releases. <span class="js-ver2"></span></p>
     <div class="dl">
       <div class="card">
-        <h3>🪟 <span data-l="en">Windows app</span><span data-l="de">Windows-App</span></h3>
+        <h3><svg aria-hidden="true"><use href="#i-win"/></svg> <span data-l="en">Windows app</span><span data-l="de">Windows-App</span></h3>
         <p class="small" data-l="en">Windows 10/11. Installs itself for your user, no admin rights needed. Updates in the app.</p>
         <p class="small" data-l="de">Windows 10/11. Installiert sich für deinen Benutzer, ohne Adminrechte. Updates direkt in der App.</p>
-        <a class="btn primary" href="https://github.com/rusttalkcrew/RustTalk/releases" data-component="client" data-asset="rusttalk-windows.exe"><span data-l="en">Download (x64)</span><span data-l="de">Herunterladen (x64)</span></a>
-        <a class="alt-link" href="https://github.com/rusttalkcrew/RustTalk/releases" data-component="client" data-asset="rusttalk-windows-arm64.exe"><span data-l="en">ARM64 version</span><span data-l="de">ARM64-Version</span></a>
+        <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><span data-l="en">Download (x64)</span><span data-l="de">Herunterladen (x64)</span></a>
+        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-aarch64.exe"><span data-l="en">ARM64 version</span><span data-l="de">ARM64-Version</span></a>
         <details class="files" data-kind="windows"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span></summary>
         <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span> <select class="ver-sel" aria-label="Version"></select></label></div>
-        <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/RustTalk/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span></a></p></div></details>
+        <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span></a></p></div></details>
       </div>
       <div class="card">
-        <h3>🐧 <span data-l="en">Linux app</span><span data-l="de">Linux-App</span></h3>
-        <p class="small" data-l="en">AppImage: download, make it executable, run. Wayland, PipeWire screen sharing, global shortcuts.</p>
-        <p class="small" data-l="de">AppImage: herunterladen, ausführbar machen, starten. Wayland, Bildschirm teilen über PipeWire, globale Tastenkürzel.</p>
-        <a class="btn primary" href="https://github.com/rusttalkcrew/RustTalk/releases" data-component="client" data-asset="rusttalk-linux-x86_64.AppImage"><span data-l="en">Download (x86_64)</span><span data-l="de">Herunterladen (x86_64)</span></a>
-        <a class="alt-link" href="https://github.com/rusttalkcrew/RustTalk/releases" data-component="client" data-asset="rusttalk-linux-aarch64.AppImage"><span data-l="en">ARM64 version</span><span data-l="de">ARM64-Version</span></a>
-        <a class="alt-link" href="https://github.com/rusttalkcrew/RustTalk#client-linux--minimal-build" rel="noopener"><span data-l="en">Build from source</span><span data-l="de">Aus dem Quellcode bauen</span></a>
+        <h3><svg aria-hidden="true"><use href="#i-linux"/></svg> <span data-l="en">Linux app</span><span data-l="de">Linux-App</span></h3>
+        <p class="small" data-l="en">AppImage: download, make it executable, run. Updates in the app.</p>
+        <p class="small" data-l="de">AppImage: herunterladen, ausführbar machen, starten. Updates direkt in der App.</p>
+        <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><span data-l="en">Download (x86_64)</span><span data-l="de">Herunterladen (x86_64)</span></a>
+        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-aarch64.AppImage"><span data-l="en">ARM64 version</span><span data-l="de">ARM64-Version</span></a>
+        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener"><span data-l="en">Source code</span><span data-l="de">Quellcode</span></a>
         <details class="files" data-kind="linux"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span></summary>
         <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span> <select class="ver-sel" aria-label="Version"></select></label></div>
-        <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/RustTalk/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span></a></p></div></details>
+        <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span></a></p></div></details>
       </div>
       <div class="card">
-        <h3>🍎 macOS <span class="soon"><span data-l="en">Coming soon</span><span data-l="de">Bald verfügbar</span></span></h3>
+        <h3><svg aria-hidden="true"><use href="#i-apple"/></svg> macOS <span class="soon"><span data-l="en">Coming soon</span><span data-l="de">Bald verfügbar</span></span></h3>
         <p class="small" data-l="en">There is no macOS build yet. It is planned.</p>
         <p class="small" data-l="de">Einen macOS-Build gibt es noch nicht. Er ist geplant.</p>
         <a class="btn ghost" href="#download" aria-disabled="true"><span data-l="en">Coming soon</span><span data-l="de">Bald verfügbar</span></a>
       </div>
       <div class="card wide">
-        <h3>🗄️ <span data-l="en">Server</span><span data-l="de">Server</span></h3>
-
-        <div class="row">        <p class="small" data-l="en">Linux binary with systemd, Docker image or Windows. One port: 7331 TCP + UDP.</p>
-        <p class="small" data-l="de">Linux-Datei mit systemd, Docker-Image oder Windows. Ein Port: 7331 TCP + UDP.</p>
+        <h3><svg aria-hidden="true"><use href="#i-server"/></svg> <span data-l="en">Server</span><span data-l="de">Server</span></h3>
+        <div class="row">
+        <p class="small" data-l="en">Runs with Docker Compose on a Linux server. Ports: 443/tcp, 7881/tcp and 7882/udp, plus 80/tcp with a domain.</p>
+        <p class="small" data-l="de">Läuft mit Docker Compose auf einem Linux-Server. Ports: 443/tcp, 7881/tcp und 7882/udp, mit Domain zusätzlich 80/tcp.</p>
         <a class="btn ghost" href="#server"><span data-l="en">Setup guide</span><span data-l="de">Anleitung</span></a>
-        <a class="alt-link" href="https://github.com/rusttalkcrew/RustTalk/releases" rel="noopener"><span data-l="en">All releases &amp; checksums</span><span data-l="de">Alle Releases &amp; Prüfsummen</span></a>
+        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">All releases</span><span data-l="de">Alle Releases</span></a>
         </div>
-        <details class="files" data-kind="server"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span></summary>
-        <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span> <select class="ver-sel" aria-label="Version"></select></label></div>
-        <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/RustTalk/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span></a></p></div></details>
       </div>
     </div>
   </div>
@@ -317,37 +319,56 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
   <div class="wrap">
     <h2 data-l="en">Host your own server</h2>
     <h2 data-l="de">Eigenen Server hosten</h2>
-    <p class="sub" data-l="en">Any small Linux VPS works. 1 CPU and 512 MB RAM is plenty for a group of friends. Pick one way:</p>
-    <p class="sub" data-l="de">Jeder kleine Linux-VPS reicht. 1 CPU und 512 MB RAM genügen für einen Freundeskreis. Wähle einen Weg:</p>
-    <div class="tabs" role="tablist">
-      <button type="button" role="tab" data-tab="systemd" class="on">Linux (systemd)</button>
-      <button type="button" role="tab" data-tab="docker">Docker</button>
-    </div>
-
-    <div class="steps" data-panel="systemd">
+    <p class="sub" data-l="en">A small Linux VPS is enough for a group of friends. Setup is a handful of commands.</p>
+    <p class="sub" data-l="de">Ein kleiner Linux-VPS reicht für einen Freundeskreis. Die Einrichtung sind nur ein paar Befehle.</p>
+    <div class="steps">
       <div>
-        <h3 data-l="en">Identity-only server setup</h3><h3 data-l="de">Server mit Identitäten einrichten</h3>
-        <p data-l="en">Provision protected identity storage, initialize the signed server endpoint, and give the first administrator a single-use invitation. Start with <code>rusttalk-server identity serve</code> and the protected receipt. Old databases are never automatically converted or reset.</p>
-        <p data-l="de">Geschützten Identitätsspeicher einrichten, den signierten Server-Endpunkt initialisieren und dem ersten Administrator eine einmalige Einladung geben. Start mit <code>rusttalk-server identity serve</code> und dem geschützten Beleg. Alte Datenbanken werden niemals automatisch konvertiert oder zurückgesetzt.</p>
-        <p><a href="https://github.com/rusttalkcrew/RustTalk#server">Identity setup instructions</a></p>
+        <h3 data-l="en">What you need</h3><h3 data-l="de">Was du brauchst</h3>
+        <p data-l="en">A Linux server with Docker and a public IPv4 address. Open ports 443/tcp, 7881/tcp and 7882/udp, and 80/tcp if you use a domain. A domain name pointing at the server is optional: it gets a normal certificate. Without one, the server makes its own certificate and the invite link tells the app to trust it.</p>
+        <p data-l="de">Ein Linux-Server mit Docker und einer öffentlichen IPv4-Adresse. Öffne die Ports 443/tcp, 7881/tcp und 7882/udp, mit Domain zusätzlich 80/tcp. Eine Domain, die auf den Server zeigt, ist optional: Damit gibt es ein normales Zertifikat. Ohne Domain erstellt der Server ein eigenes Zertifikat, und der Einladungslink sagt der App, dass sie ihm vertrauen kann.</p>
+      </div>
+      <div>
+        <h3 data-l="en">Get the files</h3><h3 data-l="de">Dateien holen</h3>
+        <pre><code>git clone https://github.com/rusttalkcrew/rusttalk-next.git
+cd rusttalk-next/deploy</code></pre>
+      </div>
+      <div>
+        <h3 data-l="en">Configure</h3><h3 data-l="de">Einstellen</h3>
+        <p data-l="en">Copy the example settings, then edit <code>.env</code>: set <code>RUSTTALK_IP</code> to the server's public IP address and <code>LIVEKIT_API_SECRET</code> to a random secret from <code>openssl rand -hex 32</code>. With a domain, also set <code>RUSTTALK_DOMAIN</code>.</p>
+        <p data-l="de">Beispiel-Einstellungen kopieren, dann <code>.env</code> bearbeiten: <code>RUSTTALK_IP</code> auf die öffentliche IP-Adresse des Servers setzen und <code>LIVEKIT_API_SECRET</code> auf ein zufälliges Geheimnis aus <code>openssl rand -hex 32</code>. Mit Domain zusätzlich <code>RUSTTALK_DOMAIN</code> setzen.</p>
+        <pre><code>cp .env.example .env
+openssl rand -hex 32</code></pre>
+      </div>
+      <div>
+        <h3 data-l="en">Start</h3><h3 data-l="de">Starten</h3>
+        <pre><code>docker compose pull &amp;&amp; docker compose up -d --wait</code></pre>
+      </div>
+      <div>
+        <h3 data-l="en">Claim your server</h3><h3 data-l="de">Server übernehmen</h3>
+        <p data-l="en">Print your owner invite and open it in the RustTalk app. Keep it private: whoever uses it first owns the server. Use the last line that fits your setup and fill in your IP address or domain.</p>
+        <p data-l="de">Gib deine Besitzer-Einladung aus und öffne sie in der RustTalk-App. Halte sie geheim: Wer sie zuerst benutzt, besitzt den Server. Nimm die letzte Zeile, die zu deinem Setup passt, und trage deine IP-Adresse oder Domain ein.</p>
+        <pre><code>code=$(docker compose exec -T api rusttalk-api owner-invite)
+id=$(docker compose exec -T api rusttalk-api server-id)
+pin=$(docker compose logs --no-log-prefix cert | sed -n 's/^TLS pin: //p' | tail -1)
+echo "rusttalk://&lt;ip&gt;/i/$code#$id.$pin"   # IP-only mode
+echo "rusttalk://&lt;domain&gt;/i/$code#$id"    # domain mode</code></pre>
+      </div>
+      <div>
+        <h3 data-l="en">Update later</h3><h3 data-l="de">Später aktualisieren</h3>
+        <p data-l="en">Back up first (see the full guide). Set <code>RUSTTALK_VERSION</code> in <code>.env</code> to the new version, check out the matching release, then run:</p>
+        <p data-l="de">Vorher ein Backup machen (siehe ausführliche Anleitung). <code>RUSTTALK_VERSION</code> in <code>.env</code> auf die neue Version setzen, das passende Release auschecken und dann:</p>
+        <pre><code>docker compose pull &amp;&amp; docker compose up -d --wait</code></pre>
       </div>
     </div>
-
-    <div class="steps" data-panel="docker" hidden>
-      <div>
-        <h3 data-l="en">Container deployment</h3><h3 data-l="de">Container-Betrieb</h3>
-        <p data-l="en">The identity-only container provisions its own protected storage on a named volume (local ext4 or XFS) and runs the server without privileges. It was validated with rootful Docker on Linux. It has no password bootstrap or automatic reset. Follow the repository deployment documentation before use.</p>
-        <p data-l="de">Der Container richtet seinen geschützten Speicher selbst auf einem benannten Volume (lokales ext4 oder XFS) ein und betreibt den Server ohne Privilegien. Er wurde mit Docker (rootful) unter Linux validiert. Es gibt weder Passwort-Initialisierung noch automatisches Zurücksetzen. Vor Verwendung die Deployment-Dokumentation im Repository lesen.</p>
-      </div>
-    </div>
-    <p class="small more-docs"><span data-l="en">More options (backups, Windows server) in the</span><span data-l="de">Mehr Optionen (Backups, Windows-Server) im</span> <a href="https://github.com/rusttalkcrew/RustTalk#setup" rel="noopener">README</a>.</p>
+    <p class="small more-docs"><span data-l="en">Already run Caddy, nginx or Traefik on port 443?</span><span data-l="de">Läuft schon Caddy, nginx oder Traefik auf Port 443?</span> <a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/docs/operations.md#behind-your-own-reverse-proxy" rel="noopener"><span data-l="en">Run behind your own reverse proxy</span><span data-l="de">Hinter eigenem Reverse Proxy betreiben</span></a>.<br>
+    <span data-l="en">Backups, upgrades and all settings:</span><span data-l="de">Backups, Upgrades und alle Einstellungen:</span> <a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/docs/operations.md" rel="noopener"><span data-l="en">Full guide</span><span data-l="de">Ausführliche Anleitung</span></a>.</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div>© RustTalk · <span data-l="en">Open source on</span><span data-l="de">Open Source auf</span> <a href="https://github.com/rusttalkcrew/RustTalk" rel="noopener">GitHub</a></div>
-    <div><a href="roadmap.html">Roadmap</a> · <a href="https://github.com/rusttalkcrew/RustTalk/issues" rel="noopener"><span data-l="en">Report a bug</span><span data-l="de">Fehler melden</span></a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html"><span data-l="en">Privacy</span><span data-l="de">Datenschutz</span></a></div>
+    <div>© RustTalk · <span data-l="en">Open source on</span><span data-l="de">Open Source auf</span> <a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">GitHub</a></div>
+    <div><a href="roadmap.html">Roadmap</a> · <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener"><span data-l="en">Report a bug</span><span data-l="de">Fehler melden</span></a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html"><span data-l="en">Privacy</span><span data-l="de">Datenschutz</span></a></div>
   </div>
 </footer>
 
@@ -379,13 +400,6 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
     new MutationObserver(label).observe(root,{attributes:true,attributeFilter:['lang']});
   });
 
-  document.querySelectorAll('.tabs button').forEach(function(t){
-    t.addEventListener('click',function(){
-      document.querySelectorAll('.tabs button').forEach(function(x){x.classList.toggle('on',x===t);x.setAttribute('aria-selected',x===t)});
-      document.querySelectorAll('[data-panel]').forEach(function(p){p.hidden=p.dataset.panel!==t.dataset.tab});
-    });
-  });
-
   var lb=document.getElementById('lb'),lbi=lb.querySelector('img');
   document.querySelectorAll('.gallery img,.shot-hero img').forEach(function(i){
     i.style.cursor='zoom-in';
@@ -402,7 +416,7 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
   else if(/linux|x11|cros/i.test(plat+ua))os='linux';
   root.dataset.os=os;
   if(os==='linux'&&/aarch64|arm/i.test(plat+ua)){
-    document.querySelectorAll('a.dl-linux').forEach(function(a){a.dataset.asset=a.dataset.asset.replace('x86_64','aarch64')});
+    document.querySelectorAll('a.dl-linux').forEach(function(a){a.href=a.href.replace('x86_64','aarch64')});
   }
 
 
@@ -411,64 +425,37 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
 <script id="component-releases">
 (function (root) {
   'use strict';
-  const REPO = 'https://github.com/rusttalkcrew/RustTalk';
-  const FALLBACK = REPO + '/releases';
+  // Static links to releases/latest/download work without this script. It only fills
+  // the version labels and the "All files & older versions" pickers.
+  const REPO = 'https://github.com/rusttalkcrew/rusttalk-next';
+  const API = 'https://api.github.com/repos/rusttalkcrew/rusttalk-next/releases?per_page=100&page=';
   const LIMIT = 2 * 1024 * 1024;
   const U64 = 18446744073709551615n;
+  const FILES = { windows: /^-windows-(?:x86_64|aarch64)\.exe$/, linux: /^-linux-(?:x86_64|aarch64)\.AppImage$/ };
   function tag(value) {
     if (typeof value !== 'string') return null;
-    const m = /^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(?:\+(client|server|index-server)\.([0-9a-f]{7,40}))?$/.exec(value);
+    const m = /^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$/.exec(value);
     if (!m || m[0] !== value || m.slice(1, 4).some(n => n.length > 20 || BigInt(n) > U64)) return null;
-    return { core: m.slice(1, 4).join('.'), numbers: m.slice(1, 4).map(BigInt), component: m[4] || null };
+    return { core: m.slice(1, 4).join('.'), numbers: m.slice(1, 4).map(BigInt) };
   }
   function safeAsset(a, release) {
-    if (!a || typeof a.name !== 'string' || (!a.name || /[^A-Za-z0-9._-]/.test(a.name))) return false;
-    const expected = REPO + '/releases/download/' + encodeURIComponent(release.tag_name) + '/' + a.name;
-    // GitHub may leave '+' unescaped in a tag path, but no other URL variation is needed.
-    return a.browser_download_url === expected || a.browser_download_url === expected.replace(/%2B/g, '+');
+    if (!a || typeof a.name !== 'string' || !a.name || /[^A-Za-z0-9._-]/.test(a.name)) return false;
+    return a.browser_download_url === REPO + '/releases/download/' + release.tag_name + '/' + a.name;
   }
-  function candidates(releases, component) {
-    const versions = new Map(), seen = new Map(), entries = [];
-    for (const r of releases) {
-      const t = tag(r.tag_name);
-      if (r.draft || r.prerelease || !t || (t.component && t.component !== component)) continue;
-      const bytes = JSON.stringify(r);
-      if (seen.has(r.tag_name)) {
-        if (seen.get(r.tag_name) !== bytes) throw Error('Inconsistent duplicate release');
-        continue;
-      }
-      seen.set(r.tag_name, bytes);
-      if (t.component) {
-        const old = versions.get(t.core);
-        if (old && old !== r.tag_name) throw Error('Ambiguous component release');
-        versions.set(t.core, r.tag_name);
-      }
-      entries.push({ r, t });
-    }
-    return entries.sort((a, b) => {
-      for (let i = 0; i < 3; i++) if (a.t.numbers[i] !== b.t.numbers[i]) return a.t.numbers[i] > b.t.numbers[i] ? -1 : 1;
-      return Number(Boolean(b.t.component)) - Number(Boolean(a.t.component));
-    }).map(x => x.r);
-  }
-  function select(releases, component, name) {
-    for (const r of candidates(releases, component)) {
-      const found = r.assets.filter(a => a.name === name && safeAsset(a, r));
-      if (found.length > 1) throw Error('Duplicate asset');
-      if (found.length) return { release: r, asset: found[0] };
-    }
-    return null;
-  }
+  // Versioned installers of one platform, e.g. rusttalk-1.2.3-windows-x86_64.exe in tag v1.2.3.
   function kindAssets(r, kind) {
-    return r.assets.filter(a => safeAsset(a, r) && (kind === 'server'
-      ? /^rusttalk-server-(?:linux-(?:x86_64|aarch64)(?:\.tar\.gz)?|windows(?:-arm64)?\.exe)(?:\.sha256)?$/.test(a.name)
-      : kind === 'windows' ? /^rusttalk-windows(?:-arm64)?\.exe(?:\.sha256)?$/.test(a.name)
-        : /^rusttalk-linux-(x86_64|aarch64)\.AppImage(?:\.sha256)?$/.test(a.name)));
+    const prefix = 'rusttalk-' + tag(r.tag_name).core;
+    return r.assets.filter(a => safeAsset(a, r) && a.name.startsWith(prefix) && FILES[kind].test(a.name.slice(prefix.length)));
   }
+  // Stable releases with files for this platform, newest first.
   function history(releases, kind) {
     const seen = new Set();
-    return candidates(releases, kind === 'server' ? 'server' : 'client')
-      .filter(r => kindAssets(r, kind).some(a => !a.name.endsWith('.sha256')))
-      .filter(r => { const core = tag(r.tag_name).core; if (seen.has(core)) return false; seen.add(core); return true; });
+    return releases
+      .filter(r => !r.draft && !r.prerelease && tag(r.tag_name) && !seen.has(r.tag_name) && seen.add(r.tag_name))
+      .filter(r => kindAssets(r, kind).length)
+      .map(r => ({ r, n: tag(r.tag_name).numbers }))
+      .sort((a, b) => { for (let i = 0; i < 3; i++) if (a.n[i] !== b.n[i]) return a.n[i] > b.n[i] ? -1 : 1; return 0; })
+      .map(x => x.r);
   }
   async function readPage(response) {
     if (!response.ok || !response.body) throw Error('Release request failed');
@@ -497,8 +484,7 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
     const releases = [];
     try {
       for (let page = 1; page <= 10; page++) {
-        const response = await fetcher('https://api.github.com/repos/rusttalkcrew/RustTalk/releases?per_page=100&page=' + page,
-          { signal: controller.signal, credentials: 'omit', redirect: 'error' });
+        const response = await fetcher(API + page, { signal: controller.signal, credentials: 'omit', redirect: 'error' });
         const items = await readPage(response);
         releases.push(...items);
         if (items.length < 100 && !/rel="?next"?/.test(response.headers.get('link') || '')) return releases;
@@ -514,45 +500,34 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
   }
   function render(doc, box, r, kind) {
     box.textContent = '';
-    const files = kindAssets(r, kind), ul = el(doc, 'ul');
-    for (const a of files.filter(a => !a.name.endsWith('.sha256'))) {
+    const ul = el(doc, 'ul');
+    for (const a of kindAssets(r, kind)) {
       const li = el(doc, 'li'), top = el(doc, 'div', null, 'top'), link = el(doc, 'a', a.name);
       link.href = a.browser_download_url; link.rel = 'noopener'; top.appendChild(link);
       if (Number.isFinite(a.size) && a.size >= 0) top.appendChild(el(doc, 'span', (a.size / 1048576).toFixed(1) + ' MB'));
       li.appendChild(top);
       const hash = typeof a.digest === 'string' ? a.digest.replace(/^sha256:/, '') : '';
-      const sum = files.find(s => s.name === a.name + '.sha256');
-      if (/^[0-9a-f]{64}$/.test(hash) || sum) {
-        const row = el(doc, 'div', null, 'sha'); row.appendChild(el(doc, 'b', 'SHA-256'));
-        if (/^[0-9a-f]{64}$/.test(hash)) {
-          const code = el(doc, 'code', hash); code.title = 'Click to copy SHA-256';
-          code.addEventListener('click', () => { if (root.navigator.clipboard) root.navigator.clipboard.writeText(hash).catch(() => {}); });
-          row.appendChild(code);
-        }
-        if (sum) { const link = el(doc, 'a', '.sha256'); link.href = sum.browser_download_url; link.rel = 'noopener'; row.appendChild(link); }
-        li.appendChild(row);
+      if (/^[0-9a-f]{64}$/.test(hash)) {
+        const row = el(doc, 'div', null, 'sha'), code = el(doc, 'code', hash);
+        code.title = 'Click to copy SHA-256';
+        code.addEventListener('click', () => { if (root.navigator.clipboard) root.navigator.clipboard.writeText(hash).catch(() => {}); });
+        row.appendChild(el(doc, 'b', 'SHA-256')); row.appendChild(code); li.appendChild(row);
       }
       ul.appendChild(li);
     }
     box.appendChild(ul);
   }
   function apply(doc, releases) {
-    // Validate both component histories before changing any fallback links.
-    candidates(releases, 'client'); candidates(releases, 'server');
-    doc.querySelectorAll('a[data-asset]').forEach(a => {
-      const selected = select(releases, a.dataset.component, a.dataset.asset);
-      a.href = selected ? selected.asset.browser_download_url : FALLBACK;
-    });
+    const lists = { windows: history(releases, 'windows'), linux: history(releases, 'linux') };
     doc.querySelectorAll('.js-ver,.js-ver2').forEach(e => {
-      const kind = doc.documentElement.dataset.os === 'linux' ? 'linux' : 'windows';
-      const r = history(releases, kind)[0];
-      e.textContent = r ? 'Client v' + tag(r.tag_name).core + ' · ' : '';
+      const r = lists[doc.documentElement.dataset.os === 'linux' ? 'linux' : 'windows'][0];
+      e.textContent = r ? 'v' + tag(r.tag_name).core + ' · ' : '';
     });
     doc.querySelectorAll('details.files').forEach(det => {
-      const items = history(releases, det.dataset.kind), sel = det.querySelector('.ver-sel');
+      const items = lists[det.dataset.kind] || [], sel = det.querySelector('.ver-sel');
       sel.textContent = '';
       items.forEach((r, i) => {
-        const option = el(doc, 'option', 'v' + tag(r.tag_name).core + (i === 0 ? ' (latest)' : ''));
+        const option = el(doc, 'option', r.tag_name + (i === 0 ? ' (latest)' : ''));
         option.value = r.tag_name; sel.appendChild(option);
       });
       if (!items.length) return;
@@ -560,7 +535,7 @@ html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
       sel.addEventListener('change', show); sel.value = items[0].tag_name; show();
     });
   }
-  const api = { tag, safeAsset, candidates, select, history, load, readPage, apply, FALLBACK, LIMIT };
+  const api = { tag, safeAsset, history, load, readPage, apply, LIMIT };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else load(root.fetch.bind(root)).then(releases => apply(root.document, releases)).catch(() => {});
 })(typeof globalThis !== 'undefined' ? globalThis : this);
