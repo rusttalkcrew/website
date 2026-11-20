@@ -21,7 +21,8 @@ section>p{margin:0 0 20px}
 .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
 .card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:6px}
 .card .top{display:flex;align-items:center;gap:10px}
-.card .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-size:19px;flex:none;background:rgba(183,65,14,.18)}
+.card .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;flex:none;background:rgba(183,65,14,.16);color:#f08a4b}
+.card .ic svg{width:20px;height:20px}
 .card h3{margin:0;font-size:17px;line-height:1.3}
 .card p{margin:0;font-size:15px}
 .card a.issue{font-size:13px;color:var(--dim);text-decoration:none;margin-top:4px}
@@ -39,93 +40,135 @@ section>p{margin:0 0 20px}
 .rel h3 small{font-weight:400;color:var(--dim);font-size:13px}
 .rel ul{margin:6px 0 0;padding-left:18px;color:var(--muted);font-size:15px}
 .rel li{margin:2px 0}
-.cta{margin-top:40px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px;color:var(--muted)}
+.cta{margin:52px 0;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px;color:var(--muted)}
 .cta a{color:#f08a4b}
 @media(max-width:560px){.cards{grid-template-columns:1fr}section>h2{font-size:22px}.timeline{padding-left:20px}.rel::before{left:-27px}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<!-- Apple and Android logos: Simple Icons, CC0 (simpleicons.org). Other icons: Lucide, ISC (lucide.dev). -->
+<symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
+<symbol id="i-android" viewBox="0 0 24 24"><path fill="currentColor" d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"/></symbol>
+<symbol id="r-dm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></g></symbol>
+<symbol id="r-friends" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></g></symbol>
+<symbol id="r-emoji" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></g></symbol>
+<symbol id="r-at" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></g></symbol>
+<symbol id="r-bell" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></g></symbol>
+<symbol id="r-globe" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></g></symbol>
+</svg>
 <nav><div class="wrap wide">
   <a class="brand" href="./"><img src="favicon.svg?v=rust" alt="" width="30" height="30">RustTalk</a>
-  <div class="lang" role="group" aria-label="Language"><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button></div>
+  <div class="lang" role="group" aria-label="Language"><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button><button type="button" data-set="nl">NL</button><button type="button" data-set="ja">JP</button></div>
 </div></nav>
 
 <main class="wrap wide">
-  <h1>Roadmap</h1>
+  <h1><span data-l="en">Roadmap</span><span data-l="de">Roadmap</span><span data-l="nl">Roadmap</span><span data-l="ja">ロードマップ</span></h1>
   <p class="lead" data-l="en">What RustTalk already does and what we are building next. No dates: we ship when it is ready and safe.</p>
   <p class="lead" data-l="de">Was RustTalk schon kann und woran wir als Nächstes arbeiten. Ohne Termine: Wir veröffentlichen, wenn es fertig und sicher ist.</p>
+  <p class="lead" data-l="nl">Wat RustTalk al kan en waar we nu aan bouwen. Geen vaste datums: we brengen het uit als het klaar en veilig is.</p>
+  <p class="lead" data-l="ja">RustTalkが今できることと、次に作っているもの。日付は決めていません。準備が整い、安全だと確認できたときにリリースします。</p>
   <div class="legend">
-    <span class="chip c-plan"><span class="dot"></span><span data-l="en">Planned</span><span data-l="de">Geplant</span></span>
-    <span class="chip c-done"><span class="dot"></span><span data-l="en">Shipped</span><span data-l="de">Erledigt</span></span>
+    <span class="chip c-plan"><span class="dot"></span><span data-l="en">Planned</span><span data-l="de">Geplant</span><span data-l="nl">Gepland</span><span data-l="ja">計画中</span></span>
+    <span class="chip c-done"><span class="dot"></span><span data-l="en">Shipped</span><span data-l="de">Erledigt</span><span data-l="nl">Uitgebracht</span><span data-l="ja">リリース済み</span></span>
   </div>
 
   <section id="planned">
-    <h2><span class="dot plan"></span><span data-l="en">Planned</span><span data-l="de">Geplant</span></h2>
+    <h2><span class="dot plan"></span><span data-l="en">Planned</span><span data-l="de">Geplant</span><span data-l="nl">Gepland</span><span data-l="ja">計画中</span></h2>
     <p data-l="en">On our list. The order is not fixed yet.</p>
     <p data-l="de">Steht auf unserer Liste. Die Reihenfolge ist noch offen.</p>
+    <p data-l="nl">Staat op onze lijst. De volgorde ligt nog niet vast.</p>
+    <p data-l="ja">予定しているものです。順番はまだ決まっていません。</p>
     <div class="cards">
-      <div class="card"><div class="top"><div class="ic">💻</div><h3 data-l="en">macOS app</h3><h3 data-l="de">macOS-App</h3></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-apple"/></svg></div><h3 data-l="en">macOS app</h3><h3 data-l="de">macOS-App</h3><h3 data-l="nl">macOS-app</h3><h3 data-l="ja">macOSアプリ</h3></div>
         <p data-l="en">For Macs with Apple Silicon, with the same features as on Windows and Linux.</p>
-        <p data-l="de">Für Macs mit Apple Silicon, mit denselben Funktionen wie unter Windows und Linux.</p></div>
-      <div class="card"><div class="top"><div class="ic">📱</div><h3 data-l="en">iOS app</h3><h3 data-l="de">iOS-App</h3></div>
+        <p data-l="de">Für Macs mit Apple Silicon, mit denselben Funktionen wie unter Windows und Linux.</p>
+        <p data-l="nl">Voor Macs met Apple Silicon, met dezelfde functies als op Windows en Linux.</p>
+        <p data-l="ja">Apple Silicon搭載のMac向け。WindowsやLinux版と同じ機能を備えます。</p></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-apple"/></svg></div><h3 data-l="en">iOS app</h3><h3 data-l="de">iOS-App</h3><h3 data-l="nl">iOS-app</h3><h3 data-l="ja">iOSアプリ</h3></div>
         <p data-l="en">RustTalk on iPhone and iPad, first as an unsigned IPA for sideloading.</p>
-        <p data-l="de">RustTalk auf iPhone und iPad, zuerst als unsignierte IPA zum Sideloaden.</p></div>
-      <div class="card"><div class="top"><div class="ic">✉️</div><h3 data-l="en">DMs over any shared server</h3><h3 data-l="de">Direktnachrichten über jeden gemeinsamen Server</h3></div>
+        <p data-l="de">RustTalk auf iPhone und iPad, zuerst als unsignierte IPA zum Sideloaden.</p>
+        <p data-l="nl">RustTalk op iPhone en iPad, eerst als ongesigneerde IPA om te sideloaden.</p>
+        <p data-l="ja">iPhoneとiPadでRustTalkを。まずはサイドロード用の未署名IPAとして提供します。</p></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-android"/></svg></div><h3 data-l="en">Android app</h3><h3 data-l="de">Android-App</h3><h3 data-l="nl">Android-app</h3><h3 data-l="ja">Androidアプリ</h3></div>
+        <p data-l="en">Voice, chat and files on Android phones and tablets.</p>
+        <p data-l="de">Sprache, Chat und Dateien auf Android-Handys und -Tablets.</p>
+        <p data-l="nl">Spraak, chat en bestanden op Android-telefoons en -tablets.</p>
+        <p data-l="ja">Androidのスマホやタブレットで、音声・チャット・ファイル共有。</p></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#r-dm"/></svg></div><h3 data-l="en">DMs over any shared server</h3><h3 data-l="de">Direktnachrichten über jeden gemeinsamen Server</h3><h3 data-l="nl">DM's via elke gedeelde server</h3><h3 data-l="ja">共通サーバー経由のDM</h3></div>
         <p data-l="en">Send a direct message to anyone you share at least one server with.</p>
-        <p data-l="de">Schreib jedem eine Direktnachricht, mit dem du mindestens einen Server teilst.</p></div>
-      <div class="card"><div class="top"><div class="ic">👥</div><h3 data-l="en">Friends</h3><h3 data-l="de">Freunde</h3></div>
+        <p data-l="de">Schreib jedem eine Direktnachricht, mit dem du mindestens einen Server teilst.</p>
+        <p data-l="nl">Stuur een privébericht naar iedereen met wie je minstens één server deelt.</p>
+        <p data-l="ja">サーバーを1つでも共有している相手なら、誰にでもDMを送れます。</p></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#r-friends"/></svg></div><h3 data-l="en">Friends</h3><h3 data-l="de">Freunde</h3><h3 data-l="nl">Vrienden</h3><h3 data-l="ja">フレンド</h3></div>
         <p data-l="en">Add friends, and choose to get direct messages from friends only.</p>
-        <p data-l="de">Freunde hinzufügen und festlegen, dass nur Freunde dir Direktnachrichten schicken dürfen.</p></div>
-      <div class="card"><div class="top"><div class="ic">😀</div><h3 data-l="en">Emoji &amp; :shortcodes:</h3><h3 data-l="de">Emoji &amp; :Kurzcodes:</h3></div>
+        <p data-l="de">Freunde hinzufügen und festlegen, dass nur Freunde dir Direktnachrichten schicken dürfen.</p>
+        <p data-l="nl">Voeg vrienden toe en kies ervoor om alleen privéberichten van vrienden te ontvangen.</p>
+        <p data-l="ja">フレンドを追加して、DMをフレンドからだけ受け取ることもできます。</p></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#r-emoji"/></svg></div><h3 data-l="en">Emoji &amp; :shortcodes:</h3><h3 data-l="de">Emoji &amp; :Kurzcodes:</h3><h3 data-l="nl">Emoji &amp; :shortcodes:</h3><h3 data-l="ja">絵文字と:ショートコード:</h3></div>
         <p data-l="en">Emoji with :shortcodes:, plus custom emoji and stickers for each server.</p>
-        <p data-l="de">Emoji mit :Kurzcodes:, dazu eigene Emoji und Sticker für jeden Server.</p></div>
-      <div class="card"><div class="top"><div class="ic">@</div><h3 data-l="en">@mentions</h3><h3 data-l="de">@Erwähnungen</h3></div>
+        <p data-l="de">Emoji mit :Kurzcodes:, dazu eigene Emoji und Sticker für jeden Server.</p>
+        <p data-l="nl">Emoji met :shortcodes:, plus eigen emoji en stickers per server.</p>
+        <p data-l="ja">:ショートコード:で絵文字を入力。サーバーごとのカスタム絵文字やスタンプも。</p></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#r-at"/></svg></div><h3 data-l="en">@mentions</h3><h3 data-l="de">@Erwähnungen</h3><h3 data-l="nl">@vermeldingen</h3><h3 data-l="ja">@メンション</h3></div>
         <p data-l="en">Mention a person, a role or @everyone.</p>
-        <p data-l="de">Eine Person, eine Rolle oder @everyone erwähnen.</p></div>
-      <div class="card"><div class="top"><div class="ic">🔔</div><h3 data-l="en">Notifications per channel</h3><h3 data-l="de">Benachrichtigungen pro Kanal</h3></div>
+        <p data-l="de">Eine Person, eine Rolle oder @everyone erwähnen.</p>
+        <p data-l="nl">Vermeld een persoon, een rol of @everyone.</p>
+        <p data-l="ja">個人、ロール、または@everyoneにメンションできます。</p></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#r-bell"/></svg></div><h3 data-l="en">Notifications per channel</h3><h3 data-l="de">Benachrichtigungen pro Kanal</h3><h3 data-l="nl">Meldingen per kanaal</h3><h3 data-l="ja">チャンネルごとの通知</h3></div>
         <p data-l="en">Choose for each channel when you want to be notified.</p>
-        <p data-l="de">Für jeden Kanal festlegen, wann du benachrichtigt wirst.</p></div>
-      <div class="card"><div class="top"><div class="ic">🌐</div><h3 data-l="en">Public server list in the app</h3><h3 data-l="de">Öffentliche Serverliste in der App</h3></div>
+        <p data-l="de">Für jeden Kanal festlegen, wann du benachrichtigt wirst.</p>
+        <p data-l="nl">Kies per kanaal wanneer je een melding wilt krijgen.</p>
+        <p data-l="ja">通知を受け取るタイミングをチャンネルごとに設定できます。</p></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#r-globe"/></svg></div><h3 data-l="en">Public server list in the app</h3><h3 data-l="de">Öffentliche Serverliste in der App</h3><h3 data-l="nl">Openbare serverlijst in de app</h3><h3 data-l="ja">アプリ内の公開サーバー一覧</h3></div>
         <p data-l="en">Find and join public servers right from the app.</p>
-        <p data-l="de">Öffentliche Server direkt in der App finden und beitreten.</p></div>
+        <p data-l="de">Öffentliche Server direkt in der App finden und beitreten.</p>
+        <p data-l="nl">Vind openbare servers en word lid, direct vanuit de app.</p>
+        <p data-l="ja">公開サーバーをアプリから直接探して参加できます。</p></div>
     </div>
     <div class="more">
-      <h3 data-l="en">Open on GitHub</h3><h3 data-l="de">Offen auf GitHub</h3>
+      <h3 data-l="en">Open on GitHub</h3><h3 data-l="de">Offen auf GitHub</h3><h3 data-l="nl">Open op GitHub</h3><h3 data-l="ja">GitHubで受付中</h3>
       <ul>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/44" rel="noopener"><span data-l="en">Voice sensitivity that adapts to background noise</span><span data-l="de">Sprachempfindlichkeit, die sich an Hintergrundgeräusche anpasst</span></a> <span class="n">#44</span></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/43" rel="noopener"><span data-l="en">App and server one version apart still work together</span><span data-l="de">App und Server funktionieren auch eine Version auseinander</span></a> <span class="n">#43</span></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/42" rel="noopener"><span data-l="en">Optional automatic server updates</span><span data-l="de">Optionale automatische Server-Updates</span></a> <span class="n">#42</span></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/41" rel="noopener"><span data-l="en">App in your language</span><span data-l="de">App in deiner Sprache</span></a> <span class="n">#41</span></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/40" rel="noopener"><span data-l="en">Let a viewer control a shared screen, with permission</span><span data-l="de">Geteilten Bildschirm fernsteuern lassen, mit Erlaubnis</span></a> <span class="n">#40</span></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/39" rel="noopener"><span data-l="en">Switch what you share without stopping</span><span data-l="de">Wechseln, was du teilst, ohne neu zu starten</span></a> <span class="n">#39</span></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/38" rel="noopener"><span data-l="en">Data use per type in call statistics</span><span data-l="de">Datenverbrauch pro Art in der Anrufstatistik</span></a> <span class="n">#38</span></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/37" rel="noopener"><span data-l="en">Install guides for Windows, Linux and Steam Deck</span><span data-l="de">Installationsanleitungen für Windows, Linux und Steam Deck</span></a> <span class="n">#37</span></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/36" rel="noopener"><span data-l="en">Stronger AI noise removal (optional download)</span><span data-l="de">Stärkere KI-Rauschentfernung (optionaler Download)</span></a> <span class="n">#36</span></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/35" rel="noopener"><span data-l="en">A clear message when the app cannot start</span><span data-l="de">Eine klare Meldung, wenn die App nicht starten kann</span></a> <span class="n">#35</span></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/44" rel="noopener"><span data-l="en">Voice sensitivity that adapts to background noise</span><span data-l="de">Sprachempfindlichkeit, die sich an Hintergrundgeräusche anpasst</span><span data-l="nl">Spraakgevoeligheid die zich aanpast aan achtergrondgeluid</span><span data-l="ja">背景ノイズに合わせて自動調整される音声感度</span></a> <span class="n">#44</span></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/43" rel="noopener"><span data-l="en">App and server one version apart still work together</span><span data-l="de">App und Server funktionieren auch eine Version auseinander</span><span data-l="nl">App en server werken ook samen als ze één versie verschillen</span><span data-l="ja">アプリとサーバーのバージョンが1つ違っても連携可能に</span></a> <span class="n">#43</span></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/42" rel="noopener"><span data-l="en">Optional automatic server updates</span><span data-l="de">Optionale automatische Server-Updates</span><span data-l="nl">Optionele automatische serverupdates</span><span data-l="ja">サーバーの自動アップデート（任意）</span></a> <span class="n">#42</span></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/41" rel="noopener"><span data-l="en">App in your language</span><span data-l="de">App in deiner Sprache</span><span data-l="nl">App in jouw taal</span><span data-l="ja">アプリの多言語対応</span></a> <span class="n">#41</span></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/40" rel="noopener"><span data-l="en">Let a viewer control a shared screen, with permission</span><span data-l="de">Geteilten Bildschirm fernsteuern lassen, mit Erlaubnis</span><span data-l="nl">Een kijker een gedeeld scherm laten bedienen, met toestemming</span><span data-l="ja">許可した視聴者による共有画面の操作</span></a> <span class="n">#40</span></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/39" rel="noopener"><span data-l="en">Switch what you share without stopping</span><span data-l="de">Wechseln, was du teilst, ohne neu zu starten</span><span data-l="nl">Wisselen wat je deelt zonder te stoppen</span><span data-l="ja">共有を止めずに共有対象を切り替え</span></a> <span class="n">#39</span></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/38" rel="noopener"><span data-l="en">Data use per type in call statistics</span><span data-l="de">Datenverbrauch pro Art in der Anrufstatistik</span><span data-l="nl">Dataverbruik per soort in de gespreksstatistieken</span><span data-l="ja">通話統計に種類別のデータ使用量を表示</span></a> <span class="n">#38</span></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/37" rel="noopener"><span data-l="en">Install guides for Windows, Linux and Steam Deck</span><span data-l="de">Installationsanleitungen für Windows, Linux und Steam Deck</span><span data-l="nl">Installatiegidsen voor Windows, Linux en Steam Deck</span><span data-l="ja">Windows、Linux、Steam Deck向けのインストールガイド</span></a> <span class="n">#37</span></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/36" rel="noopener"><span data-l="en">Stronger AI noise removal (optional download)</span><span data-l="de">Stärkere KI-Rauschentfernung (optionaler Download)</span><span data-l="nl">Sterkere AI-ruisonderdrukking (optionele download)</span><span data-l="ja">より強力なAIノイズ除去（オプションのダウンロード）</span></a> <span class="n">#36</span></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/35" rel="noopener"><span data-l="en">A clear message when the app cannot start</span><span data-l="de">Eine klare Meldung, wenn die App nicht starten kann</span><span data-l="nl">Een duidelijke melding als de app niet kan starten</span><span data-l="ja">アプリが起動できないときに分かりやすいメッセージを表示</span></a> <span class="n">#35</span></li>
       </ul>
     </div>
   </section>
 
   <section id="shipped">
-    <h2><span class="dot done"></span><span data-l="en">Shipped</span><span data-l="de">Erledigt</span></h2>
+    <h2><span class="dot done"></span><span data-l="en">Shipped</span><span data-l="de">Erledigt</span><span data-l="nl">Uitgebracht</span><span data-l="ja">リリース済み</span></h2>
     <p data-l="en">Everything is end-to-end encrypted: the server only stores and forwards ciphertext.</p>
     <p data-l="de">Alles ist Ende-zu-Ende-verschlüsselt: Der Server speichert und verteilt nur verschlüsselte Daten.</p>
+    <p data-l="nl">Alles is end-to-end versleuteld: de server slaat alleen versleutelde data op en stuurt die door.</p>
+    <p data-l="ja">すべてエンドツーエンドで暗号化されています。サーバーは暗号文を保存して転送するだけです。</p>
     <div class="timeline">
-      <div class="rel"><h3>v0.1.0 <small>Nov 2026</small></h3>
+      <div class="rel"><h3>v0.1.0 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
         <ul data-l="en"><li>Text channels and direct messages with replies and edits</li><li>Voice, camera and screen or window sharing with app audio</li><li>Several servers at once</li><li>Roles, kick, ban and an audit log</li><li>Invite links</li><li>Presence: online, away or invisible</li><li>Avatars and server icons</li><li>Encrypted stored files, and live file transfer</li><li>Settings and server list synced between your devices</li><li>Optional public server directory</li><li>Signed self-updates</li><li>Windows and Linux, x64 and ARM64</li></ul>
-        <ul data-l="de"><li>Textkanäle und Direktnachrichten mit Antworten und Bearbeiten</li><li>Sprache, Kamera und Bildschirm oder Fenster teilen, mit App-Ton</li><li>Mehrere Server gleichzeitig</li><li>Rollen, Kicken, Bannen und Audit-Log</li><li>Einladungslinks</li><li>Status: online, abwesend oder unsichtbar</li><li>Profilbilder und Server-Icons</li><li>Verschlüsselt gespeicherte Dateien und Live-Dateiübertragung</li><li>Einstellungen und Serverliste zwischen deinen Geräten synchronisiert</li><li>Optionales öffentliches Serververzeichnis</li><li>Signierte Selbst-Updates</li><li>Windows und Linux, x64 und ARM64</li></ul></div>
+        <ul data-l="de"><li>Textkanäle und Direktnachrichten mit Antworten und Bearbeiten</li><li>Sprache, Kamera und Bildschirm oder Fenster teilen, mit App-Ton</li><li>Mehrere Server gleichzeitig</li><li>Rollen, Kicken, Bannen und Audit-Log</li><li>Einladungslinks</li><li>Status: online, abwesend oder unsichtbar</li><li>Profilbilder und Server-Icons</li><li>Verschlüsselt gespeicherte Dateien und Live-Dateiübertragung</li><li>Einstellungen und Serverliste zwischen deinen Geräten synchronisiert</li><li>Optionales öffentliches Serververzeichnis</li><li>Signierte Selbst-Updates</li><li>Windows und Linux, x64 und ARM64</li></ul>
+        <ul data-l="nl"><li>Tekstkanalen en privéberichten met antwoorden en bewerken</li><li>Spraak, camera en scherm of venster delen met app-geluid</li><li>Meerdere servers tegelijk</li><li>Rollen, kicken, bannen en een auditlog</li><li>Uitnodigingslinks</li><li>Status: online, afwezig of onzichtbaar</li><li>Avatars en servericonen</li><li>Versleuteld opgeslagen bestanden en live bestandsoverdracht</li><li>Instellingen en serverlijst gesynchroniseerd tussen je apparaten</li><li>Optionele openbare serverlijst</li><li>Ondertekende zelf-updates</li><li>Windows en Linux, x64 en ARM64</li></ul>
+        <ul data-l="ja"><li>テキストチャンネルとDM（返信・編集に対応）</li><li>音声、カメラ、アプリ音声付きの画面・ウィンドウ共有</li><li>複数サーバーへの同時接続</li><li>ロール、キック、BAN、監査ログ</li><li>招待リンク</li><li>ステータス：オンライン、退席中、オフライン表示</li><li>アバターとサーバーアイコン</li><li>暗号化して保存するファイルと、ライブでのファイル転送</li><li>設定とサーバー一覧を端末間で同期</li><li>公開サーバーディレクトリ（任意）</li><li>署名付きのセルフアップデート</li><li>WindowsとLinux（x64・ARM64）</li></ul></div>
     </div>
   </section>
 
   <div class="cta">
     <span data-l="en">Missing something? <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">Suggest a feature on GitHub</a>.</span>
     <span data-l="de">Fehlt dir etwas? <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">Schlag eine Funktion auf GitHub vor</a>.</span>
+    <span data-l="nl">Mis je iets? <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">Stel een functie voor op GitHub</a>.</span>
+    <span data-l="ja">欲しい機能がありますか？<a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">GitHubで提案してください</a>。</span>
   </div>
 </main>
 
 <footer><div class="wrap wide">
   <a href="./">RustTalk</a>
-  <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html"><span data-l="de">Datenschutz</span><span data-l="en">Privacy</span></a></span>
+  <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html"><span data-l="en">Privacy</span><span data-l="de">Datenschutz</span><span data-l="nl">Privacy</span><span data-l="ja">プライバシー</span></a></span>
 </div></footer>
 <script src="lang.js"></script>
 </body>

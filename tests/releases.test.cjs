@@ -100,7 +100,7 @@ test('DOM shows version, history, files and SHA-256 from digest; never inserts H
   r.assets[0].size = 1048576 * 3;
   api.apply(doc, [release('v1.1.0'), r]);
   assert.equal(doc.label.textContent, 'v1.2.0 · ');
-  assert.deepEqual(Array.from(doc.det.parts['.ver-sel'].children, o => o.textContent), ['v1.2.0 (latest)', 'v1.1.0']);
+  assert.deepEqual(Array.from(doc.det.parts['.ver-sel'].children, o => o.textContent), ['v1.2.0', 'v1.1.0']);
   const items = doc.det.parts['.list'].children[0].children;
   assert.deepEqual(items.map(li => li.children[0].children[0].textContent), ['rusttalk-1.2.0-windows-x86_64.exe', 'rusttalk-1.2.0-windows-aarch64.exe']);
   assert.equal(items[0].children[0].children[0].href, r.assets[0].browser_download_url);

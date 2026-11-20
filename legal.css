@@ -7,7 +7,7 @@ nav{border-bottom:1px solid var(--line);background:rgba(30,31,34,.9)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;text-decoration:none;color:var(--text)}
 .lang{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.lang button{background:none;border:0;color:var(--muted);padding:5px 10px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.lang button{white-space:nowrap;background:none;border:0;color:var(--muted);padding:5px 10px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
 .lang button.on{background:var(--accent);color:#fff}
 main{padding:48px 20px 40px}
 h1{font-size:clamp(28px,5vw,38px);margin:0 0 24px;letter-spacing:-.01em}
@@ -19,4 +19,6 @@ code{font-family:ui-monospace,"Cascadia Code",Consolas,monospace;font-size:.92em
 footer{border-top:1px solid var(--line);padding:26px 0 40px;font-size:14px}
 footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 footer a{color:var(--muted)}
-html[lang=en] [data-l=de],html[lang=de] [data-l=en]{display:none!important}
+html[lang=en] [data-l]:not([data-l=en]),html[lang=de] [data-l]:not([data-l=de]),html[lang=nl] [data-l]:not([data-l=nl]),html[lang=ja] [data-l]:not([data-l=ja]){display:none!important}
+html[lang=ja] body{font-family:system-ui,-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic UI","Meiryo","Noto Sans JP",sans-serif;line-break:strict;overflow-wrap:anywhere}
+html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
