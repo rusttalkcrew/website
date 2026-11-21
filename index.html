@@ -9,7 +9,13 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=rust">
 <meta property="og:title" content="RustTalk">
 <meta property="og:description" content="Your conversations. Your server. Your data. No accounts, no ads, no tracking.">
-<meta property="og:image" content="https://rusttalk.com/img/voice.png">
+<meta property="og:image" content="https://rusttalk.com/img/link-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="RustTalk logo above the app’s call stage and chat">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://rusttalk.com/img/link-preview.png">
+<meta name="twitter:image:alt" content="RustTalk logo above the app’s call stage and chat">
 <style>
 :root{
   --bg:#1e1f22;--bg2:#2b2d31;--bg3:#313338;--line:#3f4147;
@@ -69,6 +75,7 @@ h2{font-size:clamp(28px,4vw,38px);margin:0 0 10px;letter-spacing:-.01em}
 .gallery figure{margin:0;background:var(--bg2);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
 .gallery img{display:block;width:100%;height:auto;cursor:zoom-in}
 .gallery figcaption{padding:12px 16px;color:var(--muted);font-size:14px}
+.screenshot-cta{display:flex;flex-direction:column;gap:14px;margin-top:18px;padding:28px}
 @media(max-width:760px){.gallery{grid-template-columns:1fr}}
 /* downloads */
 .dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
@@ -207,7 +214,7 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
       </a>
     </div>
     <div class="ver"><span class="js-ver"></span><span data-l="en"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> · Windows · Linux · macOS soon · Self-hosted</span><span data-l="de"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open Source</a> · Windows · Linux · macOS bald · Selbst gehostet</span><span data-l="nl"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> · Windows · Linux · macOS binnenkort · Zelf gehost</span><span data-l="ja"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">オープンソース</a> · Windows · Linux · macOS（近日対応） · セルフホスト</span></div>
-    <div class="shot-hero"><img src="img/voice.png" width="1100" height="731" alt="RustTalk voice channel with four people"></div>
+    <div class="shot-hero"><img src="img/call-stage.png" width="1280" height="800" alt="RustTalk call stage with four people and chat below"></div>
   </div>
 </header>
 
@@ -298,28 +305,30 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
 <section id="screenshots" class="alt">
   <div class="wrap">
     <h2><span data-l="en">Screenshots</span><span data-l="de">Screenshots</span><span data-l="nl">Screenshots</span><span data-l="ja">スクリーンショット</span></h2>
-    <p class="sub" data-l="en">Dark, clean and familiar. Click to enlarge.</p>
-    <p class="sub" data-l="de">Dunkel, aufgeräumt und vertraut. Zum Vergrößern anklicken.</p>
-    <p class="sub" data-l="nl">Donker, overzichtelijk en vertrouwd. Klik om te vergroten.</p>
-    <p class="sub" data-l="ja">ダークで、すっきりとした、なじみのあるデザイン。クリックで拡大します。</p>
+    <p class="sub" data-l="en">Click a screenshot to enlarge it.</p>
+    <p class="sub" data-l="de">Klicke auf einen Screenshot, um ihn zu vergrößern.</p>
+    <p class="sub" data-l="nl">Klik op een screenshot om het te vergroten.</p>
+    <p class="sub" data-l="ja">スクリーンショットをクリックすると拡大できます。</p>
     <div class="gallery">
-      <figure><img src="img/voice.png" width="1100" height="731" loading="lazy" alt="Voice channel">
-        <figcaption><span data-l="en">Voice channel: see who is talking at a glance.</span><span data-l="de">Sprachkanal: auf einen Blick sehen, wer spricht.</span><span data-l="nl">Spraakkanaal: zie in één oogopslag wie er praat.</span><span data-l="ja">ボイスチャンネル：誰が話しているかが一目でわかります。</span></figcaption></figure>
-      <figure><img src="img/chat.png" width="1100" height="731" loading="lazy" alt="Text chat">
-        <figcaption><span data-l="en">Text channels with history.</span><span data-l="de">Textkanäle mit Verlauf.</span><span data-l="nl">Tekstkanalen met geschiedenis.</span><span data-l="ja">履歴付きのテキストチャンネル。</span></figcaption></figure>
-      <figure><img src="img/settings.png" width="900" height="633" loading="lazy" alt="Voice settings">
-        <figcaption><span data-l="en">Voice settings: devices, push-to-talk, mic test.</span><span data-l="de">Spracheinstellungen: Geräte, Push-to-Talk, Mikrofontest.</span><span data-l="nl">Spraakinstellingen: apparaten, push-to-talk, microfoontest.</span><span data-l="ja">音声設定：デバイス、プッシュトゥトーク、マイクテスト。</span></figcaption></figure>
-      <figure style="display:flex;flex-direction:column;justify-content:center;padding:28px;gap:14px">
-        <h3 style="margin:0;font-size:22px" data-l="en">Get started in a minute</h3>
-        <h3 style="margin:0;font-size:22px" data-l="de">In einer Minute startklar</h3>
-        <h3 style="margin:0;font-size:22px" data-l="nl">In een minuut aan de slag</h3>
-        <h3 style="margin:0;font-size:22px" data-l="ja">1分で始められます</h3>
-        <p style="margin:0;color:var(--muted)" data-l="en">Download the app and create your identity once: you get a 24-word recovery phrase to keep safe. Then open an invite link from a server, and you are in. No sign-up, no email.</p>
-        <p style="margin:0;color:var(--muted)" data-l="de">App herunterladen und einmal deine Identität anlegen: Du bekommst eine Wiederherstellungsphrase aus 24 Wörtern, die du sicher aufbewahrst. Dann einen Einladungslink eines Servers öffnen, fertig. Keine Registrierung, keine E-Mail.</p>
-        <p style="margin:0;color:var(--muted)" data-l="nl">Download de app en maak eenmalig je identiteit aan: je krijgt een herstelzin van 24 woorden die je veilig bewaart. Open daarna een uitnodigingslink van een server en je bent binnen. Geen registratie, geen e-mail.</p>
-        <p style="margin:0;color:var(--muted)" data-l="ja">アプリをダウンロードして、IDを一度だけ作成します。24単語のリカバリーフレーズが表示されるので、大切に保管してください。あとはサーバーの招待リンクを開けば参加できます。登録もメールアドレスも不要です。</p>
-        <div style="display:flex"><a class="btn primary dl-win" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span><span data-l="nl">Downloaden voor Windows</span><span data-l="ja">Windows版をダウンロード</span></a><a class="btn primary dl-linux" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span><span data-l="nl">Downloaden voor Linux</span><span data-l="ja">Linux版をダウンロード</span></a><a class="btn ghost dl-mac" style="align-self:flex-start" href="#download" aria-disabled="true"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">macOS: coming soon</span><span data-l="de">macOS: bald verfügbar</span><span data-l="nl">macOS: binnenkort</span><span data-l="ja">macOS版：近日公開</span></a><a class="btn primary dl-other" style="align-self:flex-start" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span><span data-l="nl">Naar de downloads</span><span data-l="ja">ダウンロードへ</span></a></div>
-      </figure>
+      <figure><img src="img/call-stage.png" width="1280" height="800" loading="lazy" alt="Four participants on the call stage with chat below">
+        <figcaption><span data-l="en">Voice channel with a call stage and chat below.</span><span data-l="de">Sprachkanal mit Anrufansicht und Chat darunter.</span><span data-l="nl">Spraakkanaal met een gespreksweergave en daaronder de chat.</span><span data-l="ja">通話画面とその下にチャットを表示したボイスチャンネル。</span></figcaption></figure>
+      <figure><img src="img/text-chat.png" width="1280" height="800" loading="lazy" alt="Text channel showing emoji, a reply and a mention">
+        <figcaption><span data-l="en">Text chat with emoji, replies and @mentions.</span><span data-l="de">Textchat mit Emojis, Antworten und @Erwähnungen.</span><span data-l="nl">Tekstchat met emoji, antwoorden en @vermeldingen.</span><span data-l="ja">絵文字、返信、@メンションを使えるテキストチャット。</span></figcaption></figure>
+      <figure><img src="img/appearance.png" width="1280" height="800" loading="lazy" alt="Appearance settings with theme and accent color choices">
+        <figcaption><span data-l="en">Appearance settings with light and dark themes and accent colors.</span><span data-l="de">Erscheinungsbild mit hellen und dunklen Designs und Akzentfarben.</span><span data-l="nl">Weergave-instellingen met lichte en donkere thema’s en accentkleuren.</span><span data-l="ja">ライト・ダークテーマとアクセントカラーを選べる外観設定。</span></figcaption></figure>
+      <figure><img src="img/friends.png" width="1280" height="800" loading="lazy" alt="Friends page showing who is online, away or offline">
+        <figcaption><span data-l="en">See who’s online and start a direct message from Friends.</span><span data-l="de">In der Freundesliste siehst du, wer online ist, und kannst direkt eine Nachricht schreiben.</span><span data-l="nl">Zie wie online is en stuur een privébericht vanuit je vriendenlijst.</span><span data-l="ja">フレンド一覧でオンラインの相手を確認し、ダイレクトメッセージを送れます。</span></figcaption></figure>
+    </div>
+    <div class="card screenshot-cta">
+      <h3 style="margin:0;font-size:22px" data-l="en">Get started in a minute</h3>
+      <h3 style="margin:0;font-size:22px" data-l="de">In einer Minute startklar</h3>
+      <h3 style="margin:0;font-size:22px" data-l="nl">In een minuut aan de slag</h3>
+      <h3 style="margin:0;font-size:22px" data-l="ja">1分で始められます</h3>
+      <p style="margin:0;color:var(--muted)" data-l="en">Download the app and create your identity once: you get a 24-word recovery phrase to keep safe. Then open an invite link from a server, and you are in. No sign-up, no email.</p>
+      <p style="margin:0;color:var(--muted)" data-l="de">App herunterladen und einmal deine Identität anlegen: Du bekommst eine Wiederherstellungsphrase aus 24 Wörtern, die du sicher aufbewahrst. Dann einen Einladungslink eines Servers öffnen, fertig. Keine Registrierung, keine E-Mail.</p>
+      <p style="margin:0;color:var(--muted)" data-l="nl">Download de app en maak eenmalig je identiteit aan: je krijgt een herstelzin van 24 woorden die je veilig bewaart. Open daarna een uitnodigingslink van een server en je bent binnen. Geen registratie, geen e-mail.</p>
+      <p style="margin:0;color:var(--muted)" data-l="ja">アプリをダウンロードして、IDを一度だけ作成します。24単語のリカバリーフレーズが表示されるので、大切に保管してください。あとはサーバーの招待リンクを開けば参加できます。登録もメールアドレスも不要です。</p>
+      <div style="display:flex"><a class="btn primary dl-win" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span><span data-l="nl">Downloaden voor Windows</span><span data-l="ja">Windows版をダウンロード</span></a><a class="btn primary dl-linux" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span><span data-l="nl">Downloaden voor Linux</span><span data-l="ja">Linux版をダウンロード</span></a><a class="btn ghost dl-mac" style="align-self:flex-start" href="#download" aria-disabled="true"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">macOS: coming soon</span><span data-l="de">macOS: bald verfügbar</span><span data-l="nl">macOS: binnenkort</span><span data-l="ja">macOS版：近日公開</span></a><a class="btn primary dl-other" style="align-self:flex-start" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span><span data-l="nl">Naar de downloads</span><span data-l="ja">ダウンロードへ</span></a></div>
     </div>
   </div>
 </section>
