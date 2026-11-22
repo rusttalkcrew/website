@@ -9,7 +9,7 @@ const context = { module: { exports: {} }, AbortController, setTimeout, clearTim
 vm.runInNewContext(source, context);
 const api = context.module.exports;
 const REPO = 'https://github.com/rusttalkcrew/rusttalk-next';
-const files = v => ['windows-x86_64.exe', 'windows-aarch64.exe', 'linux-x86_64.AppImage', 'linux-aarch64.AppImage']
+const files = v => ['windows-x86_64.exe', 'windows-aarch64.exe', 'linux-x86_64.AppImage', 'linux-aarch64.AppImage', 'macos-universal.dmg']
   .map(f => 'rusttalk-' + v + '-' + f);
 function release(tag, names = files(tag.slice(1)), extra = {}) {
   return { tag_name: tag, draft: false, prerelease: false, assets: names.map(name => ({ name,
@@ -29,13 +29,15 @@ test('history orders numerically and skips drafts, prereleases, bad tags and dup
     release('v3.0.0', undefined, { prerelease: true }), release('v4.0.0-rc.1', files('4.0.0')), release('v1.10.0', [])];
   assert.deepEqual(tags(api.history(releases, 'windows')), ['v1.10.0', 'v1.9.0']);
   assert.deepEqual(tags(api.history(releases, 'linux')), ['v1.10.0', 'v1.9.0']);
+  assert.deepEqual(tags(api.history(releases, 'macos')), ['v1.10.0', 'v1.9.0']);
 });
 
 test('platform files must carry the release version; other assets never qualify', () => {
   const r = release('v1.0.0', [...files('1.0.0'), 'RustTalk-windows-x86_64.exe', 'latest.json', 'latest.json.sig',
     'rusttalk-0.9.0-windows-x86_64.exe', 'rusttalk-1.0.0-windows-x86_64.exe.sha256', 'rusttalk-1.0.0-macos-aarch64.dmg']);
   for (const [kind, expected] of [['windows', ['rusttalk-1.0.0-windows-x86_64.exe', 'rusttalk-1.0.0-windows-aarch64.exe']],
-    ['linux', ['rusttalk-1.0.0-linux-x86_64.AppImage', 'rusttalk-1.0.0-linux-aarch64.AppImage']]]) {
+    ['linux', ['rusttalk-1.0.0-linux-x86_64.AppImage', 'rusttalk-1.0.0-linux-aarch64.AppImage']],
+    ['macos', ['rusttalk-1.0.0-macos-universal.dmg']]]) {
     const doc = documentFixture(kind);
     api.apply(doc, [r]);
     assert.deepEqual(doc.det.parts['.list'].children[0].children.map(li => li.children[0].children[0].textContent), expected);
@@ -43,6 +45,8 @@ test('platform files must carry the release version; other assets never qualify'
   assert.deepEqual(tags(api.history([release('v2.0.0', ['rusttalk-2.0.0-linux-x86_64.AppImage'])], 'windows')), []);
   assert.deepEqual(tags(api.history([release('v2.0.0', ['rusttalk-1.0.0-windows-x86_64.exe'])], 'windows')), []);
   assert.deepEqual(tags(api.history([release('v2.0.0', ['RustTalk-windows-x86_64.exe'])], 'windows')), []);
+  assert.deepEqual(tags(api.history([release('v2.0.0', ['RustTalk-macos-universal.dmg'])], 'macos')), []);
+  assert.deepEqual(tags(api.history([release('v2.0.0', ['rusttalk-2.0.0-macos-aarch64.dmg'])], 'macos')), []);
 });
 
 test('hostile asset URLs and names never qualify', () => {
