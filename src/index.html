@@ -174,6 +174,31 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
 .dl .card .foot{border-top:1px solid var(--line);padding-top:10px}
 .foot-link{color:var(--muted);font-size:14px;font-weight:600;text-decoration:none}
 .foot-link:hover{color:var(--text)}
+.crypt{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:stretch;margin:8px 0 14px}
+.cbox{background:var(--bg3);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:10px}
+.cbox.server{border:2px dashed var(--accent)}
+.cbox h3{margin:0;font-size:18px}
+.cbox p{margin:0}
+.cbox .step{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:15px}
+.cbox svg{width:20px;height:20px;flex:none;color:#f08a4b}
+.cbox .bubble{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-weight:600}
+.cbox .blob{display:flex;gap:10px;align-items:center;background:rgba(183,65,14,.18);border:1px solid #6b3a26;border-radius:12px;padding:9px 14px}
+.cbox .blob code{background:none;padding:0;color:#f0b496}
+.cbox .small{margin-top:auto}
+.marks{list-style:none;margin:0;padding:0;color:var(--muted);font-size:15px}
+.marks li{margin:4px 0}
+.marks .no{color:#f85149;font-weight:700}
+.marks .ok{color:var(--green);font-weight:700}
+.carrow{display:grid;place-items:center;color:#f08a4b;font-size:26px;font-weight:700}
+.envelope{text-align:center;margin:0 0 30px}
+.plain{margin:0 0 10px;font-size:20px}
+.csteps{max-width:820px;margin:0 0 24px;padding-left:22px;color:var(--muted)}
+.csteps li{margin:8px 0}
+.csteps b{color:var(--text)}
+.cnotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:0 0 14px}
+.cnotes h3{margin:0 0 6px;font-size:17px}
+.cnotes p{margin:0;color:var(--muted);font-size:15px}
+@media(max-width:860px){.crypt{grid-template-columns:1fr}.carrow{transform:rotate(90deg)}}
 </style>
 </head>
 <body>
@@ -326,6 +351,77 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
         <p data-l="nl">De app installeert ondertekende updates met één klik. De server werk je bij door nieuwe Docker-images op te halen.</p>
         <p data-l="ja">アプリは署名付きアップデートをワンクリックでインストール。サーバーは新しいDockerイメージを取得するだけで更新できます。</p></div>
     </div>
+  </div>
+</section>
+
+<section id="encryption" class="alt">
+  <div class="wrap">
+    <h2 data-l="en">How the encryption works</h2>
+    <h2 data-l="de">So funktioniert die Verschlüsselung</h2>
+    <h2 data-l="nl">Zo werkt de versleuteling</h2>
+    <h2 data-l="ja">暗号化のしくみ</h2>
+    <p class="sub" data-l="en">Everything you write or name is encrypted on your device. The server only stores and forwards ciphertext.</p>
+    <p class="sub" data-l="de">Alles, was du schreibst oder benennst, wird auf deinem Gerät verschlüsselt. Der Server speichert und verteilt nur verschlüsselte Daten.</p>
+    <p class="sub" data-l="nl">Alles wat je schrijft of een naam geeft, wordt op je apparaat versleuteld. De server slaat alleen versleutelde data op en stuurt die door.</p>
+    <p class="sub" data-l="ja">書いたものや名前を付けたものはすべて、あなたの端末で暗号化されます。サーバーは暗号文を保存して転送するだけです。</p>
+    <div class="crypt">
+      <div class="cbox">
+        <h3><span data-l="en">Your device</span><span data-l="de">Dein Gerät</span><span data-l="nl">Jouw apparaat</span><span data-l="ja">あなたの端末</span></h3>
+        <div class="bubble"><span data-l="en">Raid tonight at 8?</span><span data-l="de">Raid heute um 8?</span><span data-l="nl">Raid vanavond om 8?</span><span data-l="ja">今夜8時にレイド？</span></div>
+        <p class="step"><svg aria-hidden="true"><use href="#f-key"/></svg><span data-l="en">Locked with the channel key, then signed by you</span><span data-l="de">Mit dem Kanalschlüssel verschlossen, dann von dir signiert</span><span data-l="nl">Vergrendeld met de kanaalsleutel, daarna door jou ondertekend</span><span data-l="ja">チャンネル鍵で暗号化し、あなたが署名</span></p>
+        <div class="blob"><svg aria-hidden="true"><use href="#f-lock"/></svg><code>x9Qe…7fA2</code></div>
+        <p class="small"><span data-l="en">Keys are made on your devices. Your 24 recovery words stay with you.</span><span data-l="de">Schlüssel entstehen auf deinen Geräten. Deine 24 Wiederherstellungswörter bleiben bei dir.</span><span data-l="nl">Sleutels worden op je apparaten gemaakt. Je 24 herstelwoorden blijven bij jou.</span><span data-l="ja">鍵はあなたの端末で作られます。24個の復元用の単語はあなたの手元に残ります。</span></p>
+      </div>
+      <div class="carrow" aria-hidden="true">→</div>
+      <div class="cbox server">
+        <h3><span data-l="en">RustTalk server</span><span data-l="de">RustTalk-Server</span><span data-l="nl">RustTalk-server</span><span data-l="ja">RustTalkサーバー</span></h3>
+        <p class="small"><span data-l="en">Stores and forwards. That's all.</span><span data-l="de">Speichert und leitet weiter. Mehr nicht.</span><span data-l="nl">Slaat op en stuurt door. Meer niet.</span><span data-l="ja">保存して転送するだけ。</span></p>
+        <div class="blob"><svg aria-hidden="true"><use href="#f-lock"/></svg><code>x9Qe…7fA2</code></div>
+        <div class="blob"><svg aria-hidden="true"><use href="#f-lock"/></svg><code>c41Z…Lm0p</code></div>
+        <p class="small"><span data-l="en">Can't read:</span><span data-l="de">Kann nicht lesen:</span><span data-l="nl">Kan niet lezen:</span><span data-l="ja">読めないもの：</span></p>
+        <ul class="marks">
+          <li><span class="no" aria-hidden="true">✕</span> <span data-l="en">messages, files, pictures</span><span data-l="de">Nachrichten, Dateien, Bilder</span><span data-l="nl">berichten, bestanden, afbeeldingen</span><span data-l="ja">メッセージ、ファイル、画像</span></li>
+          <li><span class="no" aria-hidden="true">✕</span> <span data-l="en">names of servers and channels</span><span data-l="de">Namen von Servern und Kanälen</span><span data-l="nl">namen van servers en kanalen</span><span data-l="ja">サーバーやチャンネルの名前</span></li>
+          <li><span class="no" aria-hidden="true">✕</span> <span data-l="en">voice, video, screen shares</span><span data-l="de">Sprache, Video, Bildschirmübertragungen</span><span data-l="nl">spraak, video, schermdelen</span><span data-l="ja">音声、ビデオ、画面共有</span></li>
+          <li><span class="no" aria-hidden="true">✕</span> <span data-l="en">keys or recovery words</span><span data-l="de">Schlüssel oder Wiederherstellungswörter</span><span data-l="nl">sleutels of herstelwoorden</span><span data-l="ja">鍵や復元用の単語</span></li>
+        </ul>
+      </div>
+      <div class="carrow" aria-hidden="true">→</div>
+      <div class="cbox">
+        <h3><span data-l="en">Your friends' devices</span><span data-l="de">Geräte deiner Freunde</span><span data-l="nl">Apparaten van je vrienden</span><span data-l="ja">友人の端末</span></h3>
+        <ul class="marks">
+          <li><span class="ok" aria-hidden="true">✓</span> <span data-l="en">Members of the channel</span><span data-l="de">Mitglieder des Kanals</span><span data-l="nl">Leden van het kanaal</span><span data-l="ja">チャンネルのメンバー</span></li>
+          <li><span class="ok" aria-hidden="true">✓</span> <span data-l="en">Each of their devices</span><span data-l="de">Jedes ihrer Geräte</span><span data-l="nl">Elk van hun apparaten</span><span data-l="ja">その全端末</span></li>
+        </ul>
+        <p class="step"><svg aria-hidden="true"><use href="#f-key"/></svg><span data-l="en">Unlocked with their copy of the key, signature checked</span><span data-l="de">Mit ihrer Kopie des Schlüssels entsperrt, Signatur geprüft</span><span data-l="nl">Ontgrendeld met hun kopie van de sleutel, handtekening gecontroleerd</span><span data-l="ja">各自の鍵のコピーで復号し、署名を確認</span></p>
+        <div class="bubble"><span data-l="en">Raid tonight at 8?</span><span data-l="de">Raid heute um 8?</span><span data-l="nl">Raid vanavond om 8?</span><span data-l="ja">今夜8時にレイド？</span></div>
+        <p class="small"><span data-l="en">Removed members and devices don't get the next key.</span><span data-l="de">Entfernte Mitglieder und Geräte bekommen den nächsten Schlüssel nicht.</span><span data-l="nl">Verwijderde leden en apparaten krijgen de volgende sleutel niet.</span><span data-l="ja">削除されたメンバーや端末には次の鍵が渡りません。</span></p>
+      </div>
+    </div>
+    <p class="small envelope" data-l="en">Channel keys travel between devices in sealed envelopes that only the receiving device can open.</p>
+    <p class="small envelope" data-l="de">Kanalschlüssel reisen zwischen Geräten in versiegelten Umschlägen, die nur das empfangende Gerät öffnen kann.</p>
+    <p class="small envelope" data-l="nl">Kanaalsleutels reizen tussen apparaten in verzegelde enveloppen die alleen het ontvangende apparaat kan openen.</p>
+    <p class="small envelope" data-l="ja">チャンネル鍵は、受け取る端末だけが開けられる封筒に入れて端末間で受け渡されます。</p>
+    <h3 class="plain"><span data-l="en">In plain words</span><span data-l="de">Einfach erklärt</span><span data-l="nl">In gewone woorden</span><span data-l="ja">かんたんに言うと</span></h3>
+    <ol class="csteps" data-l="en"><li><b>You are your recovery words.</b> The first start makes 24 words that create your personal key, your identity. They are never stored, not even on your own device.</li><li><b>Every device gets its own keys.</b> Your personal key signs them, so friends can check that a device really belongs to you. Lost a device? Remove it with your recovery words.</li><li><b>Every server and channel has its own key.</b> Your app makes these keys and hands them to everyone allowed in, each in a sealed envelope that only that device can open (HPKE, RFC 9180).</li><li><b>Everything is locked before it leaves your device.</b> Messages, files, pictures, names, topics, avatars and emoji are encrypted with XChaCha20-Poly1305 and signed with your device key. Voice, video and screen shares are encrypted frame by frame.</li><li><b>Leaving locks people out.</b> After a kick, a ban or a removed device, the channel gets a new key that they don't receive. They keep only what they already saw.</li></ol>
+    <ol class="csteps" data-l="de"><li><b>Du bist deine Wiederherstellungswörter.</b> Beim ersten Start entstehen 24 Wörter, aus denen dein persönlicher Schlüssel entsteht, deine Identität. Sie werden nirgends gespeichert, auch nicht auf deinem Gerät.</li><li><b>Jedes Gerät bekommt eigene Schlüssel.</b> Dein persönlicher Schlüssel unterschreibt sie, damit Freunde prüfen können, dass ein Gerät wirklich dir gehört. Gerät verloren? Entferne es mit deinen Wiederherstellungswörtern.</li><li><b>Jeder Server und jeder Kanal hat einen eigenen Schlüssel.</b> Deine App erzeugt ihn und gibt ihn allen, die hinein dürfen, jeweils in einem versiegelten Umschlag, den nur dieses Gerät öffnen kann (HPKE, RFC 9180).</li><li><b>Alles wird verschlossen, bevor es dein Gerät verlässt.</b> Nachrichten, Dateien, Bilder, Namen, Themen, Avatare und Emoji werden mit XChaCha20-Poly1305 verschlüsselt und mit deinem Geräteschlüssel signiert. Sprache, Video und Bildschirmübertragungen werden Bild für Bild verschlüsselt.</li><li><b>Wer geht, bleibt draußen.</b> Nach einem Kick, einem Bann oder einem entfernten Gerät bekommt der Kanal einen neuen Schlüssel, den sie nicht erhalten. Sie behalten nur, was sie schon gesehen haben.</li></ol>
+    <ol class="csteps" data-l="nl"><li><b>Jij bent je herstelwoorden.</b> Bij de eerste start ontstaan 24 woorden waaruit je persoonlijke sleutel ontstaat, je identiteit. Ze worden nergens opgeslagen, ook niet op je eigen apparaat.</li><li><b>Elk apparaat krijgt eigen sleutels.</b> Je persoonlijke sleutel ondertekent ze, zodat vrienden kunnen controleren dat een apparaat echt van jou is. Apparaat kwijt? Verwijder het met je herstelwoorden.</li><li><b>Elke server en elk kanaal heeft een eigen sleutel.</b> Je app maakt die sleutels en geeft ze aan iedereen die erin mag, telkens in een verzegelde envelop die alleen dat apparaat kan openen (HPKE, RFC 9180).</li><li><b>Alles wordt vergrendeld voordat het je apparaat verlaat.</b> Berichten, bestanden, afbeeldingen, namen, onderwerpen, avatars en emoji worden versleuteld met XChaCha20-Poly1305 en ondertekend met je apparaatsleutel. Spraak, video en schermdelen worden beeld voor beeld versleuteld.</li><li><b>Wie vertrekt, blijft buiten.</b> Na een kick, een ban of een verwijderd apparaat krijgt het kanaal een nieuwe sleutel die zij niet ontvangen. Ze houden alleen wat ze al gezien hebben.</li></ol>
+    <ol class="csteps" data-l="ja"><li><b>あなた自身が復元用の単語です。</b>初回起動時に24個の単語が作られ、そこからあなたの個人鍵（あなたのID）が生まれます。単語はどこにも保存されず、あなたの端末にも残りません。</li><li><b>端末ごとに専用の鍵があります。</b>個人鍵で署名されるので、友人はその端末が本当にあなたのものか確認できます。端末をなくしたら、復元用の単語で削除できます。</li><li><b>サーバーとチャンネルごとに専用の鍵があります。</b>アプリが鍵を作り、参加を許可された全員に、その端末だけが開けられる封筒に入れて渡します（HPKE、RFC 9180）。</li><li><b>すべては端末を出る前に暗号化されます。</b>メッセージ、ファイル、画像、名前、トピック、アバター、絵文字はXChaCha20-Poly1305で暗号化され、端末の鍵で署名されます。音声、ビデオ、画面共有はフレームごとに暗号化されます。</li><li><b>抜けた人は締め出されます。</b>キック、BAN、端末の削除のあと、チャンネルには新しい鍵が作られ、その人には渡りません。手元に残るのは、すでに見た内容だけです。</li></ol>
+    <div class="cnotes">
+      <div class="card"><h3><span data-l="en">What the server does see</span><span data-l="de">Was der Server sieht</span><span data-l="nl">Wat de server wel ziet</span><span data-l="ja">サーバーに見えるもの</span></h3>
+        <p data-l="en">Who is a member, which device sent something and when, how big it is, and who talks to whom in a DM. It never gets the keys.</p>
+        <p data-l="de">Wer Mitglied ist, welches Gerät wann etwas geschickt hat, wie groß es ist, und wer mit wem per DM schreibt. Die Schlüssel bekommt er nie.</p>
+        <p data-l="nl">Wie lid is, welk apparaat wanneer iets stuurde, hoe groot het is en wie met wie een DM heeft. De sleutels krijgt hij nooit.</p>
+        <p data-l="ja">メンバーが誰か、どの端末がいつ送信したか、そのサイズ、DMで誰と誰がやり取りしているか。鍵を受け取ることはありません。</p>
+      </div>
+      <div class="card"><h3><span data-l="en">What it can't protect against</span><span data-l="de">Wovor sie nicht schützt</span><span data-l="nl">Waartegen het niet beschermt</span><span data-l="ja">防げないこと</span></h3>
+        <p data-l="en">A server you don't trust can still add people it controls to a channel, so the app shows every new member and device with its fingerprint. Some details are not done yet, such as binding sign-in to the TLS connection.</p>
+        <p data-l="de">Ein Server, dem du nicht vertraust, kann trotzdem Leute, die er kontrolliert, zu einem Kanal hinzufügen. Deshalb zeigt die App jedes neue Mitglied und Gerät mit seinem Fingerabdruck. Manches ist noch nicht fertig, zum Beispiel die Anmeldung an die TLS-Verbindung zu binden.</p>
+        <p data-l="nl">Een server die je niet vertrouwt, kan nog steeds mensen die hij beheert aan een kanaal toevoegen. Daarom toont de app elk nieuw lid en apparaat met zijn vingerafdruk. Sommige details zijn nog niet af, zoals het aanmelden koppelen aan de TLS-verbinding.</p>
+        <p data-l="ja">信頼できないサーバーは、自分が管理する人をチャンネルに追加できます。そのためアプリは、新しいメンバーと端末をすべて指紋付きで表示します。サインインをTLS接続に結び付けるなど、まだ完成していない部分もあります。</p>
+      </div>
+    </div>
+    <p class="small"><span data-l="en">Every detail and limit:</span><span data-l="de">Alle Details und Grenzen:</span><span data-l="nl">Alle details en grenzen:</span><span data-l="ja">詳細と制限：</span> <a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/docs/crypto.md#trust-model" rel="noopener">docs/crypto.md</a> · <a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/docs/privacy.md" rel="noopener">docs/privacy.md</a></p>
   </div>
 </section>
 

@@ -183,6 +183,31 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
 .dl .card .foot{border-top:1px solid var(--line);padding-top:10px}
 .foot-link{color:var(--muted);font-size:14px;font-weight:600;text-decoration:none}
 .foot-link:hover{color:var(--text)}
+.crypt{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:stretch;margin:8px 0 14px}
+.cbox{background:var(--bg3);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:10px}
+.cbox.server{border:2px dashed var(--accent)}
+.cbox h3{margin:0;font-size:18px}
+.cbox p{margin:0}
+.cbox .step{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:15px}
+.cbox svg{width:20px;height:20px;flex:none;color:#f08a4b}
+.cbox .bubble{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-weight:600}
+.cbox .blob{display:flex;gap:10px;align-items:center;background:rgba(183,65,14,.18);border:1px solid #6b3a26;border-radius:12px;padding:9px 14px}
+.cbox .blob code{background:none;padding:0;color:#f0b496}
+.cbox .small{margin-top:auto}
+.marks{list-style:none;margin:0;padding:0;color:var(--muted);font-size:15px}
+.marks li{margin:4px 0}
+.marks .no{color:#f85149;font-weight:700}
+.marks .ok{color:var(--green);font-weight:700}
+.carrow{display:grid;place-items:center;color:#f08a4b;font-size:26px;font-weight:700}
+.envelope{text-align:center;margin:0 0 30px}
+.plain{margin:0 0 10px;font-size:20px}
+.csteps{max-width:820px;margin:0 0 24px;padding-left:22px;color:var(--muted)}
+.csteps li{margin:8px 0}
+.csteps b{color:var(--text)}
+.cnotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:0 0 14px}
+.cnotes h3{margin:0 0 6px;font-size:17px}
+.cnotes p{margin:0;color:var(--muted);font-size:15px}
+@media(max-width:860px){.crypt{grid-template-columns:1fr}.carrow{transform:rotate(90deg)}}
 </style>
 </head>
 <body>
@@ -298,6 +323,59 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
         <p data-l="de">Die App installiert signierte Updates mit einem Klick. Der Server holt einfach neue Docker-Images.</p>
         </div>
     </div>
+  </div>
+</section>
+
+<section id="encryption" class="alt">
+  <div class="wrap">
+    <h2 data-l="de">So funktioniert die Verschlüsselung</h2>
+    <p class="sub" data-l="de">Alles, was du schreibst oder benennst, wird auf deinem Gerät verschlüsselt. Der Server speichert und verteilt nur verschlüsselte Daten.</p>
+    <div class="crypt">
+      <div class="cbox">
+        <h3><span data-l="de">Dein Gerät</span></h3>
+        <div class="bubble"><span data-l="de">Raid heute um 8?</span></div>
+        <p class="step"><svg aria-hidden="true"><use href="#f-key"/></svg><span data-l="de">Mit dem Kanalschlüssel verschlossen, dann von dir signiert</span></p>
+        <div class="blob"><svg aria-hidden="true"><use href="#f-lock"/></svg><code>x9Qe…7fA2</code></div>
+        <p class="small"><span data-l="de">Schlüssel entstehen auf deinen Geräten. Deine 24 Wiederherstellungswörter bleiben bei dir.</span></p>
+      </div>
+      <div class="carrow" aria-hidden="true">→</div>
+      <div class="cbox server">
+        <h3><span data-l="de">RustTalk-Server</span></h3>
+        <p class="small"><span data-l="de">Speichert und leitet weiter. Mehr nicht.</span></p>
+        <div class="blob"><svg aria-hidden="true"><use href="#f-lock"/></svg><code>x9Qe…7fA2</code></div>
+        <div class="blob"><svg aria-hidden="true"><use href="#f-lock"/></svg><code>c41Z…Lm0p</code></div>
+        <p class="small"><span data-l="de">Kann nicht lesen:</span></p>
+        <ul class="marks">
+          <li><span class="no" aria-hidden="true">✕</span> <span data-l="de">Nachrichten, Dateien, Bilder</span></li>
+          <li><span class="no" aria-hidden="true">✕</span> <span data-l="de">Namen von Servern und Kanälen</span></li>
+          <li><span class="no" aria-hidden="true">✕</span> <span data-l="de">Sprache, Video, Bildschirmübertragungen</span></li>
+          <li><span class="no" aria-hidden="true">✕</span> <span data-l="de">Schlüssel oder Wiederherstellungswörter</span></li>
+        </ul>
+      </div>
+      <div class="carrow" aria-hidden="true">→</div>
+      <div class="cbox">
+        <h3><span data-l="de">Geräte deiner Freunde</span></h3>
+        <ul class="marks">
+          <li><span class="ok" aria-hidden="true">✓</span> <span data-l="de">Mitglieder des Kanals</span></li>
+          <li><span class="ok" aria-hidden="true">✓</span> <span data-l="de">Jedes ihrer Geräte</span></li>
+        </ul>
+        <p class="step"><svg aria-hidden="true"><use href="#f-key"/></svg><span data-l="de">Mit ihrer Kopie des Schlüssels entsperrt, Signatur geprüft</span></p>
+        <div class="bubble"><span data-l="de">Raid heute um 8?</span></div>
+        <p class="small"><span data-l="de">Entfernte Mitglieder und Geräte bekommen den nächsten Schlüssel nicht.</span></p>
+      </div>
+    </div>
+    <p class="small envelope" data-l="de">Kanalschlüssel reisen zwischen Geräten in versiegelten Umschlägen, die nur das empfangende Gerät öffnen kann.</p>
+    <h3 class="plain"><span data-l="de">Einfach erklärt</span></h3>
+    <ol class="csteps" data-l="de"><li><b>Du bist deine Wiederherstellungswörter.</b> Beim ersten Start entstehen 24 Wörter, aus denen dein persönlicher Schlüssel entsteht, deine Identität. Sie werden nirgends gespeichert, auch nicht auf deinem Gerät.</li><li><b>Jedes Gerät bekommt eigene Schlüssel.</b> Dein persönlicher Schlüssel unterschreibt sie, damit Freunde prüfen können, dass ein Gerät wirklich dir gehört. Gerät verloren? Entferne es mit deinen Wiederherstellungswörtern.</li><li><b>Jeder Server und jeder Kanal hat einen eigenen Schlüssel.</b> Deine App erzeugt ihn und gibt ihn allen, die hinein dürfen, jeweils in einem versiegelten Umschlag, den nur dieses Gerät öffnen kann (HPKE, RFC 9180).</li><li><b>Alles wird verschlossen, bevor es dein Gerät verlässt.</b> Nachrichten, Dateien, Bilder, Namen, Themen, Avatare und Emoji werden mit XChaCha20-Poly1305 verschlüsselt und mit deinem Geräteschlüssel signiert. Sprache, Video und Bildschirmübertragungen werden Bild für Bild verschlüsselt.</li><li><b>Wer geht, bleibt draußen.</b> Nach einem Kick, einem Bann oder einem entfernten Gerät bekommt der Kanal einen neuen Schlüssel, den sie nicht erhalten. Sie behalten nur, was sie schon gesehen haben.</li></ol>
+    <div class="cnotes">
+      <div class="card"><h3><span data-l="de">Was der Server sieht</span></h3>
+        <p data-l="de">Wer Mitglied ist, welches Gerät wann etwas geschickt hat, wie groß es ist, und wer mit wem per DM schreibt. Die Schlüssel bekommt er nie.</p>
+      </div>
+      <div class="card"><h3><span data-l="de">Wovor sie nicht schützt</span></h3>
+        <p data-l="de">Ein Server, dem du nicht vertraust, kann trotzdem Leute, die er kontrolliert, zu einem Kanal hinzufügen. Deshalb zeigt die App jedes neue Mitglied und Gerät mit seinem Fingerabdruck. Manches ist noch nicht fertig, zum Beispiel die Anmeldung an die TLS-Verbindung zu binden.</p>
+      </div>
+    </div>
+    <p class="small"><span data-l="de">Alle Details und Grenzen:</span> <a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/docs/crypto.md#trust-model" rel="noopener">docs/crypto.md</a> · <a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/docs/privacy.md" rel="noopener">docs/privacy.md</a></p>
   </div>
 </section>
 
