@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://rusttalk.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rusttalk.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rusttalk.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rusttalk.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rusttalk.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rusttalk.com/"/>
+  </url>
+  <url>
+    <loc>https://rusttalk.com/de/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rusttalk.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rusttalk.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rusttalk.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rusttalk.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rusttalk.com/"/>
+  </url>
+  <url>
+    <loc>https://rusttalk.com/nl/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rusttalk.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rusttalk.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rusttalk.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rusttalk.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rusttalk.com/"/>
+  </url>
+  <url>
+    <loc>https://rusttalk.com/ja/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rusttalk.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rusttalk.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rusttalk.com/nl/"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rusttalk.com/ja/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rusttalk.com/"/>
+  </url>
+  <url>
+    <loc>https://rusttalk.com/roadmap.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rusttalk.com/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rusttalk.com/de/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rusttalk.com/nl/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rusttalk.com/ja/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rusttalk.com/roadmap.html"/>
+  </url>
+  <url>
+    <loc>https://rusttalk.com/de/roadmap.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rusttalk.com/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rusttalk.com/de/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rusttalk.com/nl/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rusttalk.com/ja/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rusttalk.com/roadmap.html"/>
+  </url>
+  <url>
+    <loc>https://rusttalk.com/nl/roadmap.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rusttalk.com/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rusttalk.com/de/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rusttalk.com/nl/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rusttalk.com/ja/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rusttalk.com/roadmap.html"/>
+  </url>
+  <url>
+    <loc>https://rusttalk.com/ja/roadmap.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rusttalk.com/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rusttalk.com/de/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="nl" href="https://rusttalk.com/nl/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://rusttalk.com/ja/roadmap.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rusttalk.com/roadmap.html"/>
+  </url>
+</urlset>

@@ -1,0 +1,183 @@
+<!doctype html>
+<!-- Generated from src/roadmap.html by scripts/build.cjs. Edit the source, then run make build. -->
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://rusttalk.com/nl/roadmap.html">
+<link rel="alternate" hreflang="en" href="https://rusttalk.com/roadmap.html">
+<link rel="alternate" hreflang="de" href="https://rusttalk.com/de/roadmap.html">
+<link rel="alternate" hreflang="nl" href="https://rusttalk.com/nl/roadmap.html">
+<link rel="alternate" hreflang="ja" href="https://rusttalk.com/ja/roadmap.html">
+<link rel="alternate" hreflang="x-default" href="https://rusttalk.com/roadmap.html">
+<meta property="og:url" content="https://rusttalk.com/nl/roadmap.html">
+<meta property="og:locale" content="nl_NL">
+<title>Roadmap – RustTalk</title>
+<meta name="description" content="Wat RustTalk al kan en wat er hierna gepland is.">
+<link rel="icon" href="../favicon.svg?v=rust" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png?v=rust">
+<link rel="stylesheet" href="../legal.css?v=3">
+<style>
+.wrap.wide{max-width:1000px}
+.lead{font-size:18px;color:var(--muted);max-width:680px;margin:0 0 26px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:var(--text);white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.c-plan .dot,.dot.plan{background:#b7410e}.c-done .dot,.dot.done{background:#23a55a}
+section{margin-top:52px}
+section>h2{display:flex;align-items:center;gap:10px;font-size:26px;margin:0 0 6px}
+section>p{margin:0 0 20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;flex:none;background:rgba(183,65,14,.16);color:#f08a4b}
+.card .ic svg{width:20px;height:20px}
+.card h3{margin:0;font-size:17px;line-height:1.3}
+.card p{margin:0;font-size:15px}
+.card a.issue{font-size:13px;color:var(--dim);text-decoration:none;margin-top:auto;padding-top:4px}
+.card a.issue:hover{color:var(--text)}
+.more{margin-top:18px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.more h3{margin:0 0 8px;font-size:15px;color:var(--text)}
+.more ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+.more li{margin:3px 0}
+.more a{color:var(--muted)}
+.more .n{color:var(--dim);font-size:13px}
+.timeline{position:relative;margin-left:6px;padding-left:26px;border-left:2px solid var(--line)}
+.rel{position:relative;padding:0 0 26px}
+.rel::before{content:"";position:absolute;left:-33px;top:5px;width:12px;height:12px;border-radius:50%;background:#23a55a;border:3px solid var(--bg)}
+.rel h3{margin:0;font-size:17px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.rel h3 small{font-weight:400;color:var(--dim);font-size:13px}
+.rel ul{margin:6px 0 0;padding-left:18px;color:var(--muted);font-size:15px}
+.rel li{margin:2px 0}
+.cta{margin:52px 0;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px;color:var(--muted)}
+.cta a{color:#f08a4b}
+@media(max-width:560px){.cards{grid-template-columns:1fr}section>h2{font-size:22px}.timeline{padding-left:20px}.rel::before{left:-27px}}
+.more ul+h3{margin-top:18px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<!-- Apple and Android logos: Simple Icons, CC0 (simpleicons.org). Other icons: Lucide, ISC (lucide.dev). -->
+<symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
+<symbol id="i-android" viewBox="0 0 24 24"><path fill="currentColor" d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"/></symbol>
+<symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><path d="M6 6h.01M6 18h.01"/></g></symbol>
+<symbol id="f-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></g></symbol>
+<symbol id="f-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+</svg>
+<nav><div class="wrap wide">
+  <a class="brand" href="./"><img src="../favicon.svg?v=rust" alt="" width="30" height="30">RustTalk</a>
+  <div class="lang" role="group" aria-label="Language"><a href="../roadmap.html" data-set="en" hreflang="en" lang="en">EN</a><a href="../de/roadmap.html" data-set="de" hreflang="de" lang="de">DE</a><a href="../nl/roadmap.html" data-set="nl" hreflang="nl" lang="nl" class="on" aria-current="page">NL</a><a href="../ja/roadmap.html" data-set="ja" hreflang="ja" lang="ja">JP</a></div>
+</div></nav>
+
+<main class="wrap wide">
+  <h1><span data-l="nl">Roadmap</span></h1>
+  <p class="lead" data-l="nl">Wat RustTalk al kan en waar we nu aan bouwen. Geen vaste datums: we brengen het uit als het klaar en veilig is.</p>
+  <div class="legend">
+    <span class="chip c-plan"><span class="dot"></span><span data-l="nl">Gepland</span></span>
+    <span class="chip c-done"><span class="dot"></span><span data-l="nl">Uitgebracht</span></span>
+  </div>
+
+  <section id="planned">
+    <h2><span class="dot plan"></span><span data-l="nl">Gepland</span></h2>
+    <p data-l="nl">Staat op onze lijst. De volgorde ligt nog niet vast.</p>
+    <div class="cards">
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-apple"/></svg></div><h3 data-l="nl">Ondertekende macOS-app</h3></div>
+        <p data-l="nl">Door Apple ondertekend en genotariseerd: macOS opent de app zonder waarschuwing en rechten blijven na updates behouden.</p>
+        <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/233" rel="noopener">GitHub #233 →</a></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-android"/></svg></div><h3 data-l="nl">Volwaardige telefoonapps</h3></div>
+        <p data-l="nl">Android en iOS zijn nu experimenteel. Het doel is dezelfde functies als op de desktop.</p>
+        <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/282" rel="noopener">GitHub #282 →</a></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#f-file"/></svg></div><h3 data-l="nl">Pagina's met tegels en een banner</h3></div>
+        <p data-l="nl">Paginakanalen met tegels, een banner en afbeeldingen, opgeslagen als eigen versleuteld document.</p>
+        <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/259" rel="noopener">GitHub #259 →</a></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-server"/></svg></div><h3 data-l="nl">Serverstatistieken</h3></div>
+        <p data-l="nl">Een live overzicht van verkeer, opslag en gebruik voor servereigenaren.</p>
+        <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/214" rel="noopener">GitHub #214 →</a></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#f-shield"/></svg></div><h3 data-l="nl">Onafhankelijke beveiligingsaudit</h3></div>
+        <p data-l="nl">Externe experts controleren de versleuteling. Tot die tijd is RustTalk niet geaudit.</p>
+        </div>
+    </div>
+    <div class="more">
+      <h3 data-l="nl">Klaar voor de volgende release</h3>
+      <ul>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/292" rel="noopener"><span data-l="nl">Evenementen: een agenda om evenementen voor te stellen, goed te keuren en bij te wonen</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/211" rel="noopener"><span data-l="nl">Forumkanalen met berichten, reacties, peilingen en stemmen</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/294" rel="noopener"><span data-l="nl">Iemand naar je spraakkanaal bellen</span></a></li>
+      </ul>
+      <h3 data-l="nl">Open op GitHub</h3>
+      <ul>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/159" rel="noopener"><span data-l="nl">GIF-zoeken, alleen als je het aanzet (privacy)</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/335" rel="noopener"><span data-l="nl">Al het verkeer via SOCKS5, WireGuard of Tor sturen</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/340" rel="noopener"><span data-l="nl">Telefoonnummers in een spraakkanaal bellen (SIP)</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="shipped">
+    <h2><span class="dot done"></span><span data-l="nl">Uitgebracht</span></h2>
+    <p data-l="nl">Alles is end-to-end versleuteld: de server slaat alleen versleutelde data op en stuurt die door.</p>
+    <div class="timeline">
+      <div class="rel"><h3>v0.2.0 <small><span data-l="nl">nov 2026</span></small></h3>
+        <ul data-l="nl"><li>Android-APK en iOS-IPA met veilige sleutelopslag, openbare servers zoeken en een aanraakvriendelijke eerste start.</li><li>Bellen met microfoon en voor- of achtercamera. In lege spraakkanalen krijgt de chat meer ruimte.</li><li>Eerder geladen afbeeldingen en recente berichten zijn offline beschikbaar. Beheerders kiezen een kanaal voor meldingen over wie komt en gaat.</li></ul>
+      </div>
+      <div class="rel"><h3>v0.1.11 <small><span data-l="nl">nov 2026</span></small></h3>
+        <ul data-l="nl"><li>Je microfoon werkt weer als een moderator je dempen opheft, zonder opnieuw deel te nemen</li><li>Een moderatordemping stopt ook gedeeld app- en streamgeluid; deel het daarna opnieuw</li><li>Kanaal bewerken is één venster met de tabbladen Algemeen en Rechten</li><li>Controleren op updates staat standaard aan en het updateadres is ingevuld</li><li>Als iedereen op het gespreksscherm is geminimaliseerd, staat er niet meer „Verbinden…”</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.10 <small><span data-l="nl">nov 2026</span></small></h3>
+        <ul data-l="nl"><li>Update nodig: oudere apps moeten worden bijgewerkt (protocolversie 3)</li><li>Een apparaat verwijderen wisselt de chat- en gesprekssleutels, zodat het nieuwe berichten niet kan lezen</li><li>Elk kanaal heeft een bestandenlijst: bestanden delen en later downloaden</li><li>Pagina's kunnen afbeeldingen tonen, en links op een pagina krijgen voorbeeldkaarten</li><li>Afbeeldingen op een pagina blijven zolang de pagina ze gebruikt</li><li>Voorbeeldtekst loopt niet meer onder de knop Link openen door</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.9 <small><span data-l="nl">nov 2026</span></small></h3>
+        <ul data-l="nl"><li>Een ander apparaat verwijderen in de instellingen met je herstelwoorden</li><li>Een verwijderd apparaat wordt geweigerd en krijgt op geen enkele server nog sleutels</li><li>Kijkers kunnen een gedeeld scherm op macOS bedienen</li><li>App-geluid en al het systeemgeluid delen op macOS</li><li>Klikken op een macOS-melding opent de chat</li><li>Installatiehandleidingen voor Windows, Linux, macOS en de Steam Deck</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.8 <small><span data-l="nl">nov 2026</span></small></h3>
+        <ul data-l="nl"><li>Update nodig: oudere apps moeten worden bijgewerkt (protocolversie 2)</li><li>Polls in de chat, end-to-end versleuteld</li><li>Paginakanalen: één Markdown-pagina die alleen redacteuren kunnen wijzigen</li><li>Een terminal delen in een spraakkanaal; anderen mogen erin typen als jij dat toestaat</li><li>Emoji- en stickerpakketten per server, bruikbaar op elke server, importeren uit een .zip</li><li>Eén naam voor elke server, met eigen namen per server, en een profielbio</li><li>Updatemelding: met één klik bijwerken en herstarten, controle elke 15 minuten</li><li>Nieuw-in-deze-versie-pagina in de instellingen, eenmalig getoond na een app-update</li><li>Menu met meer opties (…) in het gesprekspaneel</li><li>Gemiste privéberichtgeschiedenis op gedeelde servers herstellen</li><li>Tonen wie een antwoord citeert voordat het origineel is geladen</li><li>Sleutels in een bestand bewaren als er geen systeemsleutelhanger is (Steam Deck Game Mode)</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.7 <small><span data-l="nl">nov 2026</span></small></h3>
+        <ul data-l="nl"><li>macOS-app: één universele download voor Apple Silicon en Intel (macOS 14.2 of nieuwer). Nog niet door Apple ondertekend; ondertekening staat gepland</li><li>Profielkaarten en één gedeeld rechtsklikmenu voor personen</li><li>Voorbeelden voor YouTube-, Spotify-, GitHub-, Wikipedia- en Reddit-links</li><li>Rechtsklikmenu op schermdelingen met FPS- en statistiekoverlays</li><li>Ledentabel in de serverinstellingen: zoeken, rolfilter en sorteren</li><li>Geanimeerde server-emoji en -stickers</li><li>Globale sneltoetsen voor dempen, doofzetten, push-to-talk en delen</li><li>Audiomixer per persoon: stem, gedeelde apps en streamgeluid</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.6 <small><span data-l="nl">nov 2026</span></small></h3>
+        <ul data-l="nl"><li>Afstandsbediening van monitordelingen op Hyprland (Linux)</li><li>Spraakmoderatie: voor iedereen dempen, uit spraakkanalen verwijderen en verplaatsen</li><li>Al het systeemgeluid delen, en schermdelingen krijgen hun eigen geluid</li><li>Markdown en gemarkeerde code in chatberichten</li><li>Steam-winkellinkvoorbeelden en uitnodigingskaarten in de chat</li><li>Bestanden slepen vanuit de bestandsbeheerder op Wayland</li><li>Voorbeeld van je eigen schermdeling</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.5 <small><span data-l="nl">nov 2026</span></small></h3>
+        <ul data-l="nl"><li>Schermdeling en camera met echte 60 fps en lagere latentie</li><li>Instelling voor de audiobitrate van spraakkanalen</li><li>Geluiden bij dempen, dempen opheffen, doofzetten en doofzetten opheffen</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.4 <small><span data-l="nl">nov 2026</span></small></h3>
+        <ul data-l="nl"><li>GIF's en WebP-afbeeldingen worden in de chat getoond en afgespeeld</li><li>Afbeeldingen en gekopieerde bestanden in de chat plakken</li><li>Vernieuwde rolleneditor</li><li>Lokale geluiden voor spraak- en streamgebeurtenissen</li><li>Iemand porren met een kort berichtje</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.3 <small><span data-l="nl">nov 2026</span></small></h3>
+        <ul data-l="nl"><li>Privéberichten via elke gedeelde server</li><li>Vrienden, met de optie om alleen privéberichten van vrienden te ontvangen</li><li>Emoji met :shortcodes: en een kiezer, plus eigen emoji en stickers per server</li><li>@vermeldingen voor personen, rollen en @everyone</li><li>Meldingsinstellingen per kanaal, ongelezen-markeringen en bureaubladmeldingen</li><li>Tekstchat in spraakkanalen</li><li>Een kijker een gedeeld scherm laten bedienen, met toestemming</li><li>Wisselen wat je deelt zonder te stoppen</li><li>App in het Engels, Duits, Nederlands en Japans</li><li>Automatische spraakgevoeligheid, plus optionele AI-ruisonderdrukking</li><li>Gespreksstatistieken met totaal dataverbruik en verkeer per soort</li><li>Optionele automatische serverupdates</li><li>App en server werken ook samen als ze één versie verschillen</li><li>Een duidelijke melding als de app niet kan starten</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.2 <small><span data-l="nl">nov 2026</span></small></h3>
+        <ul data-l="nl"><li>Eén ontwerptaal: nieuwe thema's, accentkleuren en het lettertype Inter</li><li>Instellingen en serverinstellingen met een zijbalk en pagina's die per sectie scrollen</li><li>Kanalen en categorieën ordenen door te slepen, en ze hernoemen of verwijderen</li><li>Zijbalken met instelbare breedte en een inklapbare ledenlijst</li><li>Bijsnijden en schalen bij het kiezen van een profielfoto of serverpictogram</li><li>Een rustiger spraakpaneel en gebruikersbalk</li><li>De officiële servers worden aangeboden op de pagina om lid te worden</li><li>Keuzes voor scherm delen opnieuw gebouwd, met een 1440p-optie</li></ul>
+      </div>
+      <div class="rel"><h3>v0.1.1 <small><span data-l="nl">nov 2026</span></small></h3>
+        <ul data-l="nl"><li>Spraakkanalen joinen op servers die via een domeinnaam bereikbaar zijn</li></ul>
+      </div>
+      <div class="rel"><h3>v0.1.0 <small><span data-l="nl">nov 2026</span></small></h3>
+        <ul data-l="nl"><li>Tekstkanalen en privéberichten met antwoorden en bewerken</li><li>Spraak, camera en scherm of venster delen met app-geluid</li><li>Meerdere servers tegelijk</li><li>Rollen, kicken, bannen en een auditlog</li><li>Uitnodigingslinks</li><li>Status: online, afwezig of onzichtbaar</li><li>Avatars en servericonen</li><li>Versleuteld opgeslagen bestanden en live bestandsoverdracht</li><li>Instellingen en serverlijst gesynchroniseerd tussen je apparaten</li><li>Optionele openbare serverlijst</li><li>Servers zoeken: openbare servers in de app bekijken en lid worden</li><li>Ondertekende zelf-updates</li><li>Windows en Linux, x64 en ARM64</li></ul>
+        </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <span data-l="nl">Mis je iets? <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">Stel een functie voor op GitHub</a>.</span>
+  </div>
+</main>
+
+<footer><div class="wrap wide">
+  <a href="./">RustTalk</a>
+  <span><a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html"><span data-l="nl">Privacy</span></a></span>
+</div></footer>
+<script>
+(function(){
+  // Remember an explicit choice. The English pages forward to the saved or browser language.
+  var links=document.querySelectorAll('.lang a');
+  links.forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('lang',a.dataset.set)}catch(e){}})});
+  if(document.documentElement.lang!=='en')return;
+  var want=null;try{want=localStorage.getItem('lang')}catch(e){}
+  want=want||(navigator.language||'').toLowerCase().slice(0,2);
+  for(var i=0;i<links.length;i++){if(links[i].dataset.set===want&&want!=='en'){location.replace(links[i].href+location.hash);return}}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!doctype html>
+<!-- Generated from src/roadmap.html by scripts/build.cjs. Edit the source, then run make build. -->
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://rusttalk.com/ja/roadmap.html">
+<link rel="alternate" hreflang="en" href="https://rusttalk.com/roadmap.html">
+<link rel="alternate" hreflang="de" href="https://rusttalk.com/de/roadmap.html">
+<link rel="alternate" hreflang="nl" href="https://rusttalk.com/nl/roadmap.html">
+<link rel="alternate" hreflang="ja" href="https://rusttalk.com/ja/roadmap.html">
+<link rel="alternate" hreflang="x-default" href="https://rusttalk.com/roadmap.html">
+<meta property="og:url" content="https://rusttalk.com/ja/roadmap.html">
+<meta property="og:locale" content="ja_JP">
+<title>ロードマップ – RustTalk</title>
+<meta name="description" content="RustTalkでできることと、今後の予定。">
+<link rel="icon" href="../favicon.svg?v=rust" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png?v=rust">
+<link rel="stylesheet" href="../legal.css?v=3">
+<style>
+.wrap.wide{max-width:1000px}
+.lead{font-size:18px;color:var(--muted);max-width:680px;margin:0 0 26px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:var(--text);white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.c-plan .dot,.dot.plan{background:#b7410e}.c-done .dot,.dot.done{background:#23a55a}
+section{margin-top:52px}
+section>h2{display:flex;align-items:center;gap:10px;font-size:26px;margin:0 0 6px}
+section>p{margin:0 0 20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;flex:none;background:rgba(183,65,14,.16);color:#f08a4b}
+.card .ic svg{width:20px;height:20px}
+.card h3{margin:0;font-size:17px;line-height:1.3}
+.card p{margin:0;font-size:15px}
+.card a.issue{font-size:13px;color:var(--dim);text-decoration:none;margin-top:auto;padding-top:4px}
+.card a.issue:hover{color:var(--text)}
+.more{margin-top:18px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.more h3{margin:0 0 8px;font-size:15px;color:var(--text)}
+.more ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+.more li{margin:3px 0}
+.more a{color:var(--muted)}
+.more .n{color:var(--dim);font-size:13px}
+.timeline{position:relative;margin-left:6px;padding-left:26px;border-left:2px solid var(--line)}
+.rel{position:relative;padding:0 0 26px}
+.rel::before{content:"";position:absolute;left:-33px;top:5px;width:12px;height:12px;border-radius:50%;background:#23a55a;border:3px solid var(--bg)}
+.rel h3{margin:0;font-size:17px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.rel h3 small{font-weight:400;color:var(--dim);font-size:13px}
+.rel ul{margin:6px 0 0;padding-left:18px;color:var(--muted);font-size:15px}
+.rel li{margin:2px 0}
+.cta{margin:52px 0;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px;color:var(--muted)}
+.cta a{color:#f08a4b}
+@media(max-width:560px){.cards{grid-template-columns:1fr}section>h2{font-size:22px}.timeline{padding-left:20px}.rel::before{left:-27px}}
+.more ul+h3{margin-top:18px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<!-- Apple and Android logos: Simple Icons, CC0 (simpleicons.org). Other icons: Lucide, ISC (lucide.dev). -->
+<symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
+<symbol id="i-android" viewBox="0 0 24 24"><path fill="currentColor" d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"/></symbol>
+<symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><path d="M6 6h.01M6 18h.01"/></g></symbol>
+<symbol id="f-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></g></symbol>
+<symbol id="f-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+</svg>
+<nav><div class="wrap wide">
+  <a class="brand" href="./"><img src="../favicon.svg?v=rust" alt="" width="30" height="30">RustTalk</a>
+  <div class="lang" role="group" aria-label="Language"><a href="../roadmap.html" data-set="en" hreflang="en" lang="en">EN</a><a href="../de/roadmap.html" data-set="de" hreflang="de" lang="de">DE</a><a href="../nl/roadmap.html" data-set="nl" hreflang="nl" lang="nl">NL</a><a href="../ja/roadmap.html" data-set="ja" hreflang="ja" lang="ja" class="on" aria-current="page">JP</a></div>
+</div></nav>
+
+<main class="wrap wide">
+  <h1><span data-l="ja">ロードマップ</span></h1>
+  <p class="lead" data-l="ja">RustTalkが今できることと、次に作っているもの。日付は決めていません。準備が整い、安全だと確認できたときにリリースします。</p>
+  <div class="legend">
+    <span class="chip c-plan"><span class="dot"></span><span data-l="ja">計画中</span></span>
+    <span class="chip c-done"><span class="dot"></span><span data-l="ja">リリース済み</span></span>
+  </div>
+
+  <section id="planned">
+    <h2><span class="dot plan"></span><span data-l="ja">計画中</span></h2>
+    <p data-l="ja">予定しているものです。順番はまだ決まっていません。</p>
+    <div class="cards">
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-apple"/></svg></div><h3 data-l="ja">署名済みのmacOSアプリ</h3></div>
+        <p data-l="ja">Appleによる署名と公証で、警告なしで開け、アップデート後も権限が保持されます。</p>
+        <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/233" rel="noopener">GitHub #233 →</a></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-android"/></svg></div><h3 data-l="ja">本格的なスマートフォンアプリ</h3></div>
+        <p data-l="ja">AndroidとiOSは現在試験版です。デスクトップと同じ機能を目指しています。</p>
+        <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/282" rel="noopener">GitHub #282 →</a></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#f-file"/></svg></div><h3 data-l="ja">タイルとバナーのあるページ</h3></div>
+        <p data-l="ja">タイル、バナー、画像を使えるページチャンネル。独立した暗号化ドキュメントとして保存されます。</p>
+        <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/259" rel="noopener">GitHub #259 →</a></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-server"/></svg></div><h3 data-l="ja">サーバー統計</h3></div>
+        <p data-l="ja">サーバー所有者向けに、通信量・ストレージ・利用状況をリアルタイムで表示します。</p>
+        <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/214" rel="noopener">GitHub #214 →</a></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#f-shield"/></svg></div><h3 data-l="ja">第三者によるセキュリティ監査</h3></div>
+        <p data-l="ja">外部の専門家が暗号化を検証します。それまでRustTalkは未監査です。</p></div>
+    </div>
+    <div class="more">
+      <h3 data-l="ja">次のリリースに含まれるもの</h3>
+      <ul>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/292" rel="noopener"><span data-l="ja">イベント：イベントを提案・承認・参加できるカレンダー</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/211" rel="noopener"><span data-l="ja">投稿・返信・投票・評価ができるフォーラムチャンネル</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/294" rel="noopener"><span data-l="ja">ボイスチャンネルに相手を呼び出す</span></a></li>
+      </ul>
+      <h3 data-l="ja">GitHubで受付中</h3>
+      <ul>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/159" rel="noopener"><span data-l="ja">GIF検索（プライバシーのためオプトイン）</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/335" rel="noopener"><span data-l="ja">すべての通信をSOCKS5、WireGuard、Torで経由</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/340" rel="noopener"><span data-l="ja">電話番号をボイスチャンネルに呼び込む（SIP）</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="shipped">
+    <h2><span class="dot done"></span><span data-l="ja">リリース済み</span></h2>
+    <p data-l="ja">すべてエンドツーエンドで暗号化されています。サーバーは暗号文を保存して転送するだけです。</p>
+    <div class="timeline">
+      <div class="rel"><h3>v0.2.0 <small><span data-l="ja">2026年11月</span></small></h3>
+        <ul data-l="ja"><li>Android用APKとiOS用IPAを公開。端末での安全な鍵の保存、公開サーバーの検索、タッチに対応した初期設定が使えます。</li><li>通話でマイクと前面・背面カメラが使えます。空の通話チャンネルではチャットが広がります。</li><li>読み込み済みの画像と最近のメッセージをオフラインで表示できます。管理者は参加・退出のお知らせを表示するチャンネルを選べます。</li></ul>
+      </div>
+      <div class="rel"><h3>v0.1.11 <small><span data-l="ja">2026年11月</span></small></h3>
+        <ul data-l="ja"><li>モデレーターがミュートを解除すると、通話に再参加しなくてもマイクが使えるようになりました</li><li>モデレーターのミュートで共有中のアプリ音声と配信音声も止まり、解除後に再度共有できます</li><li>「チャンネルを編集」が「一般」と「権限」タブのある1つの画面になりました</li><li>アップデートの確認が初期設定でオンになり、アップデート先のアドレスも入力済みです</li><li>通話画面で全員を最小化しても「接続中…」と表示されなくなりました</li></ul></div>
+      <div class="rel"><h3>v0.1.10 <small><span data-l="ja">2026年11月</span></small></h3>
+        <ul data-l="ja"><li>アップデートが必要：古いアプリは更新が必要です（プロトコルバージョン3）</li><li>デバイスを削除するとチャットと通話の鍵が変わり、新しいメッセージを読めなくなります</li><li>すべてのチャンネルにファイル一覧：ファイルを共有して後でダウンロード</li><li>ページに画像を表示でき、ページ上のリンクにプレビューカードが付きます</li><li>ページの画像は、ページが使っている間は残ります</li><li>リンクプレビューの文字が「リンクを開く」ボタンの下に重ならなくなりました</li></ul></div>
+      <div class="rel"><h3>v0.1.9 <small><span data-l="ja">2026年11月</span></small></h3>
+        <ul data-l="ja"><li>設定から復元用の単語を使って他のデバイスを削除</li><li>削除したデバイスはすべてのサーバーで拒否され、鍵を受け取れなくなります</li><li>macOSで共有画面を視聴者が操作可能に</li><li>macOSでアプリの音声とシステム音声をすべて共有</li><li>macOSの通知をクリックするとチャットが開きます</li><li>Windows、Linux、macOS、Steam Deckのインストールガイド</li></ul></div>
+      <div class="rel"><h3>v0.1.8 <small><span data-l="ja">2026年11月</span></small></h3>
+        <ul data-l="ja"><li>アップデートが必要：古いアプリは更新が必要です（プロトコルバージョン2）</li><li>チャットのアンケート（エンドツーエンド暗号化）</li><li>ページチャンネル：編集者だけが変更できる1枚のMarkdownページ</li><li>ボイスチャンネルでターミナルを共有（許可すれば他の人も入力可能）</li><li>サーバーごとの絵文字・スタンプパックを全サーバーで利用可能、.zipからインポート</li><li>全サーバー共通の名前（サーバーごとの名前も設定可）とプロフィールの自己紹介</li><li>アップデートバナー：ワンクリックで更新して再起動、15分ごとに確認</li><li>設定に「新機能」ページを追加、アプリ更新後に一度だけ表示</li><li>通話パネルに「その他」メニュー（…）を追加</li><li>共通サーバーで見逃したDM履歴を復元</li><li>元のメッセージが読み込まれる前に、返信の引用元を表示</li><li>システムのキーチェーンがない場合はキーをファイルに保存（Steam Deckのゲームモード）</li></ul></div>
+      <div class="rel"><h3>v0.1.7 <small><span data-l="ja">2026年11月</span></small></h3>
+        <ul data-l="ja"><li>macOS版アプリ：Apple SiliconとIntel両対応のユニバーサル版を1つ提供（macOS 14.2以降）。Appleの署名はまだなく、署名は計画中です</li><li>プロフィールカードと、人に共通の右クリックメニュー</li><li>YouTube、Spotify、GitHub、Wikipedia、Redditのリンクプレビュー</li><li>画面共有の右クリックメニュー（FPSと統計のオーバーレイ付き）</li><li>サーバー設定のメンバー表：検索、ロールで絞り込み、並べ替え</li><li>アニメーションするサーバー絵文字とスタンプ</li><li>ミュート、スピーカーミュート、プッシュトゥトーク、共有のグローバルショートカット</li><li>人ごとのオーディオミキサー：音声、共有アプリ、配信の音</li></ul></div>
+      <div class="rel"><h3>v0.1.6 <small><span data-l="ja">2026年11月</span></small></h3>
+        <ul data-l="ja"><li>Hyprland（Linux）でのモニター共有のリモート操作</li><li>音声のモデレーション：全員に対するミュート、ボイスチャンネルからの退出・移動</li><li>システム音声をすべて共有でき、画面共有には専用の音量が付きます</li><li>チャットでMarkdownとハイライト付きコードを表示</li><li>チャットにSteamストアのリンクプレビューと招待カードを表示</li><li>Waylandでファイルマネージャーからのドラッグ＆ドロップに対応</li><li>自分の画面共有をプレビュー</li></ul></div>
+      <div class="rel"><h3>v0.1.5 <small><span data-l="ja">2026年11月</span></small></h3>
+        <ul data-l="ja"><li>画面共有とカメラが本物の60fpsに、遅延も低減</li><li>ボイスチャンネルの音声ビットレート設定</li><li>ミュート、ミュート解除、スピーカーミュート、解除の効果音</li></ul></div>
+      <div class="rel"><h3>v0.1.4 <small><span data-l="ja">2026年11月</span></small></h3>
+        <ul data-l="ja"><li>チャットでGIFとWebP画像を表示・再生</li><li>画像やコピーしたファイルをチャットに貼り付け</li><li>ロールエディターを刷新</li><li>音声や配信のイベントをローカルの効果音でお知らせ</li><li>短いメモ付きでポーク</li></ul></div>
+      <div class="rel"><h3>v0.1.3 <small><span data-l="ja">2026年11月</span></small></h3>
+        <ul data-l="ja"><li>共通サーバー経由のDM</li><li>フレンド機能と、DMをフレンドからだけ受け取る設定</li><li>絵文字（:ショートコード:とピッカー）と、サーバーごとのカスタム絵文字・スタンプ</li><li>個人、ロール、@everyoneへの@メンション</li><li>チャンネルごとの通知設定、未読マーク、デスクトップ通知</li><li>ボイスチャンネル内のテキストチャット</li><li>許可した視聴者による共有画面の操作</li><li>共有を止めずに共有対象を切り替え</li><li>アプリは英語、ドイツ語、オランダ語、日本語に対応</li><li>自動で調整される音声感度と、任意のAIノイズ除去</li><li>通話統計に総データ使用量と種類別のトラフィックを表示</li><li>サーバーの自動アップデート（任意）</li><li>アプリとサーバーのバージョンが1つ違っても連携可能</li><li>アプリが起動できないときに分かりやすいメッセージを表示</li></ul></div>
+      <div class="rel"><h3>v0.1.2 <small><span data-l="ja">2026年11月</span></small></h3>
+        <ul data-l="ja"><li>デザインを統一：新しいテーマ、アクセントカラー、Interフォント</li><li>サイドバー付きの設定とサーバー設定。セクションごとにスクロール</li><li>チャンネルとカテゴリーをドラッグで並べ替え、名前変更や削除も可能に</li><li>サイドバーの幅を調整でき、メンバーリストを折りたためるように</li><li>プロフィール画像やサーバーアイコンを選ぶときに切り抜き・サイズ調整</li><li>ボイスパネルとユーザーバーをすっきり整理</li><li>参加ページで公式サーバーを案内</li><li>画面共有の選択画面を作り直し、1440pに対応</li></ul>
+      </div>
+      <div class="rel"><h3>v0.1.1 <small><span data-l="ja">2026年11月</span></small></h3>
+        <ul data-l="ja"><li>ドメイン名で接続したサーバーのボイスチャンネルに参加可能に</li></ul>
+      </div>
+      <div class="rel"><h3>v0.1.0 <small><span data-l="ja">2026年11月</span></small></h3>
+        <ul data-l="ja"><li>テキストチャンネルとDM（返信・編集に対応）</li><li>音声、カメラ、アプリ音声付きの画面・ウィンドウ共有</li><li>複数サーバーへの同時接続</li><li>ロール、キック、BAN、監査ログ</li><li>招待リンク</li><li>ステータス：オンライン、退席中、オフライン表示</li><li>アバターとサーバーアイコン</li><li>暗号化して保存するファイルと、ライブでのファイル転送</li><li>設定とサーバー一覧を端末間で同期</li><li>公開サーバーディレクトリ（任意）</li><li>サーバーを探す：公開サーバーをアプリ内で見て参加</li><li>署名付きのセルフアップデート</li><li>WindowsとLinux（x64・ARM64）</li></ul></div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <span data-l="ja">欲しい機能がありますか？<a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">GitHubで提案してください</a>。</span>
+  </div>
+</main>
+
+<footer><div class="wrap wide">
+  <a href="./">RustTalk</a>
+  <span><a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html"><span data-l="ja">プライバシー</span></a></span>
+</div></footer>
+<script>
+(function(){
+  // Remember an explicit choice. The English pages forward to the saved or browser language.
+  var links=document.querySelectorAll('.lang a');
+  links.forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('lang',a.dataset.set)}catch(e){}})});
+  if(document.documentElement.lang!=='en')return;
+  var want=null;try{want=localStorage.getItem('lang')}catch(e){}
+  want=want||(navigator.language||'').toLowerCase().slice(0,2);
+  for(var i=0;i<links.length;i++){if(links[i].dataset.set===want&&want!=='en'){location.replace(links[i].href+location.hash);return}}
+})();
+</script>
+</body>
+</html>
