@@ -121,11 +121,11 @@ footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 footer a{color:var(--muted)}
 /* os-aware buttons */
 .dl-win,.dl-linux,.dl-mac,.dl-android,.dl-ios,.dl-other{display:none}
-html[data-os=windows] .dl-win,html[data-os=linux] .dl-linux,html[data-os=mac] .dl-mac,html[data-os=android] .dl-android,html[data-os=ios] .dl-ios,html[data-os=other] .dl-other{display:inline-flex}
+html[data-os=windows] .dl-win,html[data-os=linux] .dl-linux,html[data-os=mac] .dl-mac,html[data-os=android] .dl-android,html[data-os=ios] .dl-ios,html[data-os=other] .dl-other,html[data-os=ios] .dl-other{display:inline-flex}
 .btn[aria-disabled=true]{opacity:.7;cursor:default;pointer-events:none}
 .dl .card.wide{grid-column:1/-1}
 .dl .card.wide .row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
-.dl .card.wide .row p{flex:1 1 320px}
+.dl .card.wide .row p{flex:1 1 320px;margin:0}
 .soon{white-space:nowrap;display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;background:rgba(183,65,14,.2);color:#f6a878;margin-left:6px}
 details.files{margin-top:auto;border-top:1px solid var(--line);padding-top:10px}
 details.sideload{margin:12px 0}.sideload ol{padding-inline-start:1.4em}.sideload li{margin:8px 0}
@@ -155,6 +155,21 @@ html[lang=ja] body{font-family:system-ui,-apple-system,"Hiragino Sans","Hiragino
 html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
 .ln{display:block;padding-left:1.6em;text-indent:-1.6em}
 @media(max-width:640px){.feat{grid-auto-rows:auto}.feat .card{padding:20px}pre{font-size:12.5px;padding:12px;padding-top:40px}.copy{top:6px}.steps>div{padding-left:0}.steps>div::before{position:static;display:grid;margin-bottom:10px}}
+.notice{max-width:780px;margin:18px auto 0;padding:12px 16px;border:1px solid #6b4a1e;background:rgba(183,65,14,.12);border-radius:10px;color:var(--muted);font-size:14.5px;line-height:1.55;text-align:left}
+.notice b{color:var(--text)}
+.steps .notice{margin:12px 0 0}
+#compare{border-top:1px solid var(--line)}
+.cmp-wrap{overflow-x:auto;margin:8px 0 14px}
+.cmp{border-collapse:collapse;width:100%;min-width:560px;font-size:15px}
+.cmp th,.cmp td{padding:12px 14px;border-bottom:1px solid var(--line);text-align:center}
+.cmp tbody th{text-align:left;font-weight:500;color:var(--muted)}
+.cmp thead th:nth-child(2),.cmp td:nth-child(2){background:rgba(183,65,14,.14)}
+.cmp .y{color:var(--green);font-weight:700}
+.cmp .n{color:var(--dim)}
+.cmp .m{color:#d9a441;font-size:13.5px}
+.dl .card .act{margin-top:auto;display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.dl .card .alt{min-height:21px;font-size:13.5px;color:var(--dim)}
+.dl .card details.files{margin-top:0}
 </style>
 </head>
 <body>
@@ -200,24 +215,26 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
     <h1 data-l="de">Deine Gespräche.<br><span>Dein Server. Deine Daten.</span></h1>
     <h1 data-l="nl">Jouw gesprekken.<br><span>Jouw server. Jouw data.</span></h1>
     <h1 data-l="ja">あなたの会話。<br><span>あなたのサーバー。あなたのデータ。</span></h1>
-    <p class="lead" data-l="en">RustTalk is encrypted voice, video and text chat that you run yourself. No accounts, no ads, no tracking. What you say stays between you and the people you talk to.</p>
-    <p class="lead" data-l="de">RustTalk ist verschlüsselter Voice-, Video- und Text-Chat, den du selbst betreibst. Keine Accounts, keine Werbung, kein Tracking. Was du sagst, bleibt zwischen dir und den Menschen, mit denen du sprichst.</p>
-    <p class="lead" data-l="nl">RustTalk is versleutelde spraak-, video- en tekstchat die je zelf draait. Geen accounts, geen advertenties, geen tracking. Wat je zegt, blijft tussen jou en de mensen met wie je praat.</p>
-    <p class="lead" data-l="ja">RustTalkは、自分で運用する暗号化された音声・ビデオ・テキストチャットです。アカウント登録なし、広告なし、トラッキングなし。話した内容は、あなたと相手の間だけにとどまります。</p>
+    <p class="lead" data-l="en">RustTalk is free, encrypted voice, video and text chat that you run yourself. No accounts, no ads, no tracking. Messages and calls are end-to-end encrypted, so even the server cannot read along.</p>
+    <p class="lead" data-l="de">RustTalk ist kostenloser, verschlüsselter Voice-, Video- und Text-Chat, den du selbst betreibst. Keine Accounts, keine Werbung, kein Tracking. Nachrichten und Anrufe sind Ende-zu-Ende-verschlüsselt, selbst der Server kann nicht mitlesen.</p>
+    <p class="lead" data-l="nl">RustTalk is gratis, versleutelde spraak-, video- en tekstchat die je zelf draait. Geen accounts, geen advertenties, geen tracking. Berichten en gesprekken zijn end-to-end versleuteld, zodat zelfs de server niet kan meelezen.</p>
+    <p class="lead" data-l="ja">RustTalkは、自分で運用する無料の暗号化された音声・ビデオ・テキストチャットです。アカウント登録なし、広告なし、トラッキングなし。メッセージも通話もエンドツーエンドで暗号化され、サーバーでさえ内容を読めません。</p>
     <div class="cta">
       <a class="btn primary dl-win" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span><span data-l="nl">Downloaden voor Windows</span><span data-l="ja">Windows版をダウンロード</span></a>
       <a class="btn primary dl-linux" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span><span data-l="nl">Downloaden voor Linux</span><span data-l="ja">Linux版をダウンロード</span></a>
       <a class="btn primary dl-mac" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-macos-universal.dmg"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">Download for macOS</span><span data-l="de">Für macOS herunterladen</span><span data-l="nl">Downloaden voor macOS</span><span data-l="ja">macOS版をダウンロード</span></a>
       <a class="btn primary dl-android" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-android-arm64.apk"><svg aria-hidden="true"><use href="#i-android"/></svg><span data-l="en">Download for Android</span><span data-l="de">Für Android herunterladen</span><span data-l="nl">Downloaden voor Android</span><span data-l="ja">Android版をダウンロード</span></a>
-      <a class="btn primary dl-ios" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-ios-unsigned.ipa"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">Download for iOS</span><span data-l="de">Für iOS herunterladen</span><span data-l="nl">Downloaden voor iOS</span><span data-l="ja">iOS版をダウンロード</span></a>
-      <a class="btn ghost dl-ios" href="#download-ios"><span data-l="en">Install guide</span><span data-l="de">Installationsanleitung</span><span data-l="nl">Installatiegids</span><span data-l="ja">インストール手順</span></a>
       <a class="btn primary dl-other" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span><span data-l="nl">Naar de downloads</span><span data-l="ja">ダウンロードへ</span></a>
       <a class="btn ghost" href="#server">
         <svg aria-hidden="true"><use href="#i-server"/></svg>
         <span data-l="en">Host a server</span><span data-l="de">Server hosten</span><span data-l="nl">Server hosten</span><span data-l="ja">サーバーを立てる</span>
       </a>
     </div>
-    <div class="ver"><span class="js-ver"></span><span data-l="en"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> · Windows · Linux · macOS · Android · iOS · Self-hosted</span><span data-l="de"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open Source</a> · Windows · Linux · macOS · Android · iOS · Selbst gehostet</span><span data-l="nl"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> · Windows · Linux · macOS · Android · iOS · Zelf gehost</span><span data-l="ja"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">オープンソース</a> · Windows · Linux · macOS · Android · iOS · セルフホスト</span></div>
+    <div class="ver"><span class="js-ver">v0.2.0 · </span><span data-l="en">Free · <a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> (<a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/LICENSE" rel="noopener">Apache-2.0</a>) · Windows · Linux · macOS · Android · Self-hosted</span><span data-l="de">Kostenlos · <a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open Source</a> (<a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/LICENSE" rel="noopener">Apache-2.0</a>) · Windows · Linux · macOS · Android · Selbst gehostet</span><span data-l="nl">Gratis · <a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> (<a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/LICENSE" rel="noopener">Apache-2.0</a>) · Windows · Linux · macOS · Android · Zelf gehost</span><span data-l="ja">無料 · <a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">オープンソース</a> (<a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/LICENSE" rel="noopener">Apache-2.0</a>) · Windows · Linux · macOS · Android · セルフホスト</span></div>
+    <p class="notice" data-l="en"><b>Early development.</b> RustTalk changes every day. Expect bugs and the odd update that older apps must install before they can connect again. The encryption has not had an independent security audit yet. Use it with friends, and don't rely on it where a mistake would really hurt.</p>
+    <p class="notice" data-l="de"><b>Frühe Entwicklung.</b> RustTalk ändert sich jeden Tag. Rechne mit Fehlern und mit Updates, die ältere Apps installieren müssen, bevor sie sich wieder verbinden können. Die Verschlüsselung wurde noch nicht unabhängig geprüft. Nutze es mit Freunden und verlass dich nicht darauf, wo ein Fehler wirklich schaden würde.</p>
+    <p class="notice" data-l="nl"><b>Vroege ontwikkeling.</b> RustTalk verandert elke dag. Reken op bugs en af en toe een update die oudere apps moeten installeren voordat ze weer verbinding kunnen maken. De versleuteling is nog niet onafhankelijk geaudit. Gebruik het met vrienden en vertrouw er niet op waar een fout echt schade zou doen.</p>
+    <p class="notice" data-l="ja"><b>開発初期段階です。</b>RustTalkは日々変化しています。不具合や、古いアプリが再接続する前に必要なアップデートが発生することがあります。暗号化はまだ第三者によるセキュリティ監査を受けていません。友人同士で使い、間違いが深刻な被害につながる場面では頼らないでください。</p>
     <div class="shot-hero"><img src="img/call-stage.png" width="1280" height="800" alt="RustTalk call stage with four people and chat below"></div>
   </div>
 </header>
@@ -228,10 +245,10 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
     <h2 data-l="de">Wenn es nichts kostet, bist du das Produkt.<br><span>Hier nicht.</span></h2>
     <h2 data-l="nl">Als het gratis is, ben jij het product.<br><span>Hier niet.</span></h2>
     <h2 data-l="ja">無料なら、商品はあなた自身。<br><span>ここでは違います。</span></h2>
-    <p class="manifest" data-l="en">Most chat apps cost nothing because you pay with your data: who you talk to, when, how often and for how long. We are not up for that. RustTalk has no business built on your data and nothing to sell. The code is open, the server belongs to you, and your conversations never leave it. Owning your data again should not be a project for experts. It should be normal.</p>
-    <p class="manifest" data-l="de">Die meisten Chat-Apps kosten nichts, weil du mit deinen Daten bezahlst: mit wem du sprichst, wann, wie oft und wie lange. Darauf haben wir keine Lust. Hinter RustTalk steckt kein Geschäft mit deinen Daten und nichts, das verkauft wird. Der Code ist offen, der Server gehört dir, und deine Gespräche verlassen ihn nicht. Die eigenen Daten wieder selbst zu besitzen sollte kein Projekt für Experten sein, sondern selbstverständlich.</p>
-    <p class="manifest" data-l="nl">De meeste chatapps kosten niets omdat je betaalt met je data: met wie je praat, wanneer, hoe vaak en hoe lang. Daar hebben wij geen zin in. Achter RustTalk zit geen verdienmodel met jouw data en er valt niets te verkopen. De code is open, de server is van jou en je gesprekken verlaten hem nooit. Weer baas zijn over je eigen data zou geen project voor experts moeten zijn. Het zou normaal moeten zijn.</p>
-    <p class="manifest" data-l="ja">多くのチャットアプリが無料なのは、あなたがデータで支払っているからです。誰と、いつ、どれくらいの頻度で、どれだけ長く話したか。私たちはそれに付き合うつもりはありません。RustTalkには、あなたのデータで稼ぐビジネスも、売るものもありません。コードは公開され、サーバーはあなたのもので、会話がそこから出ていくことはありません。自分のデータを自分の手に取り戻すのは、専門家だけの話であってはいけません。当たり前のことであるべきです。</p>
+    <p class="manifest" data-l="en">Most chat apps cost nothing because you pay with your data: who you talk to, when, how often and for how long. We are not up for that. RustTalk has no business built on your data and nothing to sell. The code is open, the server belongs to you, and what you write or say is encrypted on your device before it gets there. Owning your data again should not be a project for experts. It should be normal.</p>
+    <p class="manifest" data-l="de">Die meisten Chat-Apps kosten nichts, weil du mit deinen Daten bezahlst: mit wem du sprichst, wann, wie oft und wie lange. Darauf haben wir keine Lust. Hinter RustTalk steckt kein Geschäft mit deinen Daten und nichts, das verkauft wird. Der Code ist offen, der Server gehört dir, und was du schreibst oder sagst, wird schon auf deinem Gerät verschlüsselt. Die eigenen Daten wieder selbst zu besitzen sollte kein Projekt für Experten sein, sondern selbstverständlich.</p>
+    <p class="manifest" data-l="nl">De meeste chatapps kosten niets omdat je betaalt met je data: met wie je praat, wanneer, hoe vaak en hoe lang. Daar hebben wij geen zin in. Achter RustTalk zit geen verdienmodel met jouw data en er valt niets te verkopen. De code is open, de server is van jou en wat je schrijft of zegt, wordt al op je apparaat versleuteld. Weer baas zijn over je eigen data zou geen project voor experts moeten zijn. Het zou normaal moeten zijn.</p>
+    <p class="manifest" data-l="ja">多くのチャットアプリが無料なのは、あなたがデータで支払っているからです。誰と、いつ、どれくらいの頻度で、どれだけ長く話したか。私たちはそれに付き合うつもりはありません。RustTalkには、あなたのデータで稼ぐビジネスも、売るものもありません。コードは公開され、サーバーはあなたのもので、書いた内容も話した内容も、届く前にあなたの端末で暗号化されます。自分のデータを自分の手に取り戻すのは、専門家だけの話であってはいけません。当たり前のことであるべきです。</p>
     <div class="pillars">
       <div><b data-l="en">Your server, your rules</b><b data-l="de">Dein Server, deine Regeln</b><b data-l="nl">Jouw server, jouw regels</b><b data-l="ja">あなたのサーバー、あなたのルール</b>
         <span data-l="en">You decide who joins, what is stored and for how long.</span><span data-l="de">Du entscheidest, wer reinkommt, was gespeichert wird und wie lange.</span><span data-l="nl">Jij bepaalt wie erbij mag, wat er wordt bewaard en hoe lang.</span><span data-l="ja">誰が参加できるか、何をどれだけの期間保存するかは、あなたが決めます。</span></div>
@@ -306,6 +323,32 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
   </div>
 </section>
 
+<section id="compare">
+  <div class="wrap">
+    <h2 data-l="en">How RustTalk compares</h2>
+    <h2 data-l="de">RustTalk im Vergleich</h2>
+    <h2 data-l="nl">RustTalk vergeleken</h2>
+    <h2 data-l="ja">ほかのサービスとの比較</h2>
+    <div class="cmp-wrap">
+      <table class="cmp">
+        <thead><tr><th></th><th>RustTalk</th><th>Discord</th><th>TeamSpeak</th><th>Element</th></tr></thead>
+        <tbody>
+          <tr><th><span data-l="en">Run your own server</span><span data-l="de">Eigener Server</span><span data-l="nl">Eigen server</span><span data-l="ja">自分のサーバー</span></th><td class="y">✓</td><td class="n">✗</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><th><span data-l="en">No email or phone number</span><span data-l="de">Ohne E-Mail und Telefonnummer</span><span data-l="nl">Geen e-mail of telefoonnummer</span><span data-l="ja">メール・電話番号不要</span></th><td class="y">✓</td><td class="n">✗</td><td class="y">✓</td><td class="m"><span data-l="en">Depends on server</span><span data-l="de">Je nach Server</span><span data-l="nl">Hangt af van server</span><span data-l="ja">サーバー次第</span></td></tr>
+          <tr><th><span data-l="en">Open source</span><span data-l="de">Open Source</span><span data-l="nl">Open source</span><span data-l="ja">オープンソース</span></th><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="y">✓</td></tr>
+          <tr><th><span data-l="en">End-to-end encrypted chat</span><span data-l="de">Ende-zu-Ende-verschlüsselter Chat</span><span data-l="nl">End-to-end versleutelde chat</span><span data-l="ja">エンドツーエンド暗号化チャット</span></th><td class="y">✓</td><td class="n">✗</td><td class="n">✗</td><td class="y">✓</td></tr>
+          <tr><th><span data-l="en">End-to-end encrypted calls</span><span data-l="de">Ende-zu-Ende-verschlüsselte Anrufe</span><span data-l="nl">End-to-end versleutelde gesprekken</span><span data-l="ja">エンドツーエンド暗号化通話</span></th><td class="y">✓</td><td class="y">✓</td><td class="n">✗</td><td class="y">✓</td></tr>
+          <tr><th><span data-l="en">Free</span><span data-l="de">Kostenlos</span><span data-l="nl">Gratis</span><span data-l="ja">無料</span></th><td class="y">✓</td><td class="m"><span data-l="en">Paid extras</span><span data-l="de">Bezahl-Extras</span><span data-l="nl">Betaalde extra's</span><span data-l="ja">有料オプションあり</span></td><td class="m"><span data-l="en">Licence limits</span><span data-l="de">Lizenz-Grenzen</span><span data-l="nl">Licentielimieten</span><span data-l="ja">ライセンス制限あり</span></td><td class="y">✓</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="small" data-l="en">As of November 2026, to the best of our knowledge. Spotted a mistake? <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">Tell us on GitHub</a>.</p>
+    <p class="small" data-l="de">Stand November 2026, nach bestem Wissen. Fehler entdeckt? <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">Sag es uns auf GitHub</a>.</p>
+    <p class="small" data-l="nl">Stand van november 2026, naar beste weten. Een fout gezien? <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">Laat het ons weten op GitHub</a>.</p>
+    <p class="small" data-l="ja">2026年11月時点の情報です。誤りを見つけたら<a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">GitHubでお知らせください</a>。</p>
+  </div>
+</section>
+
 <section id="screenshots" class="alt">
   <div class="wrap">
     <h2><span data-l="en">Screenshots</span><span data-l="de">Screenshots</span><span data-l="nl">Screenshots</span><span data-l="ja">スクリーンショット</span></h2>
@@ -333,7 +376,6 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
       <p style="margin:0;color:var(--muted)" data-l="nl">Download de app en maak eenmalig je identiteit aan: je krijgt een herstelzin van 24 woorden die je veilig bewaart. Open daarna een uitnodigingslink van een server en je bent binnen. Geen registratie, geen e-mail.</p>
       <p style="margin:0;color:var(--muted)" data-l="ja">アプリをダウンロードして、IDを一度だけ作成します。24単語のリカバリーフレーズが表示されるので、大切に保管してください。あとはサーバーの招待リンクを開けば参加できます。登録もメールアドレスも不要です。</p>
       <div style="display:flex"><a class="btn primary dl-win" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span><span data-l="nl">Downloaden voor Windows</span><span data-l="ja">Windows版をダウンロード</span></a><a class="btn primary dl-linux" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span><span data-l="nl">Downloaden voor Linux</span><span data-l="ja">Linux版をダウンロード</span></a><a class="btn primary dl-mac" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-macos-universal.dmg"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">Download for macOS</span><span data-l="de">Für macOS herunterladen</span><span data-l="nl">Downloaden voor macOS</span><span data-l="ja">macOS版をダウンロード</span></a><a class="btn primary dl-android" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-android-arm64.apk"><svg aria-hidden="true"><use href="#i-android"/></svg><span data-l="en">Download for Android</span><span data-l="de">Für Android herunterladen</span><span data-l="nl">Downloaden voor Android</span><span data-l="ja">Android版をダウンロード</span></a>
-      <a class="btn primary dl-ios" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-ios-unsigned.ipa"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">Download for iOS</span><span data-l="de">Für iOS herunterladen</span><span data-l="nl">Downloaden voor iOS</span><span data-l="ja">iOS版をダウンロード</span></a>
       <a class="btn primary dl-other" style="align-self:flex-start" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span><span data-l="nl">Naar de downloads</span><span data-l="ja">ダウンロードへ</span></a></div>
     </div>
   </div>
@@ -353,8 +395,10 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
         <p class="small" data-l="de">Windows 10/11. Installiert sich für deinen Benutzer, ohne Adminrechte. Updates direkt in der App.</p>
         <p class="small" data-l="nl">Windows 10/11. Installeert voor jouw gebruiker, zonder beheerdersrechten. Updates in de app.</p>
         <p class="small" data-l="ja">Windows 10/11対応。ユーザー単位でインストールされ、管理者権限は不要です。アップデートはアプリ内で行えます。</p>
-        <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><span data-l="en">Download (x64)</span><span data-l="de">Herunterladen (x64)</span><span data-l="nl">Downloaden (x64)</span><span data-l="ja">ダウンロード（x64）</span></a>
-        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-aarch64.exe"><span data-l="en">ARM64 version</span><span data-l="de">ARM64-Version</span><span data-l="nl">ARM64-versie</span><span data-l="ja">ARM64版</span></a>
+        <div class="act">
+          <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><span data-l="en">Download (x64)</span><span data-l="de">Herunterladen (x64)</span><span data-l="nl">Downloaden (x64)</span><span data-l="ja">ダウンロード（x64）</span></a>
+          <div class="alt"><a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-aarch64.exe"><span data-l="en">ARM64 version</span><span data-l="de">ARM64-Version</span><span data-l="nl">ARM64-versie</span><span data-l="ja">ARM64版</span></a></div>
+        </div>
         <details class="files" data-kind="windows"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span><span data-l="nl">Alle bestanden &amp; oudere versies</span><span data-l="ja">すべてのファイルと旧バージョン</span></summary>
         <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span><span data-l="nl">Versie</span><span data-l="ja">バージョン</span> <select class="ver-sel" aria-label="Version"></select></label></div>
         <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span><span data-l="nl">Releases op GitHub openen</span><span data-l="ja">GitHubでリリースを開く</span></a></p></div></details>
@@ -365,9 +409,10 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
         <p class="small" data-l="de">AppImage: herunterladen, ausführbar machen, starten. Updates direkt in der App.</p>
         <p class="small" data-l="nl">AppImage: downloaden, uitvoerbaar maken, starten. Updates in de app.</p>
         <p class="small" data-l="ja">AppImage形式：ダウンロードして実行権限を付け、起動するだけ。アップデートはアプリ内で行えます。</p>
-        <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><span data-l="en">Download (x86_64)</span><span data-l="de">Herunterladen (x86_64)</span><span data-l="nl">Downloaden (x86_64)</span><span data-l="ja">ダウンロード（x86_64）</span></a>
-        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-aarch64.AppImage"><span data-l="en">ARM64 version</span><span data-l="de">ARM64-Version</span><span data-l="nl">ARM64-versie</span><span data-l="ja">ARM64版</span></a>
-        <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener"><span data-l="en">Source code</span><span data-l="de">Quellcode</span><span data-l="nl">Broncode</span><span data-l="ja">ソースコード</span></a>
+        <div class="act">
+          <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><span data-l="en">Download (x86_64)</span><span data-l="de">Herunterladen (x86_64)</span><span data-l="nl">Downloaden (x86_64)</span><span data-l="ja">ダウンロード（x86_64）</span></a>
+          <div class="alt"><a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-aarch64.AppImage"><span data-l="en">ARM64 version</span><span data-l="de">ARM64-Version</span><span data-l="nl">ARM64-versie</span><span data-l="ja">ARM64版</span></a> <span aria-hidden="true">·</span> <a class="alt-link" href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener"><span data-l="en">Source code</span><span data-l="de">Quellcode</span><span data-l="nl">Broncode</span><span data-l="ja">ソースコード</span></a></div>
+        </div>
         <details class="files" data-kind="linux"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span><span data-l="nl">Alle bestanden &amp; oudere versies</span><span data-l="ja">すべてのファイルと旧バージョン</span></summary>
         <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span><span data-l="nl">Versie</span><span data-l="ja">バージョン</span> <select class="ver-sel" aria-label="Version"></select></label></div>
         <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span><span data-l="nl">Releases op GitHub openen</span><span data-l="ja">GitHubでリリースを開く</span></a></p></div></details>
@@ -382,30 +427,21 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
         <p class="small" data-l="de">Noch nicht signiert: Beim ersten Mal die App per Rechtsklick und „Öffnen“ starten (macOS 15: Systemeinstellungen → Datenschutz &amp; Sicherheit → Dennoch öffnen).</p>
         <p class="small" data-l="nl">Nog niet ondertekend: klik de eerste keer met de rechtermuisknop op de app en kies Open (macOS 15: Systeminstellingen → Privacy en beveiliging → Open toch).</p>
         <p class="small" data-l="ja">まだ署名されていません。初回は、アプリを右クリックして「開く」を選んでください（macOS 15：システム設定 → プライバシーとセキュリティ → 「このまま開く」）。</p>
-        <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-macos-universal.dmg"><span data-l="en">Download (universal)</span><span data-l="de">Herunterladen (universal)</span><span data-l="nl">Downloaden (universal)</span><span data-l="ja">ダウンロード（ユニバーサル）</span></a>
+        <div class="act">
+          <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-macos-universal.dmg"><span data-l="en">Download (universal)</span><span data-l="de">Herunterladen (universal)</span><span data-l="nl">Downloaden (universal)</span><span data-l="ja">ダウンロード（ユニバーサル）</span></a>
+          <div class="alt"></div>
+        </div>
         <details class="files" data-kind="macos"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span><span data-l="nl">Alle bestanden &amp; oudere versies</span><span data-l="ja">すべてのファイルと旧バージョン</span></summary>
         <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span><span data-l="nl">Versie</span><span data-l="ja">バージョン</span> <select class="ver-sel" aria-label="Version"></select></label></div>
         <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span><span data-l="nl">Releases op GitHub openen</span><span data-l="ja">GitHubでリリースを開く</span></a></p></div></details>
       </div>
-      <div class="card" id="download-android">
+      <div class="card wide" id="download-android">
         <h3><svg aria-hidden="true"><use href="#i-android"/></svg> Android</h3>
-        <p class="small"><span data-l="en">Android 8 or newer, ARM64. Open the downloaded APK and allow your browser to install it if prompted.</span><span data-l="de">Android 8 oder neuer, ARM64. Öffne die APK und erlaube dem Browser bei Nachfrage die Installation.</span><span data-l="nl">Android 8 of nieuwer, ARM64. Open de APK en geef je browser toestemming om die te installeren als daarom wordt gevraagd.</span><span data-l="ja">Android 8以降のARM64端末向けです。APKを開き、確認されたらブラウザーからのインストールを許可してください。</span></p>
-        <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-android-arm64.apk"><span data-l="en">Download APK</span><span data-l="de">APK herunterladen</span><span data-l="nl">APK downloaden</span><span data-l="ja">APKをダウンロード</span></a>
+        <div class="row">
+          <p class="small"><span data-l="en">Experimental. Android 8 or newer, ARM64. Open the downloaded APK and allow your browser to install it if prompted.</span><span data-l="de">Experimentell. Android 8 oder neuer, ARM64. Öffne die APK und erlaube dem Browser bei Nachfrage die Installation.</span><span data-l="nl">Experimenteel. Android 8 of nieuwer, ARM64. Open de APK en geef je browser toestemming om die te installeren als daarom wordt gevraagd.</span><span data-l="ja">試験版です。Android 8以降のARM64端末向けです。APKを開き、確認されたらブラウザーからのインストールを許可してください。</span></p>
+          <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-android-arm64.apk"><span data-l="en">Download APK</span><span data-l="de">APK herunterladen</span><span data-l="nl">APK downloaden</span><span data-l="ja">APKをダウンロード</span></a>
+        </div>
         <details class="files" data-kind="android"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span><span data-l="nl">Alle bestanden &amp; oudere versies</span><span data-l="ja">すべてのファイルと旧バージョン</span></summary>
-        <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span><span data-l="nl">Versie</span><span data-l="ja">バージョン</span> <select class="ver-sel" aria-label="Version"></select></label></div>
-        <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span><span data-l="nl">Releases op GitHub openen</span><span data-l="ja">GitHubでリリースを開く</span></a></p></div></details>
-      </div>
-      <div class="card" id="download-ios">
-        <h3><svg aria-hidden="true"><use href="#i-apple"/></svg> iPhone &amp; iPad</h3>
-        <p class="small"><span data-l="en">iOS 16 or newer. Sign the IPA with your Apple account using a sideloading tool.</span><span data-l="de">Ab iOS 16. Signiere die IPA mit deinem Apple Account und einem Sideloading-Tool.</span><span data-l="nl">Vanaf iOS 16. Onderteken de IPA met je Apple Account via een sideloadtool.</span><span data-l="ja">iOS 16以降に対応。サイドロード用ツールでIPAに自分のApple Accountで署名します。</span></p>
-        <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-ios-unsigned.ipa"><span data-l="en">Download IPA</span><span data-l="de">IPA herunterladen</span><span data-l="nl">IPA downloaden</span><span data-l="ja">IPAをダウンロード</span></a>
-        <details class="sideload"><summary><span data-l="en">How to install on iPhone or iPad</span><span data-l="de">Auf dem iPhone oder iPad installieren</span><span data-l="nl">Installeren op iPhone of iPad</span><span data-l="ja">iPhone・iPadへのインストール方法</span></summary>
-          <ol><li><span data-l="en">Set up AltStore Classic on your device using AltServer on a Mac or Windows PC.</span><span data-l="de">Richte AltStore Classic mit AltServer auf einem Mac oder Windows-PC auf deinem Gerät ein.</span><span data-l="nl">Installeer AltStore Classic op je apparaat met AltServer op een Mac of Windows-pc.</span><span data-l="ja">MacまたはWindows PCのAltServerを使い、端末にAltStore Classicを設定します。</span></li>
-<li><span data-l="en">Save the RustTalk IPA to Files. With AltServer running, connect over USB or the same Wi-Fi. In AltStore Classic, open My Apps, tap + and select the IPA.</span><span data-l="de">Speichere die RustTalk-IPA in „Dateien“. Verbinde dein Gerät per USB oder im selben WLAN mit dem laufenden AltServer. Tippe in AltStore Classic unter „My Apps“ auf + und wähle die IPA.</span><span data-l="nl">Bewaar de RustTalk-IPA in Bestanden. Laat AltServer draaien en verbind via USB of hetzelfde wifi-netwerk. Open My Apps in AltStore Classic, tik op + en kies de IPA.</span><span data-l="ja">RustTalkのIPAを「ファイル」に保存します。AltServerを起動し、USBまたは同じWi-Fiで接続します。AltStore Classicの「My Apps」で＋をタップし、IPAを選びます。</span></li>
-<li><span data-l="en">With a free Apple account, refresh RustTalk in AltStore every seven days. Use the same account for updates.</span><span data-l="de">Mit einem kostenlosen Apple Account musst du RustTalk alle sieben Tage in AltStore erneuern. Nutze für Updates denselben Account.</span><span data-l="nl">Ververs RustTalk met een gratis Apple Account elke zeven dagen in AltStore. Gebruik hetzelfde account voor updates.</span><span data-l="ja">無料のApple Accountでは7日ごとにAltStoreで更新します。アップデートには同じアカウントを使ってください。</span></li>
-          </ol><a href="https://faq.altstore.io/altstore-classic/altserver">AltServer</a> · <a href="https://faq.altstore.io/altstore-classic/your-altstore">AltStore Classic</a> · <a href="https://xtool.sh/">xtool (Linux)</a>
-        </details>
-        <details class="files" data-kind="ios"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span><span data-l="nl">Alle bestanden &amp; oudere versies</span><span data-l="ja">すべてのファイルと旧バージョン</span></summary>
         <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span><span data-l="nl">Versie</span><span data-l="ja">バージョン</span> <select class="ver-sel" aria-label="Version"></select></label></div>
         <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span><span data-l="nl">Releases op GitHub openen</span><span data-l="ja">GitHubでリリースを開く</span></a></p></div></details>
       </div>
@@ -441,6 +477,10 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
         <p data-l="de">Ein Linux-Server mit Docker und einer öffentlichen IPv4-Adresse. Öffne die Ports 443/tcp, 7881/tcp und 7882/udp, mit Domain zusätzlich 80/tcp. Eine Domain, die auf den Server zeigt, ist optional: Damit gibt es ein normales Zertifikat. Ohne Domain erstellt der Server ein eigenes Zertifikat, und der Einladungslink sagt der App, dass sie ihm vertrauen kann.</p>
         <p data-l="nl">Een Linux-server met Docker en een publiek IPv4-adres. Open de poorten 443/tcp, 7881/tcp en 7882/udp, en 80/tcp als je een domein gebruikt. Een domeinnaam die naar de server wijst is optioneel: daarmee krijg je een normaal certificaat. Zonder domein maakt de server zijn eigen certificaat en vertelt de uitnodigingslink de app dat die het kan vertrouwen.</p>
         <p data-l="ja">DockerとパブリックIPv4アドレスのあるLinuxサーバー。ポート443/tcp、7881/tcp、7882/udpを開放し、ドメインを使う場合は80/tcpも開けます。サーバーを指すドメイン名は任意で、あれば通常の証明書が使えます。ドメインがない場合はサーバーが独自の証明書を作成し、招待リンクを通じてアプリがその証明書を信頼します。</p>
+        <p class="notice" data-l="en"><b>Hosting at home?</b> Many internet connections (DS-Lite or CGNAT, common with cable and fibre in Germany) have no public IPv4 address. Then port forwarding cannot work. Ask your provider for a public IPv4 address, or use a small VPS.</p>
+        <p class="notice" data-l="de"><b>Zuhause hosten?</b> Viele Anschlüsse (DS-Lite oder CGNAT, in Deutschland oft bei Kabel und Glasfaser) haben keine öffentliche IPv4-Adresse. Dann hilft auch keine Portfreigabe. Frag deinen Anbieter nach einer öffentlichen IPv4-Adresse oder nimm einen kleinen VPS.</p>
+        <p class="notice" data-l="nl"><b>Thuis hosten?</b> Veel internetaansluitingen (DS-Lite of CGNAT) hebben geen publiek IPv4-adres. Dan werkt port forwarding niet. Vraag je provider om een publiek IPv4-adres of gebruik een kleine VPS.</p>
+        <p class="notice" data-l="ja"><b>自宅でホストする場合</b>：多くの回線（DS-LiteやCGNAT）にはパブリックIPv4アドレスがなく、その場合ポート開放は機能しません。プロバイダーにパブリックIPv4アドレスを依頼するか、小さなVPSを使ってください。</p>
       </div>
       <div>
         <h3 data-l="en">Get the files</h3><h3 data-l="de">Dateien holen</h3><h3 data-l="nl">Bestanden ophalen</h3><h3 data-l="ja">ファイルを取得</h3>
@@ -488,7 +528,7 @@ echo "rusttalk://&lt;domain&gt;/i/$code#$id"    # domain mode</code></pre>
 
 <footer>
   <div class="wrap">
-    <div>© RustTalk · <span data-l="en">Open source on</span><span data-l="de">Open Source auf</span><span data-l="nl">Open source op</span><span data-l="ja">オープンソース：</span> <a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">GitHub</a></div>
+    <div>© RustTalk · <span data-l="en">Open source on</span><span data-l="de">Open Source auf</span><span data-l="nl">Open source op</span><span data-l="ja">オープンソース：</span> <a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">GitHub</a> · <a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/LICENSE" rel="noopener">Apache-2.0</a> · <a href="impressum.html"><span data-l="en">Contact</span><span data-l="de">Kontakt</span><span data-l="nl">Contact</span><span data-l="ja">お問い合わせ</span></a></div>
     <div><a href="roadmap.html"><span data-l="en">Roadmap</span><span data-l="de">Roadmap</span><span data-l="nl">Roadmap</span><span data-l="ja">ロードマップ</span></a> · <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener"><span data-l="en">Report a bug</span><span data-l="de">Fehler melden</span><span data-l="nl">Bug melden</span><span data-l="ja">不具合を報告</span></a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html"><span data-l="en">Privacy</span><span data-l="de">Datenschutz</span><span data-l="nl">Privacy</span><span data-l="ja">プライバシー</span></a></div>
   </div>
 </footer>
