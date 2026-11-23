@@ -122,3 +122,14 @@ test('Linux visitors see the Linux version; no releases keep the static fallback
   assert.equal(missing.det.parts['.list'].textContent, 'fallback');
   assert.equal(missing.label.textContent, '');
 });
+
+test('mobile visitors see the newest release with their installable file', () => {
+  const mobile = release('v0.2.0', ['rusttalk-0.2.0-android-arm64.apk', 'rusttalk-0.2.0-ios-unsigned.ipa']);
+  for (const [os, file] of [['android', 'android-arm64.apk'], ['ios', 'ios-unsigned.ipa']]) {
+    const doc = documentFixture(os, os);
+    api.apply(doc, [release('v0.2.1'), mobile, release('v0.1.11')]);
+    assert.equal(doc.label.textContent, 'v0.2.0 · ');
+    const link = doc.det.parts['.list'].children[0].children[0].children[0].children[0];
+    assert.equal(link.href, REPO + '/releases/download/v0.2.0/rusttalk-0.2.0-' + file);
+  }
+});
