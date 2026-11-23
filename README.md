@@ -1,13 +1,16 @@
 # rusttalk.com
 
-Static project website (English/German, no build step, no cookies, no tracking).
+Static project website (English, German, Dutch and Japanese; no cookies, no tracking).
 
 | File | Purpose |
 |---|---|
-| `index.html` | Home page: features, screenshots, downloads, server setup |
-| `roadmap.html` | Planned, maybe-later and shipped features (update it when a release ships something new) |
+| `src/index.html` | Home page source in all languages: features, comparison, downloads, server setup |
+| `src/roadmap.html` | Roadmap source in all languages: planned, next release and shipped (update it when a release ships something new) |
+| `scripts/build.cjs` | Builds one page per language from `src/` |
+| `index.html`, `roadmap.html`, `de/`, `nl/`, `ja/` | Generated pages, one language each. Do not edit, run `make build` |
+| `sitemap.xml`, `robots.txt` | Generated sitemap with `hreflang` alternates |
 | `impressum.html`, `datenschutz.html` | Legal notice and privacy policy (required in Germany) |
-| `legal.css`, `lang.js` | Shared style and DE/EN switch for the legal pages |
+| `legal.css`, `lang.js` | Shared style, and the DE/EN switch for the legal pages |
 | `img/` | Screenshots and logo PNGs |
 | `Dockerfile`, `Caddyfile` | Container image (Caddy serving the site on plain HTTP, port 8080) |
 
@@ -27,9 +30,13 @@ releases-page link. Listed files must have the exact HTTPS asset URL in
 The server setup steps follow the "Run a server" section of the rusttalk-next README
 and `docs/operations.md`. Keep them in sync when those change.
 
+## Languages
+
+Edit only the files in `src/`. Every translated element carries `data-l="en|de|nl|ja"`. `make build` writes one page per language: English at `/`, the others at `/de/`, `/nl/` and `/ja/`, each with only its own text, a canonical link, `hreflang` alternates and its own title and description (set in `scripts/build.cjs`). The language switch is a set of links. The English pages forward to a language the visitor picked before, or to the browser language, so search engines still see English at `/`. CI fails when the generated pages are out of date.
+
 ## Offline checks
 
-Run `make test` (Node standard library only).
+Run `make test` (Node standard library only). It also checks that the generated pages match `src/`.
 
 ## Preview
 
@@ -38,7 +45,7 @@ docker build -t rusttalk-website .
 docker run --rm -p 8080:8080 rusttalk-website
 ```
 
-Open <http://localhost:8080>. Or open `index.html` directly in a browser.
+Open <http://localhost:8080> (or `/de/`, `/nl/`, `/ja/`). Without Docker, run `make build` and serve the folder, for example with `python -m http.server`.
 
 ## Deploy
 

@@ -1,0 +1,179 @@
+<!doctype html>
+<!-- Generated from src/roadmap.html by scripts/build.cjs. Edit the source, then run make build. -->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://rusttalk.com/de/roadmap.html">
+<link rel="alternate" hreflang="en" href="https://rusttalk.com/roadmap.html">
+<link rel="alternate" hreflang="de" href="https://rusttalk.com/de/roadmap.html">
+<link rel="alternate" hreflang="nl" href="https://rusttalk.com/nl/roadmap.html">
+<link rel="alternate" hreflang="ja" href="https://rusttalk.com/ja/roadmap.html">
+<link rel="alternate" hreflang="x-default" href="https://rusttalk.com/roadmap.html">
+<meta property="og:url" content="https://rusttalk.com/de/roadmap.html">
+<meta property="og:locale" content="de_DE">
+<title>Roadmap – RustTalk</title>
+<meta name="description" content="Was RustTalk schon kann und was als Nächstes geplant ist.">
+<link rel="icon" href="../favicon.svg?v=rust" type="image/svg+xml">
+<link rel="apple-touch-icon" href="../img/apple-touch-icon.png?v=rust">
+<link rel="stylesheet" href="../legal.css?v=3">
+<style>
+.wrap.wide{max-width:1000px}
+.lead{font-size:18px;color:var(--muted);max-width:680px;margin:0 0 26px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);color:var(--text);white-space:nowrap}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.c-plan .dot,.dot.plan{background:#b7410e}.c-done .dot,.dot.done{background:#23a55a}
+section{margin-top:52px}
+section>h2{display:flex;align-items:center;gap:10px;font-size:26px;margin:0 0 6px}
+section>p{margin:0 0 20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:6px}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;flex:none;background:rgba(183,65,14,.16);color:#f08a4b}
+.card .ic svg{width:20px;height:20px}
+.card h3{margin:0;font-size:17px;line-height:1.3}
+.card p{margin:0;font-size:15px}
+.card a.issue{font-size:13px;color:var(--dim);text-decoration:none;margin-top:auto;padding-top:4px}
+.card a.issue:hover{color:var(--text)}
+.more{margin-top:18px;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.more h3{margin:0 0 8px;font-size:15px;color:var(--text)}
+.more ul{margin:0;padding-left:18px;color:var(--muted);font-size:15px}
+.more li{margin:3px 0}
+.more a{color:var(--muted)}
+.more .n{color:var(--dim);font-size:13px}
+.timeline{position:relative;margin-left:6px;padding-left:26px;border-left:2px solid var(--line)}
+.rel{position:relative;padding:0 0 26px}
+.rel::before{content:"";position:absolute;left:-33px;top:5px;width:12px;height:12px;border-radius:50%;background:#23a55a;border:3px solid var(--bg)}
+.rel h3{margin:0;font-size:17px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.rel h3 small{font-weight:400;color:var(--dim);font-size:13px}
+.rel ul{margin:6px 0 0;padding-left:18px;color:var(--muted);font-size:15px}
+.rel li{margin:2px 0}
+.cta{margin:52px 0;background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:20px;color:var(--muted)}
+.cta a{color:#f08a4b}
+@media(max-width:560px){.cards{grid-template-columns:1fr}section>h2{font-size:22px}.timeline{padding-left:20px}.rel::before{left:-27px}}
+.more ul+h3{margin-top:18px}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<!-- Apple and Android logos: Simple Icons, CC0 (simpleicons.org). Other icons: Lucide, ISC (lucide.dev). -->
+<symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></symbol>
+<symbol id="i-android" viewBox="0 0 24 24"><path fill="currentColor" d="M18.4395 5.5586c-.675 1.1664-1.352 2.3318-2.0274 3.498-.0366-.0155-.0742-.0286-.1113-.043-1.8249-.6957-3.484-.8-4.42-.787-1.8551.0185-3.3544.4643-4.2597.8203-.084-.1494-1.7526-3.021-2.0215-3.4864a1.1451 1.1451 0 0 0-.1406-.1914c-.3312-.364-.9054-.4859-1.379-.203-.475.282-.7136.9361-.3886 1.5019 1.9466 3.3696-.0966-.2158 1.9473 3.3593.0172.031-.4946.2642-1.3926 1.0177C2.8987 12.176.452 14.772 0 18.9902h24c-.119-1.1108-.3686-2.099-.7461-3.0683-.7438-1.9118-1.8435-3.2928-2.7402-4.1836a12.1048 12.1048 0 0 0-2.1309-1.6875c.6594-1.122 1.312-2.2559 1.9649-3.3848.2077-.3615.1886-.7956-.0079-1.1191a1.1001 1.1001 0 0 0-.8515-.5332c-.5225-.0536-.9392.3128-1.0488.5449zm-.0391 8.461c.3944.5926.324 1.3306-.1563 1.6503-.4799.3197-1.188.0985-1.582-.4941-.3944-.5927-.324-1.3307.1563-1.6504.4727-.315 1.1812-.1086 1.582.4941zM7.207 13.5273c.4803.3197.5506 1.0577.1563 1.6504-.394.5926-1.1038.8138-1.584.4941-.48-.3197-.5503-1.0577-.1563-1.6504.4008-.6021 1.1087-.8106 1.584-.4941z"/></symbol>
+<symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><path d="M6 6h.01M6 18h.01"/></g></symbol>
+<symbol id="f-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></g></symbol>
+<symbol id="f-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+</svg>
+<nav><div class="wrap wide">
+  <a class="brand" href="./"><img src="../favicon.svg?v=rust" alt="" width="30" height="30">RustTalk</a>
+  <div class="lang" role="group" aria-label="Language"><a href="../roadmap.html" data-set="en" hreflang="en" lang="en">EN</a><a href="../de/roadmap.html" data-set="de" hreflang="de" lang="de" class="on" aria-current="page">DE</a><a href="../nl/roadmap.html" data-set="nl" hreflang="nl" lang="nl">NL</a><a href="../ja/roadmap.html" data-set="ja" hreflang="ja" lang="ja">JP</a></div>
+</div></nav>
+
+<main class="wrap wide">
+  <h1><span data-l="de">Roadmap</span></h1>
+  <p class="lead" data-l="de">Was RustTalk schon kann und woran wir als Nächstes arbeiten. Ohne Termine: Wir veröffentlichen, wenn es fertig und sicher ist.</p>
+  <div class="legend">
+    <span class="chip c-plan"><span class="dot"></span><span data-l="de">Geplant</span></span>
+    <span class="chip c-done"><span class="dot"></span><span data-l="de">Erledigt</span></span>
+  </div>
+
+  <section id="planned">
+    <h2><span class="dot plan"></span><span data-l="de">Geplant</span></h2>
+    <p data-l="de">Steht auf unserer Liste. Die Reihenfolge ist noch offen.</p>
+    <div class="cards">
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-apple"/></svg></div><h3 data-l="de">Signierte macOS-App</h3></div>
+        <p data-l="de">Von Apple signiert und notarisiert: macOS öffnet sie ohne Warnung, und Berechtigungen bleiben nach Updates erhalten.</p>
+        <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/233" rel="noopener">GitHub #233 →</a></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-android"/></svg></div><h3 data-l="de">Vollwertige Handy-Apps</h3></div>
+        <p data-l="de">Android und iOS sind heute experimentell. Ziel sind dieselben Funktionen wie am Desktop.</p>
+        <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/282" rel="noopener">GitHub #282 →</a></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#f-file"/></svg></div><h3 data-l="de">Seiten mit Kacheln und Banner</h3></div>
+        <p data-l="de">Seiten-Kanäle mit Kacheln, Banner und Bildern, gespeichert als eigenes verschlüsseltes Dokument.</p>
+        <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/259" rel="noopener">GitHub #259 →</a></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-server"/></svg></div><h3 data-l="de">Server-Statistik</h3></div>
+        <p data-l="de">Eine Live-Ansicht von Datenverkehr, Speicher und Nutzung für Server-Betreiber.</p>
+        <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/214" rel="noopener">GitHub #214 →</a></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#f-shield"/></svg></div><h3 data-l="de">Unabhängiges Sicherheits-Audit</h3></div>
+        <p data-l="de">Externe Fachleute prüfen die Verschlüsselung. Bis dahin ist RustTalk ungeprüft.</p>
+        </div>
+    </div>
+    <div class="more">
+      <h3 data-l="de">Offen auf GitHub</h3>
+      <ul>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/159" rel="noopener"><span data-l="de">GIF-Suche, nur auf Wunsch (Privatsphäre)</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/335" rel="noopener"><span data-l="de">Den ganzen Verkehr über SOCKS5, WireGuard oder Tor leiten</span></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="shipped">
+    <h2><span class="dot done"></span><span data-l="de">Erledigt</span></h2>
+    <p data-l="de">RustTalk-Inhalte sind Ende-zu-Ende-verschlüsselt: Der Server speichert und verteilt nur verschlüsselte Daten. Optionale Telefonanrufe nutzen unverschlüsseltes SIP/RTP; Anbieter und Netzwerkpfad können mithören.</p>
+    <div class="timeline">
+      <div class="rel"><h3>v0.2.1 <small><time datetime="2026-11-23"><span data-l="de">23. Nov. 2026</span></time></small></h3>
+        <ul data-l="de"><li>Eingehende benutzerdefinierte Emoji erscheinen jetzt, sobald ihre Bilder geladen sind, ohne auf eine weitere Chatnachricht zu warten.</li><li>Wird Android während eines Kamerawechsels in den Hintergrund geschickt, wartet die App nicht mehr auf die Kamera und öffnet sie nach dem Pausieren nicht erneut.</li><li>Fehlgeschlagene Forumsbeiträge mit Titel, Text und Umfrage erneut senden. Antworten bleiben sichtbar, wenn Umfrage und Beitrag getrennt eintreffen.</li><li>Forumkanäle: durchsuchbare Beiträge mit eingeklappten Antworten, Umfragen, positiven und negativen Stimmen und Sortierung.</li><li>Bildvorschauen durch Klicken oder Tippen auf den abgedunkelten Bereich schließen.</li><li>Zu große gespeicherte Uploads zeigen ihre Größe und das App-Limit neben dem Chat oder den geteilten Dateien, auch in Sprachkanälen.</li><li>Bildschirmfreigaben nutzen die Teilnehmerkarte der teilenden Person, zeigen die Anzahl unterschiedlicher Zuschauer und eine eigene Vorschau, solange das Fenster fokussiert ist.</li><li>Mobile Anrufe zeigen deine Kameravorschau mit Wechsel zwischen Front- und Rückkamera und einem Licht für unterstützte Rückkameras.</li><li>Geteilter App- und Bildschirmton bleibt stumm, bis du Zuhören wählst; Zuhören beenden stoppt ihn sofort.</li><li>Beim Entfernen eines Mitglieds wird nach einer Bestätigung mit Namen gefragt; das ursprüngliche Mitglied und der Server bleiben ausgewählt.</li><li>Bitte jemanden in deinen Sprachkanal: Es klingelt, und die Person kann beitreten, ablehnen, später kommen oder dich für 15 Minuten stummschalten</li><li>Server können Events aktivieren: ein Kalender über den Kanälen zum Vorschlagen, Genehmigen und Hinzufügen von Terminen, vor Ort oder in einem Kanal</li><li>Sag, ob du an einem Event teilnimmst, sieh, wessen Antwort noch fehlt, und erinnere diese Personen</li><li>Event-Erinnerungen erreichen auch Autoren ohne Antwort und beachten „Nur wenn RustTalk nicht fokussiert ist“, ohne später erneut zu erscheinen</li><li>Kanalnamen zeigen beim Darüberfahren den Handzeiger, auch für Kanalverwalter.</li><li>Desktop: Rufe mit deinem eigenen SIP-Konto, Kontakten und einem Tastenfeld eine Telefonnummer in deinen Sprachkanal an. Telefonanrufe nutzen unverschlüsseltes SIP/RTP; Anbieter und Netzwerkpfad können mithören.</li><li>Höre Telefonaudio unabhängig davon, ob du dein Mikrofon mit dem Telefon teilst. Der Anrufer teilt sein eigenes Mikrofon; andere Mitglieder müssen zustimmen. Beim Beenden der Freigabe pausiert das Kanalmikrofon, bis der Ausschluss bestätigt ist oder der Anruf endet.</li><li>Telefonanrufe enden beim Wiederverbinden oder bei verlorener Berechtigung; Halten und einseitiger Ton werden nicht unterstützt.</li></ul>
+      </div>
+      <div class="rel"><h3>v0.2.0 <small><span data-l="de">Nov. 2026</span></small></h3>
+        <ul data-l="de"><li>Android-APK und iOS-IPA mit sicherer Schlüsselspeicherung, Suche nach öffentlichen Servern und Einrichtung per Touch.</li><li>Sprachanrufe unterstützen Mikrofon, Front- und Rückkamera. In leeren Sprachkanälen erhält der Chat mehr Platz.</li><li>Bereits geladene Bilder und Nachrichten sind offline verfügbar. Admins wählen den Kanal für Beitritts- und Austrittsmeldungen.</li></ul>
+      </div>
+      <div class="rel"><h3>v0.1.11 <small><span data-l="de">Nov. 2026</span></small></h3>
+        <ul data-l="de"><li>Dein Mikrofon funktioniert wieder, wenn ein Moderator die Stummschaltung aufhebt, ohne dem Anruf neu beizutreten</li><li>Eine Moderator-Stummschaltung stoppt auch geteilten App- und Stream-Ton; danach kannst du ihn wieder teilen</li><li>„Kanal bearbeiten“ ist ein Dialog mit den Tabs Allgemein und Berechtigungen</li><li>Update-Prüfungen sind standardmäßig an und die Update-Adresse ist ausgefüllt</li><li>Wenn alle auf der Anrufbühne minimiert sind, steht dort nicht mehr „Verbinden…“</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.10 <small><span data-l="de">Nov. 2026</span></small></h3>
+        <ul data-l="de"><li>Update nötig: ältere Apps müssen aktualisiert werden (Protokollversion 3)</li><li>Das Entfernen eines Geräts wechselt die Chat- und Anrufschlüssel, damit es neue Nachrichten nicht lesen kann</li><li>Jeder Kanal hat eine Dateiliste: Dateien teilen und später herunterladen</li><li>Seiten können Bilder zeigen, und Links auf einer Seite bekommen Vorschaukarten</li><li>Bilder auf einer Seite bleiben, solange die Seite sie nutzt</li><li>Vorschautext läuft nicht mehr unter den Button „Link öffnen“</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.9 <small><span data-l="de">Nov. 2026</span></small></h3>
+        <ul data-l="de"><li>Ein anderes Gerät in den Einstellungen mit deinen Wiederherstellungswörtern entfernen</li><li>Ein entferntes Gerät wird abgewiesen und bekommt auf keinem Server mehr Schlüssel</li><li>Zuschauer können einen geteilten Bildschirm unter macOS steuern</li><li>App-Ton und den gesamten Systemton unter macOS teilen</li><li>Ein Klick auf eine macOS-Benachrichtigung öffnet den Chat</li><li>Installationsanleitungen für Windows, Linux, macOS und das Steam Deck</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.8 <small><span data-l="de">Nov. 2026</span></small></h3>
+        <ul data-l="de"><li>Update nötig: ältere Apps müssen aktualisiert werden (Protokollversion 2)</li><li>Umfragen im Chat, Ende-zu-Ende-verschlüsselt</li><li>Seitenkanäle: eine Markdown-Seite, die nur Bearbeiter ändern können</li><li>Ein Terminal in einem Sprachkanal teilen; andere dürfen darin tippen, wenn du es erlaubst</li><li>Emoji- und Sticker-Pakete pro Server, auf jedem Server nutzbar, Import aus einer .zip</li><li>Ein Name für alle Server, mit eigenen Namen pro Server, und eine Profil-Bio</li><li>Update-Hinweis: mit einem Klick aktualisieren und neu starten, Prüfung alle 15 Minuten</li><li>„Neuigkeiten“-Seite in den Einstellungen, einmal nach dem App-Update angezeigt</li><li>Menü „Weitere Optionen“ (…) im Anrufbereich</li><li>Verpasste DM-Verläufe auf gemeinsamen Servern wiederherstellen</li><li>Anzeigen, wen eine Antwort zitiert, noch bevor das Original geladen ist</li><li>Schlüssel in einer Datei speichern, wenn es keinen System-Schlüsselbund gibt (Steam Deck Game Mode)</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.7 <small><span data-l="de">Nov. 2026</span></small></h3>
+        <ul data-l="de"><li>macOS-App: ein universeller Download für Apple Silicon und Intel (macOS 14.2 oder neuer). Noch nicht von Apple signiert; Signierung ist geplant</li><li>Profilkarten und ein gemeinsames Rechtsklick-Menü für Personen</li><li>Vorschauen für YouTube-, Spotify-, GitHub-, Wikipedia- und Reddit-Links</li><li>Rechtsklick-Menü auf Bildschirmfreigaben mit FPS- und Statistik-Overlays</li><li>Mitgliedertabelle in den Servereinstellungen: Suche, Rollenfilter und Sortierung</li><li>Animierte Server-Emoji und -Sticker</li><li>Globale Tastenkürzel für Stummschalten, Taubschalten, Push-to-Talk und Teilen</li><li>Audiomixer pro Person: Stimme, geteilte Apps und Stream-Ton</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.6 <small><span data-l="de">Nov. 2026</span></small></h3>
+        <ul data-l="de"><li>Fernsteuerung von Monitor-Freigaben unter Hyprland (Linux)</li><li>Sprachmoderation: für alle stummschalten, aus Sprachkanälen entfernen und verschieben</li><li>Gesamten Systemton teilen, und Bildschirmfreigaben bekommen ihren eigenen Ton</li><li>Markdown und hervorgehobener Code in Chatnachrichten</li><li>Steam-Store-Linkvorschauen und Einladungskarten im Chat</li><li>Dateien per Drag-and-drop aus dem Dateimanager unter Wayland</li><li>Vorschau deiner eigenen Bildschirmfreigabe</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.5 <small><span data-l="de">Nov. 2026</span></small></h3>
+        <ul data-l="de"><li>Bildschirmfreigabe und Kamera mit echten 60 fps und geringerer Latenz</li><li>Einstellung der Audio-Bitrate für Sprachkanäle</li><li>Töne beim Stummschalten, Aufheben der Stummschaltung, Taubschalten und Aufheben</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.4 <small><span data-l="de">Nov. 2026</span></small></h3>
+        <ul data-l="de"><li>GIFs und WebP-Bilder werden im Chat angezeigt und abgespielt</li><li>Bilder und kopierte Dateien in den Chat einfügen</li><li>Überarbeiteter Rollen-Editor</li><li>Lokale Töne für Sprach- und Stream-Ereignisse</li><li>Jemanden mit einer kurzen Notiz anstupsen</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.3 <small><span data-l="de">Nov. 2026</span></small></h3>
+        <ul data-l="de"><li>Direktnachrichten über jeden gemeinsamen Server</li><li>Freunde, mit der Option, nur Direktnachrichten von Freunden zu erhalten</li><li>Emoji mit :Kurzcodes: und Auswahl, dazu eigene Emoji und Sticker für jeden Server</li><li>@Erwähnungen für Personen, Rollen und @everyone</li><li>Benachrichtigungseinstellungen pro Kanal, Ungelesen-Markierungen und Desktop-Benachrichtigungen</li><li>Textchat in Sprachkanälen</li><li>Geteilten Bildschirm fernsteuern lassen, mit Erlaubnis</li><li>Wechseln, was du teilst, ohne neu zu starten</li><li>App auf Englisch, Deutsch, Niederländisch und Japanisch</li><li>Automatische Sprachempfindlichkeit, dazu optionale KI-Rauschentfernung</li><li>Anrufstatistik mit Gesamtdatenverbrauch und Verkehr pro Art</li><li>Optionale automatische Server-Updates</li><li>App und Server funktionieren auch eine Version auseinander</li><li>Eine klare Meldung, wenn die App nicht starten kann</li></ul>
+        </div>
+      <div class="rel"><h3>v0.1.2 <small><span data-l="de">Nov. 2026</span></small></h3>
+        <ul data-l="de"><li>Ein einheitliches Design: neue Themes, Akzentfarben und die Schrift Inter</li><li>Einstellungen und Servereinstellungen mit Seitenleiste und Seiten, die abschnittsweise scrollen</li><li>Kanäle und Kategorien per Ziehen sortieren, umbenennen oder löschen</li><li>Verstellbare Seitenleisten und eine einklappbare Mitgliederliste</li><li>Zuschneiden und Skalieren beim Wählen von Profilbild oder Server-Icon</li><li>Aufgeräumtes Sprach-Panel und Benutzerleiste</li><li>Die offiziellen Server werden auf der Beitreten-Seite angeboten</li><li>Auswahl beim Bildschirmteilen neu gebaut, mit 1440p-Option</li></ul>
+      </div>
+      <div class="rel"><h3>v0.1.1 <small><span data-l="de">Nov. 2026</span></small></h3>
+        <ul data-l="de"><li>Sprachkanälen auf Servern beitreten, die über einen Domainnamen erreichbar sind</li></ul>
+      </div>
+      <div class="rel"><h3>v0.1.0 <small><span data-l="de">Nov. 2026</span></small></h3>
+        <ul data-l="de"><li>Textkanäle und Direktnachrichten mit Antworten und Bearbeiten</li><li>Sprache, Kamera und Bildschirm oder Fenster teilen, mit App-Ton</li><li>Mehrere Server gleichzeitig</li><li>Rollen, Kicken, Bannen und Audit-Log</li><li>Einladungslinks</li><li>Status: online, abwesend oder unsichtbar</li><li>Profilbilder und Server-Icons</li><li>Verschlüsselt gespeicherte Dateien und Live-Dateiübertragung</li><li>Einstellungen und Serverliste zwischen deinen Geräten synchronisiert</li><li>Optionales öffentliches Serververzeichnis</li><li>Server finden: öffentliche Server in der App durchsuchen und beitreten</li><li>Signierte Selbst-Updates</li><li>Windows und Linux, x64 und ARM64</li></ul>
+        </div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <span data-l="de">Fehlt dir etwas? <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">Schlag eine Funktion auf GitHub vor</a>.</span>
+  </div>
+</main>
+
+<footer><div class="wrap wide">
+  <a href="./">RustTalk</a>
+  <span><a href="../impressum.html">Impressum</a> · <a href="../datenschutz.html"><span data-l="de">Datenschutz</span></a></span>
+</div></footer>
+<script>
+(function(){
+  // Remember an explicit choice. The English pages forward to the saved or browser language.
+  var links=document.querySelectorAll('.lang a');
+  links.forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('lang',a.dataset.set)}catch(e){}})});
+  if(document.documentElement.lang!=='en')return;
+  var want=null;try{want=localStorage.getItem('lang')}catch(e){}
+  want=want||(navigator.language||'').toLowerCase().slice(0,2);
+  for(var i=0;i<links.length;i++){if(links[i].dataset.set===want&&want!=='en'){location.replace(links[i].href+location.hash);return}}
+})();
+</script>
+</body>
+</html>
