@@ -19,6 +19,6 @@
 	header @img Cache-Control "public, max-age=86400"
 	# Pages, styles and scripts change together; make caches (incl. Cloudflare) revalidate.
 	# When changing legal.css or lang.js, also bump the ?v= on their links.
-	@code path / *.html *.css *.js
+	@code path / /de/ /nl/ /ja/ *.html *.css *.js *.xml *.txt
 	header @code Cache-Control "no-cache"
 }

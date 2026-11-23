@@ -7,8 +7,8 @@ nav{border-bottom:1px solid var(--line);background:rgba(30,31,34,.9)}
 nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;text-decoration:none;color:var(--text)}
 .lang{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.lang button{white-space:nowrap;background:none;border:0;color:var(--muted);padding:5px 10px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
-.lang button.on{background:var(--accent);color:#fff}
+.lang button,.lang a{white-space:nowrap;text-decoration:none;background:none;border:0;color:var(--muted);padding:5px 10px;font:inherit;font-size:13px;font-weight:600;cursor:pointer}
+.lang button.on,.lang a.on{background:var(--accent);color:#fff}
 main{padding:48px 20px 40px}
 h1{font-size:clamp(28px,5vw,38px);margin:0 0 24px;letter-spacing:-.01em}
 h2{font-size:19px;margin:34px 0 8px}

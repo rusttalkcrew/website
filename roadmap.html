@@ -1,13 +1,22 @@
 <!doctype html>
+<!-- Generated from src/roadmap.html by scripts/build.cjs. Edit the source, then run make build. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="canonical" href="https://rusttalk.com/roadmap.html">
+<link rel="alternate" hreflang="en" href="https://rusttalk.com/roadmap.html">
+<link rel="alternate" hreflang="de" href="https://rusttalk.com/de/roadmap.html">
+<link rel="alternate" hreflang="nl" href="https://rusttalk.com/nl/roadmap.html">
+<link rel="alternate" hreflang="ja" href="https://rusttalk.com/ja/roadmap.html">
+<link rel="alternate" hreflang="x-default" href="https://rusttalk.com/roadmap.html">
+<meta property="og:url" content="https://rusttalk.com/roadmap.html">
+<meta property="og:locale" content="en_US">
 <title>Roadmap – RustTalk</title>
 <meta name="description" content="What RustTalk already does and what is planned next.">
 <link rel="icon" href="favicon.svg?v=rust" type="image/svg+xml">
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png?v=rust">
-<link rel="stylesheet" href="legal.css?v=2">
+<link rel="stylesheet" href="legal.css?v=3">
 <style>
 .wrap.wide{max-width:1000px}
 .lead{font-size:18px;color:var(--muted);max-width:680px;margin:0 0 26px}
@@ -57,163 +66,118 @@ section>p{margin:0 0 20px}
 </svg>
 <nav><div class="wrap wide">
   <a class="brand" href="./"><img src="favicon.svg?v=rust" alt="" width="30" height="30">RustTalk</a>
-  <div class="lang" role="group" aria-label="Language"><button type="button" data-set="en">EN</button><button type="button" data-set="de">DE</button><button type="button" data-set="nl">NL</button><button type="button" data-set="ja">JP</button></div>
+  <div class="lang" role="group" aria-label="Language"><a href="roadmap.html" data-set="en" hreflang="en" lang="en" class="on" aria-current="page">EN</a><a href="de/roadmap.html" data-set="de" hreflang="de" lang="de">DE</a><a href="nl/roadmap.html" data-set="nl" hreflang="nl" lang="nl">NL</a><a href="ja/roadmap.html" data-set="ja" hreflang="ja" lang="ja">JP</a></div>
 </div></nav>
 
 <main class="wrap wide">
-  <h1><span data-l="en">Roadmap</span><span data-l="de">Roadmap</span><span data-l="nl">Roadmap</span><span data-l="ja">ロードマップ</span></h1>
+  <h1><span data-l="en">Roadmap</span></h1>
   <p class="lead" data-l="en">What RustTalk already does and what we are building next. No dates: we ship when it is ready and safe.</p>
-  <p class="lead" data-l="de">Was RustTalk schon kann und woran wir als Nächstes arbeiten. Ohne Termine: Wir veröffentlichen, wenn es fertig und sicher ist.</p>
-  <p class="lead" data-l="nl">Wat RustTalk al kan en waar we nu aan bouwen. Geen vaste datums: we brengen het uit als het klaar en veilig is.</p>
-  <p class="lead" data-l="ja">RustTalkが今できることと、次に作っているもの。日付は決めていません。準備が整い、安全だと確認できたときにリリースします。</p>
   <div class="legend">
-    <span class="chip c-plan"><span class="dot"></span><span data-l="en">Planned</span><span data-l="de">Geplant</span><span data-l="nl">Gepland</span><span data-l="ja">計画中</span></span>
-    <span class="chip c-done"><span class="dot"></span><span data-l="en">Shipped</span><span data-l="de">Erledigt</span><span data-l="nl">Uitgebracht</span><span data-l="ja">リリース済み</span></span>
+    <span class="chip c-plan"><span class="dot"></span><span data-l="en">Planned</span></span>
+    <span class="chip c-done"><span class="dot"></span><span data-l="en">Shipped</span></span>
   </div>
 
   <section id="planned">
-    <h2><span class="dot plan"></span><span data-l="en">Planned</span><span data-l="de">Geplant</span><span data-l="nl">Gepland</span><span data-l="ja">計画中</span></h2>
+    <h2><span class="dot plan"></span><span data-l="en">Planned</span></h2>
     <p data-l="en">On our list. The order is not fixed yet.</p>
-    <p data-l="de">Steht auf unserer Liste. Die Reihenfolge ist noch offen.</p>
-    <p data-l="nl">Staat op onze lijst. De volgorde ligt nog niet vast.</p>
-    <p data-l="ja">予定しているものです。順番はまだ決まっていません。</p>
     <div class="cards">
-      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-apple"/></svg></div><h3 data-l="en">Signed macOS app</h3><h3 data-l="de">Signierte macOS-App</h3><h3 data-l="nl">Ondertekende macOS-app</h3><h3 data-l="ja">署名済みのmacOSアプリ</h3></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-apple"/></svg></div><h3 data-l="en">Signed macOS app</h3></div>
         <p data-l="en">Signed and notarized by Apple, so macOS opens it without a warning and permissions survive updates.</p>
-        <p data-l="de">Von Apple signiert und notarisiert: macOS öffnet sie ohne Warnung, und Berechtigungen bleiben nach Updates erhalten.</p>
-        <p data-l="nl">Door Apple ondertekend en genotariseerd: macOS opent de app zonder waarschuwing en rechten blijven na updates behouden.</p>
-        <p data-l="ja">Appleによる署名と公証で、警告なしで開け、アップデート後も権限が保持されます。</p>
         <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/233" rel="noopener">GitHub #233 →</a></div>
-      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-android"/></svg></div><h3 data-l="en">Full phone apps</h3><h3 data-l="de">Vollwertige Handy-Apps</h3><h3 data-l="nl">Volwaardige telefoonapps</h3><h3 data-l="ja">本格的なスマートフォンアプリ</h3></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-android"/></svg></div><h3 data-l="en">Full phone apps</h3></div>
         <p data-l="en">Android and iOS are experimental today. The goal is the same features as on the desktop.</p>
-        <p data-l="de">Android und iOS sind heute experimentell. Ziel sind dieselben Funktionen wie am Desktop.</p>
-        <p data-l="nl">Android en iOS zijn nu experimenteel. Het doel is dezelfde functies als op de desktop.</p>
-        <p data-l="ja">AndroidとiOSは現在試験版です。デスクトップと同じ機能を目指しています。</p>
         <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/282" rel="noopener">GitHub #282 →</a></div>
-      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#f-file"/></svg></div><h3 data-l="en">Pages with tiles and a banner</h3><h3 data-l="de">Seiten mit Kacheln und Banner</h3><h3 data-l="nl">Pagina's met tegels en een banner</h3><h3 data-l="ja">タイルとバナーのあるページ</h3></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#f-file"/></svg></div><h3 data-l="en">Pages with tiles and a banner</h3></div>
         <p data-l="en">Page channels with tiles, a banner and pictures, stored as their own encrypted document.</p>
-        <p data-l="de">Seiten-Kanäle mit Kacheln, Banner und Bildern, gespeichert als eigenes verschlüsseltes Dokument.</p>
-        <p data-l="nl">Paginakanalen met tegels, een banner en afbeeldingen, opgeslagen als eigen versleuteld document.</p>
-        <p data-l="ja">タイル、バナー、画像を使えるページチャンネル。独立した暗号化ドキュメントとして保存されます。</p>
         <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/259" rel="noopener">GitHub #259 →</a></div>
-      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-server"/></svg></div><h3 data-l="en">Server statistics</h3><h3 data-l="de">Server-Statistik</h3><h3 data-l="nl">Serverstatistieken</h3><h3 data-l="ja">サーバー統計</h3></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#i-server"/></svg></div><h3 data-l="en">Server statistics</h3></div>
         <p data-l="en">A live view of traffic, storage and usage for server owners.</p>
-        <p data-l="de">Eine Live-Ansicht von Datenverkehr, Speicher und Nutzung für Server-Betreiber.</p>
-        <p data-l="nl">Een live overzicht van verkeer, opslag en gebruik voor servereigenaren.</p>
-        <p data-l="ja">サーバー所有者向けに、通信量・ストレージ・利用状況をリアルタイムで表示します。</p>
         <a class="issue" href="https://github.com/rusttalkcrew/rusttalk-next/issues/214" rel="noopener">GitHub #214 →</a></div>
-      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#f-shield"/></svg></div><h3 data-l="en">Independent security audit</h3><h3 data-l="de">Unabhängiges Sicherheits-Audit</h3><h3 data-l="nl">Onafhankelijke beveiligingsaudit</h3><h3 data-l="ja">第三者によるセキュリティ監査</h3></div>
+      <div class="card"><div class="top"><div class="ic"><svg aria-hidden="true"><use href="#f-shield"/></svg></div><h3 data-l="en">Independent security audit</h3></div>
         <p data-l="en">Outside experts check the encryption. Until then, RustTalk is not audited.</p>
-        <p data-l="de">Externe Fachleute prüfen die Verschlüsselung. Bis dahin ist RustTalk ungeprüft.</p>
-        <p data-l="nl">Externe experts controleren de versleuteling. Tot die tijd is RustTalk niet geaudit.</p>
-        <p data-l="ja">外部の専門家が暗号化を検証します。それまでRustTalkは未監査です。</p></div>
+        </div>
     </div>
     <div class="more">
-      <h3 data-l="en">Ready for the next release</h3><h3 data-l="de">Fertig für das nächste Release</h3><h3 data-l="nl">Klaar voor de volgende release</h3><h3 data-l="ja">次のリリースに含まれるもの</h3>
+      <h3 data-l="en">Ready for the next release</h3>
       <ul>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/292" rel="noopener"><span data-l="en">Events: a calendar to suggest, approve and join events</span><span data-l="de">Events: ein Kalender, um Events vorzuschlagen, freizugeben und beizutreten</span><span data-l="nl">Evenementen: een agenda om evenementen voor te stellen, goed te keuren en bij te wonen</span><span data-l="ja">イベント：イベントを提案・承認・参加できるカレンダー</span></a></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/211" rel="noopener"><span data-l="en">Forum channels with posts, replies, polls and votes</span><span data-l="de">Forum-Kanäle mit Beiträgen, Antworten, Umfragen und Votes</span><span data-l="nl">Forumkanalen met berichten, reacties, peilingen en stemmen</span><span data-l="ja">投稿・返信・投票・評価ができるフォーラムチャンネル</span></a></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/294" rel="noopener"><span data-l="en">Ring someone into your voice channel</span><span data-l="de">Jemanden in deinen Sprachkanal klingeln</span><span data-l="nl">Iemand naar je spraakkanaal bellen</span><span data-l="ja">ボイスチャンネルに相手を呼び出す</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/292" rel="noopener"><span data-l="en">Events: a calendar to suggest, approve and join events</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/211" rel="noopener"><span data-l="en">Forum channels with posts, replies, polls and votes</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/294" rel="noopener"><span data-l="en">Ring someone into your voice channel</span></a></li>
       </ul>
-      <h3 data-l="en">Open on GitHub</h3><h3 data-l="de">Offen auf GitHub</h3><h3 data-l="nl">Open op GitHub</h3><h3 data-l="ja">GitHubで受付中</h3>
+      <h3 data-l="en">Open on GitHub</h3>
       <ul>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/159" rel="noopener"><span data-l="en">GIF search, opt-in for privacy</span><span data-l="de">GIF-Suche, nur auf Wunsch (Privatsphäre)</span><span data-l="nl">GIF-zoeken, alleen als je het aanzet (privacy)</span><span data-l="ja">GIF検索（プライバシーのためオプトイン）</span></a></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/335" rel="noopener"><span data-l="en">Route all traffic through SOCKS5, WireGuard or Tor</span><span data-l="de">Den ganzen Verkehr über SOCKS5, WireGuard oder Tor leiten</span><span data-l="nl">Al het verkeer via SOCKS5, WireGuard of Tor sturen</span><span data-l="ja">すべての通信をSOCKS5、WireGuard、Torで経由</span></a></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/340" rel="noopener"><span data-l="en">Call phone numbers into a voice channel (SIP)</span><span data-l="de">Telefonnummern in einen Sprachkanal holen (SIP)</span><span data-l="nl">Telefoonnummers in een spraakkanaal bellen (SIP)</span><span data-l="ja">電話番号をボイスチャンネルに呼び込む（SIP）</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/159" rel="noopener"><span data-l="en">GIF search, opt-in for privacy</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/335" rel="noopener"><span data-l="en">Route all traffic through SOCKS5, WireGuard or Tor</span></a></li>
+        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/340" rel="noopener"><span data-l="en">Call phone numbers into a voice channel (SIP)</span></a></li>
       </ul>
     </div>
   </section>
 
   <section id="shipped">
-    <h2><span class="dot done"></span><span data-l="en">Shipped</span><span data-l="de">Erledigt</span><span data-l="nl">Uitgebracht</span><span data-l="ja">リリース済み</span></h2>
+    <h2><span class="dot done"></span><span data-l="en">Shipped</span></h2>
     <p data-l="en">Everything is end-to-end encrypted: the server only stores and forwards ciphertext.</p>
-    <p data-l="de">Alles ist Ende-zu-Ende-verschlüsselt: Der Server speichert und verteilt nur verschlüsselte Daten.</p>
-    <p data-l="nl">Alles is end-to-end versleuteld: de server slaat alleen versleutelde data op en stuurt die door.</p>
-    <p data-l="ja">すべてエンドツーエンドで暗号化されています。サーバーは暗号文を保存して転送するだけです。</p>
     <div class="timeline">
-      <div class="rel"><h3>v0.2.0 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
+      <div class="rel"><h3>v0.2.0 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>Android APK and iOS IPA downloads with secure device key storage, public server discovery and touch-friendly onboarding.</li><li>Phone calls support microphone access and front or back cameras. Empty voice rooms leave more space for chat.</li><li>Previously loaded pictures and recent messages reopen offline. Admins can choose a channel for join and leave notices.</li></ul>
-        <ul data-l="de"><li>Android-APK und iOS-IPA mit sicherer Schlüsselspeicherung, Suche nach öffentlichen Servern und Einrichtung per Touch.</li><li>Sprachanrufe unterstützen Mikrofon, Front- und Rückkamera. In leeren Sprachkanälen erhält der Chat mehr Platz.</li><li>Bereits geladene Bilder und Nachrichten sind offline verfügbar. Admins wählen den Kanal für Beitritts- und Austrittsmeldungen.</li></ul>
-        <ul data-l="nl"><li>Android-APK en iOS-IPA met veilige sleutelopslag, openbare servers zoeken en een aanraakvriendelijke eerste start.</li><li>Bellen met microfoon en voor- of achtercamera. In lege spraakkanalen krijgt de chat meer ruimte.</li><li>Eerder geladen afbeeldingen en recente berichten zijn offline beschikbaar. Beheerders kiezen een kanaal voor meldingen over wie komt en gaat.</li></ul>
-        <ul data-l="ja"><li>Android用APKとiOS用IPAを公開。端末での安全な鍵の保存、公開サーバーの検索、タッチに対応した初期設定が使えます。</li><li>通話でマイクと前面・背面カメラが使えます。空の通話チャンネルではチャットが広がります。</li><li>読み込み済みの画像と最近のメッセージをオフラインで表示できます。管理者は参加・退出のお知らせを表示するチャンネルを選べます。</li></ul>
       </div>
-      <div class="rel"><h3>v0.1.11 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
+      <div class="rel"><h3>v0.1.11 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>Your microphone works again when a moderator unmutes you, without rejoining the call</li><li>A moderator mute also stops shared app and stream sound; share it again after unmute</li><li>Edit channel is one dialog with General and Permissions tabs</li><li>Update checks are on by default and the update address is filled in</li><li>Minimizing everyone on the call stage no longer shows “Connecting…”</li></ul>
-        <ul data-l="de"><li>Dein Mikrofon funktioniert wieder, wenn ein Moderator die Stummschaltung aufhebt, ohne dem Anruf neu beizutreten</li><li>Eine Moderator-Stummschaltung stoppt auch geteilten App- und Stream-Ton; danach kannst du ihn wieder teilen</li><li>„Kanal bearbeiten“ ist ein Dialog mit den Tabs Allgemein und Berechtigungen</li><li>Update-Prüfungen sind standardmäßig an und die Update-Adresse ist ausgefüllt</li><li>Wenn alle auf der Anrufbühne minimiert sind, steht dort nicht mehr „Verbinden…“</li></ul>
-        <ul data-l="nl"><li>Je microfoon werkt weer als een moderator je dempen opheft, zonder opnieuw deel te nemen</li><li>Een moderatordemping stopt ook gedeeld app- en streamgeluid; deel het daarna opnieuw</li><li>Kanaal bewerken is één venster met de tabbladen Algemeen en Rechten</li><li>Controleren op updates staat standaard aan en het updateadres is ingevuld</li><li>Als iedereen op het gespreksscherm is geminimaliseerd, staat er niet meer „Verbinden…”</li></ul>
-        <ul data-l="ja"><li>モデレーターがミュートを解除すると、通話に再参加しなくてもマイクが使えるようになりました</li><li>モデレーターのミュートで共有中のアプリ音声と配信音声も止まり、解除後に再度共有できます</li><li>「チャンネルを編集」が「一般」と「権限」タブのある1つの画面になりました</li><li>アップデートの確認が初期設定でオンになり、アップデート先のアドレスも入力済みです</li><li>通話画面で全員を最小化しても「接続中…」と表示されなくなりました</li></ul></div>
-      <div class="rel"><h3>v0.1.10 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
+        </div>
+      <div class="rel"><h3>v0.1.10 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>Update required: older apps must update (protocol version 3)</li><li>Removing a device changes chat and call keys, so it can't read new messages</li><li>Every channel has a Files list: share files and download them later</li><li>Pages can show pictures, and links on a page get preview cards</li><li>Pictures on a page stay while the page uses them</li><li>Link preview text no longer runs underneath the Open link button</li></ul>
-        <ul data-l="de"><li>Update nötig: ältere Apps müssen aktualisiert werden (Protokollversion 3)</li><li>Das Entfernen eines Geräts wechselt die Chat- und Anrufschlüssel, damit es neue Nachrichten nicht lesen kann</li><li>Jeder Kanal hat eine Dateiliste: Dateien teilen und später herunterladen</li><li>Seiten können Bilder zeigen, und Links auf einer Seite bekommen Vorschaukarten</li><li>Bilder auf einer Seite bleiben, solange die Seite sie nutzt</li><li>Vorschautext läuft nicht mehr unter den Button „Link öffnen“</li></ul>
-        <ul data-l="nl"><li>Update nodig: oudere apps moeten worden bijgewerkt (protocolversie 3)</li><li>Een apparaat verwijderen wisselt de chat- en gesprekssleutels, zodat het nieuwe berichten niet kan lezen</li><li>Elk kanaal heeft een bestandenlijst: bestanden delen en later downloaden</li><li>Pagina's kunnen afbeeldingen tonen, en links op een pagina krijgen voorbeeldkaarten</li><li>Afbeeldingen op een pagina blijven zolang de pagina ze gebruikt</li><li>Voorbeeldtekst loopt niet meer onder de knop Link openen door</li></ul>
-        <ul data-l="ja"><li>アップデートが必要：古いアプリは更新が必要です（プロトコルバージョン3）</li><li>デバイスを削除するとチャットと通話の鍵が変わり、新しいメッセージを読めなくなります</li><li>すべてのチャンネルにファイル一覧：ファイルを共有して後でダウンロード</li><li>ページに画像を表示でき、ページ上のリンクにプレビューカードが付きます</li><li>ページの画像は、ページが使っている間は残ります</li><li>リンクプレビューの文字が「リンクを開く」ボタンの下に重ならなくなりました</li></ul></div>
-      <div class="rel"><h3>v0.1.9 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
+        </div>
+      <div class="rel"><h3>v0.1.9 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>Remove another device from Settings using your recovery words</li><li>A removed device is refused and stops getting keys on every server</li><li>Let viewers control a shared screen on macOS</li><li>Share app audio and all system audio on macOS</li><li>Clicking a macOS notification opens the chat</li><li>Install guides for Windows, Linux, macOS and the Steam Deck</li></ul>
-        <ul data-l="de"><li>Ein anderes Gerät in den Einstellungen mit deinen Wiederherstellungswörtern entfernen</li><li>Ein entferntes Gerät wird abgewiesen und bekommt auf keinem Server mehr Schlüssel</li><li>Zuschauer können einen geteilten Bildschirm unter macOS steuern</li><li>App-Ton und den gesamten Systemton unter macOS teilen</li><li>Ein Klick auf eine macOS-Benachrichtigung öffnet den Chat</li><li>Installationsanleitungen für Windows, Linux, macOS und das Steam Deck</li></ul>
-        <ul data-l="nl"><li>Een ander apparaat verwijderen in de instellingen met je herstelwoorden</li><li>Een verwijderd apparaat wordt geweigerd en krijgt op geen enkele server nog sleutels</li><li>Kijkers kunnen een gedeeld scherm op macOS bedienen</li><li>App-geluid en al het systeemgeluid delen op macOS</li><li>Klikken op een macOS-melding opent de chat</li><li>Installatiehandleidingen voor Windows, Linux, macOS en de Steam Deck</li></ul>
-        <ul data-l="ja"><li>設定から復元用の単語を使って他のデバイスを削除</li><li>削除したデバイスはすべてのサーバーで拒否され、鍵を受け取れなくなります</li><li>macOSで共有画面を視聴者が操作可能に</li><li>macOSでアプリの音声とシステム音声をすべて共有</li><li>macOSの通知をクリックするとチャットが開きます</li><li>Windows、Linux、macOS、Steam Deckのインストールガイド</li></ul></div>
-      <div class="rel"><h3>v0.1.8 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
+        </div>
+      <div class="rel"><h3>v0.1.8 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>Update required: older apps must update (protocol version 2)</li><li>Polls in chat, end-to-end encrypted</li><li>Page channels: one Markdown page that only editors can change</li><li>Share a terminal in a voice channel, and let others type in it if you allow it</li><li>Emoji and sticker packs per server, usable on every server, import from a .zip</li><li>One name for every server, with per-server names, and a profile bio</li><li>Update banner: update and restart in one click, checks every 15 minutes</li><li>What's new page in Settings, shown once after the app updates</li><li>More options menu (…) in the call panel</li><li>Restore missed DM history on shared servers</li><li>Show who a reply quotes before the original loads</li><li>Keep keys in a file when there is no system keychain (Steam Deck Game Mode)</li></ul>
-        <ul data-l="de"><li>Update nötig: ältere Apps müssen aktualisiert werden (Protokollversion 2)</li><li>Umfragen im Chat, Ende-zu-Ende-verschlüsselt</li><li>Seitenkanäle: eine Markdown-Seite, die nur Bearbeiter ändern können</li><li>Ein Terminal in einem Sprachkanal teilen; andere dürfen darin tippen, wenn du es erlaubst</li><li>Emoji- und Sticker-Pakete pro Server, auf jedem Server nutzbar, Import aus einer .zip</li><li>Ein Name für alle Server, mit eigenen Namen pro Server, und eine Profil-Bio</li><li>Update-Hinweis: mit einem Klick aktualisieren und neu starten, Prüfung alle 15 Minuten</li><li>„Neuigkeiten“-Seite in den Einstellungen, einmal nach dem App-Update angezeigt</li><li>Menü „Weitere Optionen“ (…) im Anrufbereich</li><li>Verpasste DM-Verläufe auf gemeinsamen Servern wiederherstellen</li><li>Anzeigen, wen eine Antwort zitiert, noch bevor das Original geladen ist</li><li>Schlüssel in einer Datei speichern, wenn es keinen System-Schlüsselbund gibt (Steam Deck Game Mode)</li></ul>
-        <ul data-l="nl"><li>Update nodig: oudere apps moeten worden bijgewerkt (protocolversie 2)</li><li>Polls in de chat, end-to-end versleuteld</li><li>Paginakanalen: één Markdown-pagina die alleen redacteuren kunnen wijzigen</li><li>Een terminal delen in een spraakkanaal; anderen mogen erin typen als jij dat toestaat</li><li>Emoji- en stickerpakketten per server, bruikbaar op elke server, importeren uit een .zip</li><li>Eén naam voor elke server, met eigen namen per server, en een profielbio</li><li>Updatemelding: met één klik bijwerken en herstarten, controle elke 15 minuten</li><li>Nieuw-in-deze-versie-pagina in de instellingen, eenmalig getoond na een app-update</li><li>Menu met meer opties (…) in het gesprekspaneel</li><li>Gemiste privéberichtgeschiedenis op gedeelde servers herstellen</li><li>Tonen wie een antwoord citeert voordat het origineel is geladen</li><li>Sleutels in een bestand bewaren als er geen systeemsleutelhanger is (Steam Deck Game Mode)</li></ul>
-        <ul data-l="ja"><li>アップデートが必要：古いアプリは更新が必要です（プロトコルバージョン2）</li><li>チャットのアンケート（エンドツーエンド暗号化）</li><li>ページチャンネル：編集者だけが変更できる1枚のMarkdownページ</li><li>ボイスチャンネルでターミナルを共有（許可すれば他の人も入力可能）</li><li>サーバーごとの絵文字・スタンプパックを全サーバーで利用可能、.zipからインポート</li><li>全サーバー共通の名前（サーバーごとの名前も設定可）とプロフィールの自己紹介</li><li>アップデートバナー：ワンクリックで更新して再起動、15分ごとに確認</li><li>設定に「新機能」ページを追加、アプリ更新後に一度だけ表示</li><li>通話パネルに「その他」メニュー（…）を追加</li><li>共通サーバーで見逃したDM履歴を復元</li><li>元のメッセージが読み込まれる前に、返信の引用元を表示</li><li>システムのキーチェーンがない場合はキーをファイルに保存（Steam Deckのゲームモード）</li></ul></div>
-      <div class="rel"><h3>v0.1.7 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
+        </div>
+      <div class="rel"><h3>v0.1.7 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>macOS app: one universal download for Apple Silicon and Intel (macOS 14.2 or newer). Not signed by Apple yet; signing is planned</li><li>Profile cards and one shared right-click menu for people</li><li>Previews for YouTube, Spotify, GitHub, Wikipedia and Reddit links</li><li>Right-click menu on screen shares with FPS and stats overlays</li><li>Members table in server settings: search, role filter and sorting</li><li>Animated server emoji and stickers</li><li>Global shortcuts for mute, deafen, push-to-talk and sharing</li><li>Audio mixer per person: voice, shared apps and stream sound</li></ul>
-        <ul data-l="de"><li>macOS-App: ein universeller Download für Apple Silicon und Intel (macOS 14.2 oder neuer). Noch nicht von Apple signiert; Signierung ist geplant</li><li>Profilkarten und ein gemeinsames Rechtsklick-Menü für Personen</li><li>Vorschauen für YouTube-, Spotify-, GitHub-, Wikipedia- und Reddit-Links</li><li>Rechtsklick-Menü auf Bildschirmfreigaben mit FPS- und Statistik-Overlays</li><li>Mitgliedertabelle in den Servereinstellungen: Suche, Rollenfilter und Sortierung</li><li>Animierte Server-Emoji und -Sticker</li><li>Globale Tastenkürzel für Stummschalten, Taubschalten, Push-to-Talk und Teilen</li><li>Audiomixer pro Person: Stimme, geteilte Apps und Stream-Ton</li></ul>
-        <ul data-l="nl"><li>macOS-app: één universele download voor Apple Silicon en Intel (macOS 14.2 of nieuwer). Nog niet door Apple ondertekend; ondertekening staat gepland</li><li>Profielkaarten en één gedeeld rechtsklikmenu voor personen</li><li>Voorbeelden voor YouTube-, Spotify-, GitHub-, Wikipedia- en Reddit-links</li><li>Rechtsklikmenu op schermdelingen met FPS- en statistiekoverlays</li><li>Ledentabel in de serverinstellingen: zoeken, rolfilter en sorteren</li><li>Geanimeerde server-emoji en -stickers</li><li>Globale sneltoetsen voor dempen, doofzetten, push-to-talk en delen</li><li>Audiomixer per persoon: stem, gedeelde apps en streamgeluid</li></ul>
-        <ul data-l="ja"><li>macOS版アプリ：Apple SiliconとIntel両対応のユニバーサル版を1つ提供（macOS 14.2以降）。Appleの署名はまだなく、署名は計画中です</li><li>プロフィールカードと、人に共通の右クリックメニュー</li><li>YouTube、Spotify、GitHub、Wikipedia、Redditのリンクプレビュー</li><li>画面共有の右クリックメニュー（FPSと統計のオーバーレイ付き）</li><li>サーバー設定のメンバー表：検索、ロールで絞り込み、並べ替え</li><li>アニメーションするサーバー絵文字とスタンプ</li><li>ミュート、スピーカーミュート、プッシュトゥトーク、共有のグローバルショートカット</li><li>人ごとのオーディオミキサー：音声、共有アプリ、配信の音</li></ul></div>
-      <div class="rel"><h3>v0.1.6 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
+        </div>
+      <div class="rel"><h3>v0.1.6 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>Remote control of monitor shares on Hyprland (Linux)</li><li>Voice moderation: mute for everyone, remove from and move between voice channels</li><li>Share all system audio, and give screen shares their own sound</li><li>Markdown and highlighted code in chat messages</li><li>Steam store link previews and invite cards in chat</li><li>Drag and drop files from a file manager on Wayland</li><li>Preview your own screen share</li></ul>
-        <ul data-l="de"><li>Fernsteuerung von Monitor-Freigaben unter Hyprland (Linux)</li><li>Sprachmoderation: für alle stummschalten, aus Sprachkanälen entfernen und verschieben</li><li>Gesamten Systemton teilen, und Bildschirmfreigaben bekommen ihren eigenen Ton</li><li>Markdown und hervorgehobener Code in Chatnachrichten</li><li>Steam-Store-Linkvorschauen und Einladungskarten im Chat</li><li>Dateien per Drag-and-drop aus dem Dateimanager unter Wayland</li><li>Vorschau deiner eigenen Bildschirmfreigabe</li></ul>
-        <ul data-l="nl"><li>Afstandsbediening van monitordelingen op Hyprland (Linux)</li><li>Spraakmoderatie: voor iedereen dempen, uit spraakkanalen verwijderen en verplaatsen</li><li>Al het systeemgeluid delen, en schermdelingen krijgen hun eigen geluid</li><li>Markdown en gemarkeerde code in chatberichten</li><li>Steam-winkellinkvoorbeelden en uitnodigingskaarten in de chat</li><li>Bestanden slepen vanuit de bestandsbeheerder op Wayland</li><li>Voorbeeld van je eigen schermdeling</li></ul>
-        <ul data-l="ja"><li>Hyprland（Linux）でのモニター共有のリモート操作</li><li>音声のモデレーション：全員に対するミュート、ボイスチャンネルからの退出・移動</li><li>システム音声をすべて共有でき、画面共有には専用の音量が付きます</li><li>チャットでMarkdownとハイライト付きコードを表示</li><li>チャットにSteamストアのリンクプレビューと招待カードを表示</li><li>Waylandでファイルマネージャーからのドラッグ＆ドロップに対応</li><li>自分の画面共有をプレビュー</li></ul></div>
-      <div class="rel"><h3>v0.1.5 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
+        </div>
+      <div class="rel"><h3>v0.1.5 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>Screen share and camera at a real 60 fps, with lower latency</li><li>Audio bitrate setting for voice channels</li><li>Sounds when you mute, unmute, deafen and undeafen</li></ul>
-        <ul data-l="de"><li>Bildschirmfreigabe und Kamera mit echten 60 fps und geringerer Latenz</li><li>Einstellung der Audio-Bitrate für Sprachkanäle</li><li>Töne beim Stummschalten, Aufheben der Stummschaltung, Taubschalten und Aufheben</li></ul>
-        <ul data-l="nl"><li>Schermdeling en camera met echte 60 fps en lagere latentie</li><li>Instelling voor de audiobitrate van spraakkanalen</li><li>Geluiden bij dempen, dempen opheffen, doofzetten en doofzetten opheffen</li></ul>
-        <ul data-l="ja"><li>画面共有とカメラが本物の60fpsに、遅延も低減</li><li>ボイスチャンネルの音声ビットレート設定</li><li>ミュート、ミュート解除、スピーカーミュート、解除の効果音</li></ul></div>
-      <div class="rel"><h3>v0.1.4 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
+        </div>
+      <div class="rel"><h3>v0.1.4 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>GIFs and WebP images shown and played in chat</li><li>Paste pictures and copied files into the chat</li><li>Redesigned roles editor</li><li>Local sounds for voice and stream events</li><li>Poke someone with a short note</li></ul>
-        <ul data-l="de"><li>GIFs und WebP-Bilder werden im Chat angezeigt und abgespielt</li><li>Bilder und kopierte Dateien in den Chat einfügen</li><li>Überarbeiteter Rollen-Editor</li><li>Lokale Töne für Sprach- und Stream-Ereignisse</li><li>Jemanden mit einer kurzen Notiz anstupsen</li></ul>
-        <ul data-l="nl"><li>GIF's en WebP-afbeeldingen worden in de chat getoond en afgespeeld</li><li>Afbeeldingen en gekopieerde bestanden in de chat plakken</li><li>Vernieuwde rolleneditor</li><li>Lokale geluiden voor spraak- en streamgebeurtenissen</li><li>Iemand porren met een kort berichtje</li></ul>
-        <ul data-l="ja"><li>チャットでGIFとWebP画像を表示・再生</li><li>画像やコピーしたファイルをチャットに貼り付け</li><li>ロールエディターを刷新</li><li>音声や配信のイベントをローカルの効果音でお知らせ</li><li>短いメモ付きでポーク</li></ul></div>
-      <div class="rel"><h3>v0.1.3 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
+        </div>
+      <div class="rel"><h3>v0.1.3 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>Direct messages over any server you share</li><li>Friends, with the option to get direct messages from friends only</li><li>Emoji with :shortcodes: and a picker, plus custom emoji and stickers for each server</li><li>@mentions for people, roles and @everyone</li><li>Notification settings per channel, unread marks and desktop notifications</li><li>Text chat in voice channels</li><li>Let a viewer control a shared screen, with permission</li><li>Switch what you share without stopping</li><li>App in English, German, Dutch and Japanese</li><li>Automatic voice sensitivity, plus optional AI noise removal</li><li>Call statistics with total data use and traffic per type</li><li>Optional automatic server updates</li><li>App and server one version apart still work together</li><li>A clear message when the app cannot start</li></ul>
-        <ul data-l="de"><li>Direktnachrichten über jeden gemeinsamen Server</li><li>Freunde, mit der Option, nur Direktnachrichten von Freunden zu erhalten</li><li>Emoji mit :Kurzcodes: und Auswahl, dazu eigene Emoji und Sticker für jeden Server</li><li>@Erwähnungen für Personen, Rollen und @everyone</li><li>Benachrichtigungseinstellungen pro Kanal, Ungelesen-Markierungen und Desktop-Benachrichtigungen</li><li>Textchat in Sprachkanälen</li><li>Geteilten Bildschirm fernsteuern lassen, mit Erlaubnis</li><li>Wechseln, was du teilst, ohne neu zu starten</li><li>App auf Englisch, Deutsch, Niederländisch und Japanisch</li><li>Automatische Sprachempfindlichkeit, dazu optionale KI-Rauschentfernung</li><li>Anrufstatistik mit Gesamtdatenverbrauch und Verkehr pro Art</li><li>Optionale automatische Server-Updates</li><li>App und Server funktionieren auch eine Version auseinander</li><li>Eine klare Meldung, wenn die App nicht starten kann</li></ul>
-        <ul data-l="nl"><li>Privéberichten via elke gedeelde server</li><li>Vrienden, met de optie om alleen privéberichten van vrienden te ontvangen</li><li>Emoji met :shortcodes: en een kiezer, plus eigen emoji en stickers per server</li><li>@vermeldingen voor personen, rollen en @everyone</li><li>Meldingsinstellingen per kanaal, ongelezen-markeringen en bureaubladmeldingen</li><li>Tekstchat in spraakkanalen</li><li>Een kijker een gedeeld scherm laten bedienen, met toestemming</li><li>Wisselen wat je deelt zonder te stoppen</li><li>App in het Engels, Duits, Nederlands en Japans</li><li>Automatische spraakgevoeligheid, plus optionele AI-ruisonderdrukking</li><li>Gespreksstatistieken met totaal dataverbruik en verkeer per soort</li><li>Optionele automatische serverupdates</li><li>App en server werken ook samen als ze één versie verschillen</li><li>Een duidelijke melding als de app niet kan starten</li></ul>
-        <ul data-l="ja"><li>共通サーバー経由のDM</li><li>フレンド機能と、DMをフレンドからだけ受け取る設定</li><li>絵文字（:ショートコード:とピッカー）と、サーバーごとのカスタム絵文字・スタンプ</li><li>個人、ロール、@everyoneへの@メンション</li><li>チャンネルごとの通知設定、未読マーク、デスクトップ通知</li><li>ボイスチャンネル内のテキストチャット</li><li>許可した視聴者による共有画面の操作</li><li>共有を止めずに共有対象を切り替え</li><li>アプリは英語、ドイツ語、オランダ語、日本語に対応</li><li>自動で調整される音声感度と、任意のAIノイズ除去</li><li>通話統計に総データ使用量と種類別のトラフィックを表示</li><li>サーバーの自動アップデート（任意）</li><li>アプリとサーバーのバージョンが1つ違っても連携可能</li><li>アプリが起動できないときに分かりやすいメッセージを表示</li></ul></div>
-      <div class="rel"><h3>v0.1.2 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
+        </div>
+      <div class="rel"><h3>v0.1.2 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>One design language: new themes, accent colours and the Inter font</li><li>Settings and server settings with a sidebar and pages that scroll by section</li><li>Reorder channels and categories by dragging, and rename or delete them</li><li>Resizable sidebars and a collapsible member list</li><li>Crop and resize when picking a profile picture or server icon</li><li>A cleaner voice panel and user bar</li><li>The official servers are offered on the join page</li><li>Screen share choices rebuilt, with a 1440p option</li></ul>
-        <ul data-l="de"><li>Ein einheitliches Design: neue Themes, Akzentfarben und die Schrift Inter</li><li>Einstellungen und Servereinstellungen mit Seitenleiste und Seiten, die abschnittsweise scrollen</li><li>Kanäle und Kategorien per Ziehen sortieren, umbenennen oder löschen</li><li>Verstellbare Seitenleisten und eine einklappbare Mitgliederliste</li><li>Zuschneiden und Skalieren beim Wählen von Profilbild oder Server-Icon</li><li>Aufgeräumtes Sprach-Panel und Benutzerleiste</li><li>Die offiziellen Server werden auf der Beitreten-Seite angeboten</li><li>Auswahl beim Bildschirmteilen neu gebaut, mit 1440p-Option</li></ul>
-        <ul data-l="nl"><li>Eén ontwerptaal: nieuwe thema's, accentkleuren en het lettertype Inter</li><li>Instellingen en serverinstellingen met een zijbalk en pagina's die per sectie scrollen</li><li>Kanalen en categorieën ordenen door te slepen, en ze hernoemen of verwijderen</li><li>Zijbalken met instelbare breedte en een inklapbare ledenlijst</li><li>Bijsnijden en schalen bij het kiezen van een profielfoto of serverpictogram</li><li>Een rustiger spraakpaneel en gebruikersbalk</li><li>De officiële servers worden aangeboden op de pagina om lid te worden</li><li>Keuzes voor scherm delen opnieuw gebouwd, met een 1440p-optie</li></ul>
-        <ul data-l="ja"><li>デザインを統一：新しいテーマ、アクセントカラー、Interフォント</li><li>サイドバー付きの設定とサーバー設定。セクションごとにスクロール</li><li>チャンネルとカテゴリーをドラッグで並べ替え、名前変更や削除も可能に</li><li>サイドバーの幅を調整でき、メンバーリストを折りたためるように</li><li>プロフィール画像やサーバーアイコンを選ぶときに切り抜き・サイズ調整</li><li>ボイスパネルとユーザーバーをすっきり整理</li><li>参加ページで公式サーバーを案内</li><li>画面共有の選択画面を作り直し、1440pに対応</li></ul>
       </div>
-      <div class="rel"><h3>v0.1.1 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
+      <div class="rel"><h3>v0.1.1 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>Join voice channels on servers reached by a domain name</li></ul>
-        <ul data-l="de"><li>Sprachkanälen auf Servern beitreten, die über einen Domainnamen erreichbar sind</li></ul>
-        <ul data-l="nl"><li>Spraakkanalen joinen op servers die via een domeinnaam bereikbaar zijn</li></ul>
-        <ul data-l="ja"><li>ドメイン名で接続したサーバーのボイスチャンネルに参加可能に</li></ul>
       </div>
-      <div class="rel"><h3>v0.1.0 <small><span data-l="en">Nov 2026</span><span data-l="de">Nov. 2026</span><span data-l="nl">nov 2026</span><span data-l="ja">2026年11月</span></small></h3>
+      <div class="rel"><h3>v0.1.0 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>Text channels and direct messages with replies and edits</li><li>Voice, camera and screen or window sharing with app audio</li><li>Several servers at once</li><li>Roles, kick, ban and an audit log</li><li>Invite links</li><li>Presence: online, away or invisible</li><li>Avatars and server icons</li><li>Encrypted stored files, and live file transfer</li><li>Settings and server list synced between your devices</li><li>Optional public server directory</li><li>Find servers: browse and join public servers in the app</li><li>Signed self-updates</li><li>Windows and Linux, x64 and ARM64</li></ul>
-        <ul data-l="de"><li>Textkanäle und Direktnachrichten mit Antworten und Bearbeiten</li><li>Sprache, Kamera und Bildschirm oder Fenster teilen, mit App-Ton</li><li>Mehrere Server gleichzeitig</li><li>Rollen, Kicken, Bannen und Audit-Log</li><li>Einladungslinks</li><li>Status: online, abwesend oder unsichtbar</li><li>Profilbilder und Server-Icons</li><li>Verschlüsselt gespeicherte Dateien und Live-Dateiübertragung</li><li>Einstellungen und Serverliste zwischen deinen Geräten synchronisiert</li><li>Optionales öffentliches Serververzeichnis</li><li>Server finden: öffentliche Server in der App durchsuchen und beitreten</li><li>Signierte Selbst-Updates</li><li>Windows und Linux, x64 und ARM64</li></ul>
-        <ul data-l="nl"><li>Tekstkanalen en privéberichten met antwoorden en bewerken</li><li>Spraak, camera en scherm of venster delen met app-geluid</li><li>Meerdere servers tegelijk</li><li>Rollen, kicken, bannen en een auditlog</li><li>Uitnodigingslinks</li><li>Status: online, afwezig of onzichtbaar</li><li>Avatars en servericonen</li><li>Versleuteld opgeslagen bestanden en live bestandsoverdracht</li><li>Instellingen en serverlijst gesynchroniseerd tussen je apparaten</li><li>Optionele openbare serverlijst</li><li>Servers zoeken: openbare servers in de app bekijken en lid worden</li><li>Ondertekende zelf-updates</li><li>Windows en Linux, x64 en ARM64</li></ul>
-        <ul data-l="ja"><li>テキストチャンネルとDM（返信・編集に対応）</li><li>音声、カメラ、アプリ音声付きの画面・ウィンドウ共有</li><li>複数サーバーへの同時接続</li><li>ロール、キック、BAN、監査ログ</li><li>招待リンク</li><li>ステータス：オンライン、退席中、オフライン表示</li><li>アバターとサーバーアイコン</li><li>暗号化して保存するファイルと、ライブでのファイル転送</li><li>設定とサーバー一覧を端末間で同期</li><li>公開サーバーディレクトリ（任意）</li><li>サーバーを探す：公開サーバーをアプリ内で見て参加</li><li>署名付きのセルフアップデート</li><li>WindowsとLinux（x64・ARM64）</li></ul></div>
+        </div>
     </div>
   </section>
 
   <div class="cta">
     <span data-l="en">Missing something? <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">Suggest a feature on GitHub</a>.</span>
-    <span data-l="de">Fehlt dir etwas? <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">Schlag eine Funktion auf GitHub vor</a>.</span>
-    <span data-l="nl">Mis je iets? <a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">Stel een functie voor op GitHub</a>.</span>
-    <span data-l="ja">欲しい機能がありますか？<a href="https://github.com/rusttalkcrew/rusttalk-next/issues" rel="noopener">GitHubで提案してください</a>。</span>
   </div>
 </main>
 
 <footer><div class="wrap wide">
   <a href="./">RustTalk</a>
-  <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html"><span data-l="en">Privacy</span><span data-l="de">Datenschutz</span><span data-l="nl">Privacy</span><span data-l="ja">プライバシー</span></a></span>
+  <span><a href="impressum.html">Impressum</a> · <a href="datenschutz.html"><span data-l="en">Privacy</span></a></span>
 </div></footer>
-<script src="lang.js?v=2"></script>
+<script>
+(function(){
+  // Remember an explicit choice. The English pages forward to the saved or browser language.
+  var links=document.querySelectorAll('.lang a');
+  links.forEach(function(a){a.addEventListener('click',function(){try{localStorage.setItem('lang',a.dataset.set)}catch(e){}})});
+  if(document.documentElement.lang!=='en')return;
+  var want=null;try{want=localStorage.getItem('lang')}catch(e){}
+  want=want||(navigator.language||'').toLowerCase().slice(0,2);
+  for(var i=0;i<links.length;i++){if(links[i].dataset.set===want&&want!=='en'){location.replace(links[i].href+location.hash);return}}
+})();
+</script>
 </body>
 </html>
