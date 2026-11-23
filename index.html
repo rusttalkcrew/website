@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-os="windows">
+<html lang="en" data-os="other">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -120,15 +120,16 @@ footer{padding:36px 0 50px;color:var(--dim);font-size:14px}
 footer .wrap{display:flex;gap:16px;flex-wrap:wrap;justify-content:space-between}
 footer a{color:var(--muted)}
 /* os-aware buttons */
-.dl-win,.dl-linux,.dl-mac,.dl-other{display:none}
-html[data-os=windows] .dl-win,html[data-os=linux] .dl-linux,html[data-os=mac] .dl-mac,html[data-os=other] .dl-other{display:inline-flex}
+.dl-win,.dl-linux,.dl-mac,.dl-android,.dl-ios,.dl-other{display:none}
+html[data-os=windows] .dl-win,html[data-os=linux] .dl-linux,html[data-os=mac] .dl-mac,html[data-os=android] .dl-android,html[data-os=ios] .dl-ios,html[data-os=other] .dl-other{display:inline-flex}
 .btn[aria-disabled=true]{opacity:.7;cursor:default;pointer-events:none}
 .dl .card.wide{grid-column:1/-1}
 .dl .card.wide .row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
 .dl .card.wide .row p{flex:1 1 320px}
 .soon{white-space:nowrap;display:inline-block;font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;background:rgba(183,65,14,.2);color:#f6a878;margin-left:6px}
 details.files{margin-top:auto;border-top:1px solid var(--line);padding-top:10px}
-details.files summary{cursor:pointer;color:var(--muted);font-size:14px;font-weight:600;user-select:none}
+details.sideload{margin:12px 0}.sideload ol{padding-inline-start:1.4em}.sideload li{margin:8px 0}
+details.sideload summary,details.files summary{cursor:pointer;color:var(--muted);font-size:14px;font-weight:600;user-select:none}
 details.files summary:hover{color:var(--text)}
 .files .tools{display:flex;align-items:center;gap:8px;margin:12px 0 6px;font-size:13.5px;color:var(--dim)}
 .files select{background:var(--bg3);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:5px 8px;font:inherit;font-size:13.5px}
@@ -207,13 +208,16 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
       <a class="btn primary dl-win" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span><span data-l="nl">Downloaden voor Windows</span><span data-l="ja">Windows版をダウンロード</span></a>
       <a class="btn primary dl-linux" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span><span data-l="nl">Downloaden voor Linux</span><span data-l="ja">Linux版をダウンロード</span></a>
       <a class="btn primary dl-mac" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-macos-universal.dmg"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">Download for macOS</span><span data-l="de">Für macOS herunterladen</span><span data-l="nl">Downloaden voor macOS</span><span data-l="ja">macOS版をダウンロード</span></a>
+      <a class="btn primary dl-android" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-android-arm64.apk"><svg aria-hidden="true"><use href="#i-android"/></svg><span data-l="en">Download for Android</span><span data-l="de">Für Android herunterladen</span><span data-l="nl">Downloaden voor Android</span><span data-l="ja">Android版をダウンロード</span></a>
+      <a class="btn primary dl-ios" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-ios-unsigned.ipa"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">Download for iOS</span><span data-l="de">Für iOS herunterladen</span><span data-l="nl">Downloaden voor iOS</span><span data-l="ja">iOS版をダウンロード</span></a>
+      <a class="btn ghost dl-ios" href="#download-ios"><span data-l="en">Install guide</span><span data-l="de">Installationsanleitung</span><span data-l="nl">Installatiegids</span><span data-l="ja">インストール手順</span></a>
       <a class="btn primary dl-other" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span><span data-l="nl">Naar de downloads</span><span data-l="ja">ダウンロードへ</span></a>
       <a class="btn ghost" href="#server">
         <svg aria-hidden="true"><use href="#i-server"/></svg>
         <span data-l="en">Host a server</span><span data-l="de">Server hosten</span><span data-l="nl">Server hosten</span><span data-l="ja">サーバーを立てる</span>
       </a>
     </div>
-    <div class="ver"><span class="js-ver"></span><span data-l="en"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> · Windows · Linux · macOS · Self-hosted</span><span data-l="de"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open Source</a> · Windows · Linux · macOS · Selbst gehostet</span><span data-l="nl"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> · Windows · Linux · macOS · Zelf gehost</span><span data-l="ja"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">オープンソース</a> · Windows · Linux · macOS · セルフホスト</span></div>
+    <div class="ver"><span class="js-ver"></span><span data-l="en"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> · Windows · Linux · macOS · Android · iOS · Self-hosted</span><span data-l="de"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open Source</a> · Windows · Linux · macOS · Android · iOS · Selbst gehostet</span><span data-l="nl"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> · Windows · Linux · macOS · Android · iOS · Zelf gehost</span><span data-l="ja"><a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">オープンソース</a> · Windows · Linux · macOS · Android · iOS · セルフホスト</span></div>
     <div class="shot-hero"><img src="img/call-stage.png" width="1280" height="800" alt="RustTalk call stage with four people and chat below"></div>
   </div>
 </header>
@@ -328,7 +332,9 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
       <p style="margin:0;color:var(--muted)" data-l="de">App herunterladen und einmal deine Identität anlegen: Du bekommst eine Wiederherstellungsphrase aus 24 Wörtern, die du sicher aufbewahrst. Dann einen Einladungslink eines Servers öffnen, fertig. Keine Registrierung, keine E-Mail.</p>
       <p style="margin:0;color:var(--muted)" data-l="nl">Download de app en maak eenmalig je identiteit aan: je krijgt een herstelzin van 24 woorden die je veilig bewaart. Open daarna een uitnodigingslink van een server en je bent binnen. Geen registratie, geen e-mail.</p>
       <p style="margin:0;color:var(--muted)" data-l="ja">アプリをダウンロードして、IDを一度だけ作成します。24単語のリカバリーフレーズが表示されるので、大切に保管してください。あとはサーバーの招待リンクを開けば参加できます。登録もメールアドレスも不要です。</p>
-      <div style="display:flex"><a class="btn primary dl-win" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span><span data-l="nl">Downloaden voor Windows</span><span data-l="ja">Windows版をダウンロード</span></a><a class="btn primary dl-linux" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span><span data-l="nl">Downloaden voor Linux</span><span data-l="ja">Linux版をダウンロード</span></a><a class="btn primary dl-mac" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-macos-universal.dmg"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">Download for macOS</span><span data-l="de">Für macOS herunterladen</span><span data-l="nl">Downloaden voor macOS</span><span data-l="ja">macOS版をダウンロード</span></a><a class="btn primary dl-other" style="align-self:flex-start" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span><span data-l="nl">Naar de downloads</span><span data-l="ja">ダウンロードへ</span></a></div>
+      <div style="display:flex"><a class="btn primary dl-win" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-windows-x86_64.exe"><svg aria-hidden="true"><use href="#i-win"/></svg><span data-l="en">Download for Windows</span><span data-l="de">Für Windows herunterladen</span><span data-l="nl">Downloaden voor Windows</span><span data-l="ja">Windows版をダウンロード</span></a><a class="btn primary dl-linux" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-linux-x86_64.AppImage"><svg aria-hidden="true"><use href="#i-linux"/></svg><span data-l="en">Download for Linux</span><span data-l="de">Für Linux herunterladen</span><span data-l="nl">Downloaden voor Linux</span><span data-l="ja">Linux版をダウンロード</span></a><a class="btn primary dl-mac" style="align-self:flex-start" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-macos-universal.dmg"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">Download for macOS</span><span data-l="de">Für macOS herunterladen</span><span data-l="nl">Downloaden voor macOS</span><span data-l="ja">macOS版をダウンロード</span></a><a class="btn primary dl-android" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-android-arm64.apk"><svg aria-hidden="true"><use href="#i-android"/></svg><span data-l="en">Download for Android</span><span data-l="de">Für Android herunterladen</span><span data-l="nl">Downloaden voor Android</span><span data-l="ja">Android版をダウンロード</span></a>
+      <a class="btn primary dl-ios" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-ios-unsigned.ipa"><svg aria-hidden="true"><use href="#i-apple"/></svg><span data-l="en">Download for iOS</span><span data-l="de">Für iOS herunterladen</span><span data-l="nl">Downloaden voor iOS</span><span data-l="ja">iOS版をダウンロード</span></a>
+      <a class="btn primary dl-other" style="align-self:flex-start" href="#download"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 4v11m0 0-4-4m4 4 4-4M5 20h14"/></svg><span data-l="en">Go to downloads</span><span data-l="de">Zu den Downloads</span><span data-l="nl">Naar de downloads</span><span data-l="ja">ダウンロードへ</span></a></div>
     </div>
   </div>
 </section>
@@ -381,13 +387,27 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
         <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span><span data-l="nl">Versie</span><span data-l="ja">バージョン</span> <select class="ver-sel" aria-label="Version"></select></label></div>
         <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span><span data-l="nl">Releases op GitHub openen</span><span data-l="ja">GitHubでリリースを開く</span></a></p></div></details>
       </div>
-      <div class="card">
-        <h3><span data-l="en">Coming later</span><span data-l="de">Kommt später</span><span data-l="nl">Komt later</span><span data-l="ja">今後対応予定</span></h3>
-        <ul class="later">
-          <li><svg aria-hidden="true"><use href="#i-apple"/></svg><b>iOS</b><span><span data-l="en">Unsigned IPA for sideloading</span><span data-l="de">Unsignierte IPA zum Sideloaden</span><span data-l="nl">Ongesigneerde IPA voor sideloaden</span><span data-l="ja">サイドロード用の未署名IPA</span></span></li>
-          <li><svg aria-hidden="true"><use href="#i-android"/></svg><b>Android</b><span><span data-l="en">Planned</span><span data-l="de">Geplant</span><span data-l="nl">Gepland</span><span data-l="ja">計画中</span></span></li>
-        </ul>
-        <a class="alt-link" href="roadmap.html"><span data-l="en">See the roadmap</span><span data-l="de">Zur Roadmap</span><span data-l="nl">Bekijk de roadmap</span><span data-l="ja">ロードマップを見る</span></a>
+      <div class="card" id="download-android">
+        <h3><svg aria-hidden="true"><use href="#i-android"/></svg> Android</h3>
+        <p class="small"><span data-l="en">Android 8 or newer, ARM64. Open the downloaded APK and allow your browser to install it if prompted.</span><span data-l="de">Android 8 oder neuer, ARM64. Öffne die APK und erlaube dem Browser bei Nachfrage die Installation.</span><span data-l="nl">Android 8 of nieuwer, ARM64. Open de APK en geef je browser toestemming om die te installeren als daarom wordt gevraagd.</span><span data-l="ja">Android 8以降のARM64端末向けです。APKを開き、確認されたらブラウザーからのインストールを許可してください。</span></p>
+        <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-android-arm64.apk"><span data-l="en">Download APK</span><span data-l="de">APK herunterladen</span><span data-l="nl">APK downloaden</span><span data-l="ja">APKをダウンロード</span></a>
+        <details class="files" data-kind="android"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span><span data-l="nl">Alle bestanden &amp; oudere versies</span><span data-l="ja">すべてのファイルと旧バージョン</span></summary>
+        <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span><span data-l="nl">Versie</span><span data-l="ja">バージョン</span> <select class="ver-sel" aria-label="Version"></select></label></div>
+        <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span><span data-l="nl">Releases op GitHub openen</span><span data-l="ja">GitHubでリリースを開く</span></a></p></div></details>
+      </div>
+      <div class="card" id="download-ios">
+        <h3><svg aria-hidden="true"><use href="#i-apple"/></svg> iPhone &amp; iPad</h3>
+        <p class="small"><span data-l="en">iOS 16 or newer. Sign the IPA with your Apple account using a sideloading tool.</span><span data-l="de">Ab iOS 16. Signiere die IPA mit deinem Apple Account und einem Sideloading-Tool.</span><span data-l="nl">Vanaf iOS 16. Onderteken de IPA met je Apple Account via een sideloadtool.</span><span data-l="ja">iOS 16以降に対応。サイドロード用ツールでIPAに自分のApple Accountで署名します。</span></p>
+        <a class="btn primary" href="https://github.com/rusttalkcrew/rusttalk-next/releases/latest/download/RustTalk-ios-unsigned.ipa"><span data-l="en">Download IPA</span><span data-l="de">IPA herunterladen</span><span data-l="nl">IPA downloaden</span><span data-l="ja">IPAをダウンロード</span></a>
+        <details class="sideload"><summary><span data-l="en">How to install on iPhone or iPad</span><span data-l="de">Auf dem iPhone oder iPad installieren</span><span data-l="nl">Installeren op iPhone of iPad</span><span data-l="ja">iPhone・iPadへのインストール方法</span></summary>
+          <ol><li><span data-l="en">Set up AltStore Classic on your device using AltServer on a Mac or Windows PC.</span><span data-l="de">Richte AltStore Classic mit AltServer auf einem Mac oder Windows-PC auf deinem Gerät ein.</span><span data-l="nl">Installeer AltStore Classic op je apparaat met AltServer op een Mac of Windows-pc.</span><span data-l="ja">MacまたはWindows PCのAltServerを使い、端末にAltStore Classicを設定します。</span></li>
+<li><span data-l="en">Save the RustTalk IPA to Files. With AltServer running, connect over USB or the same Wi-Fi. In AltStore Classic, open My Apps, tap + and select the IPA.</span><span data-l="de">Speichere die RustTalk-IPA in „Dateien“. Verbinde dein Gerät per USB oder im selben WLAN mit dem laufenden AltServer. Tippe in AltStore Classic unter „My Apps“ auf + und wähle die IPA.</span><span data-l="nl">Bewaar de RustTalk-IPA in Bestanden. Laat AltServer draaien en verbind via USB of hetzelfde wifi-netwerk. Open My Apps in AltStore Classic, tik op + en kies de IPA.</span><span data-l="ja">RustTalkのIPAを「ファイル」に保存します。AltServerを起動し、USBまたは同じWi-Fiで接続します。AltStore Classicの「My Apps」で＋をタップし、IPAを選びます。</span></li>
+<li><span data-l="en">With a free Apple account, refresh RustTalk in AltStore every seven days. Use the same account for updates.</span><span data-l="de">Mit einem kostenlosen Apple Account musst du RustTalk alle sieben Tage in AltStore erneuern. Nutze für Updates denselben Account.</span><span data-l="nl">Ververs RustTalk met een gratis Apple Account elke zeven dagen in AltStore. Gebruik hetzelfde account voor updates.</span><span data-l="ja">無料のApple Accountでは7日ごとにAltStoreで更新します。アップデートには同じアカウントを使ってください。</span></li>
+          </ol><a href="https://faq.altstore.io/altstore-classic/altserver">AltServer</a> · <a href="https://faq.altstore.io/altstore-classic/your-altstore">AltStore Classic</a> · <a href="https://xtool.sh/">xtool (Linux)</a>
+        </details>
+        <details class="files" data-kind="ios"><summary><span data-l="en">All files &amp; older versions</span><span data-l="de">Alle Dateien &amp; ältere Versionen</span><span data-l="nl">Alle bestanden &amp; oudere versies</span><span data-l="ja">すべてのファイルと旧バージョン</span></summary>
+        <div class="tools"><label><span data-l="en">Version</span><span data-l="de">Version</span><span data-l="nl">Versie</span><span data-l="ja">バージョン</span> <select class="ver-sel" aria-label="Version"></select></label></div>
+        <div class="list"><p class="err"><a href="https://github.com/rusttalkcrew/rusttalk-next/releases" rel="noopener"><span data-l="en">Open releases on GitHub</span><span data-l="de">Releases auf GitHub öffnen</span><span data-l="nl">Releases op GitHub openen</span><span data-l="ja">GitHubでリリースを開く</span></a></p></div></details>
       </div>
       <div class="card wide">
         <h3><svg aria-hidden="true"><use href="#i-server"/></svg> <span data-l="en">Server</span><span data-l="de">Server</span><span data-l="nl">Server</span><span data-l="ja">サーバー</span></h3>
@@ -506,7 +526,8 @@ echo "rusttalk://&lt;domain&gt;/i/$code#$id"    # domain mode</code></pre>
 
   var ua=navigator.userAgent||'',plat=(navigator.userAgentData&&navigator.userAgentData.platform)||navigator.platform||'';
   var os='other';
-  if(/android|iphone|ipad|ipod/i.test(ua))os='other';
+  if(/android/i.test(plat+ua))os='android';
+  else if(/iphone|ipad|ipod/i.test(ua)||(/mac/i.test(plat)&&navigator.maxTouchPoints>1))os='ios';
   else if(/win/i.test(plat)||/windows/i.test(ua))os='windows';
   else if(/mac/i.test(plat)||/macintosh|mac os/i.test(ua))os='mac';
   else if(/linux|x11|cros/i.test(plat+ua))os='linux';
@@ -527,7 +548,7 @@ echo "rusttalk://&lt;domain&gt;/i/$code#$id"    # domain mode</code></pre>
   const API = 'https://api.github.com/repos/rusttalkcrew/rusttalk-next/releases?per_page=100&page=';
   const LIMIT = 2 * 1024 * 1024;
   const U64 = 18446744073709551615n;
-  const FILES = { windows: /^-windows-(?:x86_64|aarch64)\.exe$/, linux: /^-linux-(?:x86_64|aarch64)\.AppImage$/, macos: /^-macos-universal\.dmg$/ };
+  const FILES = { windows: /^-windows-(?:x86_64|aarch64)\.exe$/, linux: /^-linux-(?:x86_64|aarch64)\.AppImage$/, macos: /^-macos-universal\.dmg$/, android: /^-android-arm64\.apk$/, ios: /^-ios-unsigned\.ipa$/ };
   function tag(value) {
     if (typeof value !== 'string') return null;
     const m = /^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$/.exec(value);
@@ -614,9 +635,10 @@ echo "rusttalk://&lt;domain&gt;/i/$code#$id"    # domain mode</code></pre>
     box.appendChild(ul);
   }
   function apply(doc, releases) {
-    const lists = { windows: history(releases, 'windows'), linux: history(releases, 'linux'), macos: history(releases, 'macos') };
+    const lists = Object.fromEntries(Object.keys(FILES).map(kind => [kind, history(releases, kind)]));
     doc.querySelectorAll('.js-ver,.js-ver2').forEach(e => {
-      const r = lists[doc.documentElement.dataset.os === 'linux' ? 'linux' : 'windows'][0];
+      const os = doc.documentElement.dataset.os;
+      const r = (lists[os === 'mac' ? 'macos' : os] || lists.windows)[0];
       e.textContent = r ? 'v' + tag(r.tag_name).core + ' · ' : '';
     });
     doc.querySelectorAll('details.files').forEach(det => {
