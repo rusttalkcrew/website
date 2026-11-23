@@ -97,25 +97,21 @@ section>p{margin:0 0 20px}
         <p data-l="ja">外部の専門家が暗号化を検証します。それまでRustTalkは未監査です。</p></div>
     </div>
     <div class="more">
-      <h3 data-l="ja">次のリリースに含まれるもの</h3>
-      <ul>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/292" rel="noopener"><span data-l="ja">イベント：イベントを提案・承認・参加できるカレンダー</span></a></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/211" rel="noopener"><span data-l="ja">投稿・返信・投票・評価ができるフォーラムチャンネル</span></a></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/294" rel="noopener"><span data-l="ja">ボイスチャンネルに相手を呼び出す</span></a></li>
-      </ul>
       <h3 data-l="ja">GitHubで受付中</h3>
       <ul>
         <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/159" rel="noopener"><span data-l="ja">GIF検索（プライバシーのためオプトイン）</span></a></li>
         <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/335" rel="noopener"><span data-l="ja">すべての通信をSOCKS5、WireGuard、Torで経由</span></a></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/340" rel="noopener"><span data-l="ja">電話番号をボイスチャンネルに呼び込む（SIP）</span></a></li>
       </ul>
     </div>
   </section>
 
   <section id="shipped">
     <h2><span class="dot done"></span><span data-l="ja">リリース済み</span></h2>
-    <p data-l="ja">すべてエンドツーエンドで暗号化されています。サーバーは暗号文を保存して転送するだけです。</p>
+    <p data-l="ja">RustTalkのコンテンツはエンドツーエンドで暗号化され、サーバーは暗号文を保存して転送するだけです。任意の電話機能は暗号化されていないSIP/RTPを使うため、通信事業者や通信経路上の第三者が音声を聞くことができます。</p>
     <div class="timeline">
+      <div class="rel"><h3>v0.2.1 <small><time datetime="2026-11-23"><span data-l="ja">2026年11月23日</span></time></small></h3>
+        <ul data-l="ja"><li>受信したカスタム絵文字は、次のチャットメッセージを待たずに、画像の読み込みが完了するとすぐに表示されます。</li><li>カメラ切り替え中にAndroidをバックグラウンドにしても、カメラを待たず、一時停止後にカメラを再び開かなくなりました。</li><li>失敗したフォーラム投稿をタイトル・本文・投票付きで再送できます。投票と投稿が別々に届いても返信は表示されたままです。</li><li>フォーラムチャンネル：検索できる投稿、折りたたまれた返信、投票、賛成・反対票、並べ替えに対応。</li><li>画像プレビューの周囲の暗い部分をクリックまたはタップして閉じられます。</li><li>保存用アップロードが大きすぎる場合、チャットや共有ファイルの横にサイズとアプリの上限を表示します。音声チャンネルも対応。</li><li>画面共有は共有者の参加者カードを使い、重複を除いた視聴者数を表示します。ウィンドウにフォーカスがある間は自分の画面もプレビューできます。</li><li>モバイル通話で自分のカメラ映像を表示し、前面・背面カメラの切り替えと対応する背面カメラのライトが使えます。</li><li>共有されたアプリ音声や画面の音声は「聴く」を選ぶまで無音です。「聴くのをやめる」ですぐに止まります。</li><li>メンバーを退出させる前に名前付きで確認し、元のメンバーとサーバーの選択を維持します。</li><li>音声チャンネルに招待すると呼び出し音が鳴り、相手は参加、辞退、後で参加、または15分間のミュートを選べます</li><li>サーバーでイベントを有効にできます。チャンネル上部のカレンダーで、実際の場所やチャンネルで行うイベントを提案・承認・追加できます</li><li>イベントへの参加予定を回答し、未回答の人を確認してリマインダーを送れます</li><li>イベントのリマインダーは未回答の作成者にも届き、「RustTalkにフォーカスがないときのみ」を守り、後から繰り返し通知しません</li><li>チャンネル名にカーソルを合わせると手の形になります。チャンネル管理者も対象です。</li><li>デスクトップ：自分のSIPアカウント、連絡先、キーパッドで電話番号に発信し、音声チャンネルにつなげます。電話は暗号化されていないSIP/RTPを使うため、通信事業者や通信経路上の第三者が音声を聞くことができます。</li><li>電話の音声を聴くことと、電話にマイクを共有することは別々に操作できます。発信者は自分のマイクを共有し、他のメンバーには同意が必要です。共有を止めると、除外が確認されるか通話が終了するまでチャンネルのマイクが一時停止します。</li><li>再接続や権限の喪失で電話は終了します。保留と片方向の音声には対応していません。</li></ul>
+      </div>
       <div class="rel"><h3>v0.2.0 <small><span data-l="ja">2026年11月</span></small></h3>
         <ul data-l="ja"><li>Android用APKとiOS用IPAを公開。端末での安全な鍵の保存、公開サーバーの検索、タッチに対応した初期設定が使えます。</li><li>通話でマイクと前面・背面カメラが使えます。空の通話チャンネルではチャットが広がります。</li><li>読み込み済みの画像と最近のメッセージをオフラインで表示できます。管理者は参加・退出のお知らせを表示するチャンネルを選べます。</li></ul>
       </div>

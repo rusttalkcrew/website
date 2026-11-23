@@ -98,25 +98,21 @@ section>p{margin:0 0 20px}
         </div>
     </div>
     <div class="more">
-      <h3 data-l="en">Ready for the next release</h3>
-      <ul>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/292" rel="noopener"><span data-l="en">Events: a calendar to suggest, approve and join events</span></a></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/211" rel="noopener"><span data-l="en">Forum channels with posts, replies, polls and votes</span></a></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/294" rel="noopener"><span data-l="en">Ring someone into your voice channel</span></a></li>
-      </ul>
       <h3 data-l="en">Open on GitHub</h3>
       <ul>
         <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/159" rel="noopener"><span data-l="en">GIF search, opt-in for privacy</span></a></li>
         <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/335" rel="noopener"><span data-l="en">Route all traffic through SOCKS5, WireGuard or Tor</span></a></li>
-        <li><a href="https://github.com/rusttalkcrew/rusttalk-next/issues/340" rel="noopener"><span data-l="en">Call phone numbers into a voice channel (SIP)</span></a></li>
       </ul>
     </div>
   </section>
 
   <section id="shipped">
     <h2><span class="dot done"></span><span data-l="en">Shipped</span></h2>
-    <p data-l="en">Everything is end-to-end encrypted: the server only stores and forwards ciphertext.</p>
+    <p data-l="en">RustTalk content is end-to-end encrypted: the server only stores and forwards ciphertext. Optional phone calls use unencrypted SIP/RTP; the provider and network path can hear them.</p>
     <div class="timeline">
+      <div class="rel"><h3>v0.2.1 <small><time datetime="2026-11-23"><span data-l="en">23 Nov 2026</span></time></small></h3>
+        <ul data-l="en"><li>Incoming custom emoji now appear as soon as their pictures finish loading, without waiting for another chat message.</li><li>Backgrounding Android during a camera switch no longer waits for the camera or reopens it after pause.</li><li>Retry a failed forum post with its title, body and poll. Replies stay visible when a poll and its post arrive separately.</li><li>Forum channels: searchable posts with folded replies, polls, up and down votes and sorting.</li><li>Close image previews by clicking or tapping the dimmed space around them.</li><li>Oversized stored uploads show their size and the app limit beside chat or shared files, including voice channels.</li><li>Screen shares use the sharer’s participant card, show distinct viewer counts, and preview your screen while the window is focused.</li><li>Mobile calls show your camera preview with front/back switching and a supported rear-camera light.</li><li>Shared app and screen audio stays silent until you choose Listen; Stop listening ends it immediately.</li><li>Kicking a member now asks for confirmation by name and keeps the original member and server selected.</li><li>Ask someone to join your voice channel: it rings, and they can join, decline, come later or mute you for 15 minutes</li><li>Servers can turn on Events: a calendar above the channels to suggest, approve and add events, in real life or in a channel</li><li>Say whether you are going to an event, see who is still missing, and remind them</li><li>Event reminders reach unanswered authors and respect “Only when RustTalk isn’t focused” without repeating later</li><li>Channel names show the pointing-hand cursor when hovered, including for channel managers.</li><li>Desktop: call a phone number into your voice channel with your own SIP account, contacts and a keypad. Phone calls use unencrypted SIP/RTP; the provider and network path can hear them.</li><li>Listen to phone audio separately from sharing your microphone with the phone. The caller shares their own microphone; other members must consent; stopping sharing pauses the channel microphone until exclusion is confirmed or the call ends.</li><li>Phone calls end on reconnect or lost permission; hold and one-way audio are not supported.</li></ul>
+      </div>
       <div class="rel"><h3>v0.2.0 <small><span data-l="en">Nov 2026</span></small></h3>
         <ul data-l="en"><li>Android APK and iOS IPA downloads with secure device key storage, public server discovery and touch-friendly onboarding.</li><li>Phone calls support microphone access and front or back cameras. Empty voice rooms leave more space for chat.</li><li>Previously loaded pictures and recent messages reopen offline. Admins can choose a channel for join and leave notices.</li></ul>
       </div>
