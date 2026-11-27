@@ -62,16 +62,13 @@ test('hostile asset URLs and names never qualify', () => {
   assert.equal(api.safeAsset(r.assets[0], r), false);
 });
 
-test('pagination uses fixed URLs, never external Link URLs; later failures reject whole listing', async () => {
+test('loads only the same-origin release list, never the GitHub API', async () => {
   const calls = [];
-  const result = await api.load(async url => { calls.push(url); return response(calls.length === 1 ? [release('v1.0.0')] : [], '<https://evil.example/>; rel="' + (calls.length === 1 ? 'next' : 'prev') + '"'); });
+  const result = await api.load(async (url, init) => { calls.push([url, init.credentials, init.redirect]); return response([release('v1.0.0')]); });
   assert.equal(result.length, 1);
-  assert.deepEqual(calls, [1, 2].map(p => 'https://api.github.com/repos/rusttalkcrew/rusttalk-next/releases?per_page=100&page=' + p));
-  let n = 0;
-  await assert.rejects(api.load(async () => ++n === 1 ? response(Array(100).fill(release('v1.0.0'))) : new Response('', { status: 500 })), /failed/);
-  n = 0;
-  await assert.rejects(api.load(async () => { n++; return response(Array(100).fill(release('v1.0.0'))); }), /Incomplete/);
-  assert.equal(n, 10);
+  assert.deepEqual(calls, [['/releases.json', 'omit', 'error']]);
+  assert.equal(source.includes('api.github.com'), false);
+  await assert.rejects(api.load(async () => new Response('', { status: 404 })), /failed/);
 });
 
 test('stream byte cap, malformed shape, oversized arrays, broken JSON and invalid UTF-8 refuse', async () => {
@@ -79,7 +76,7 @@ test('stream byte cap, malformed shape, oversized arrays, broken JSON and invali
   const body = new ReadableStream({ start(c) { c.enqueue(new Uint8Array(api.LIMIT + 1)); }, cancel() { cancelled = true; } });
   await assert.rejects(api.readPage({ ok: true, body }), /too large/);
   assert.equal(cancelled, true);
-  for (const data of [{}, [null], [{ tag_name: 'v1.0.0' }], Array(101).fill(release('v1.0.0'))]) await assert.rejects(api.readPage(response(data)));
+  for (const data of [{}, [null], [{ tag_name: 'v1.0.0' }], Array(api.MAX_RELEASES + 1).fill(release('v1.0.0'))]) await assert.rejects(api.readPage(response(data)));
   await assert.rejects(api.readPage(new Response('{')));
   await assert.rejects(api.readPage(new Response(new Uint8Array([255]))));
 });
@@ -132,4 +129,21 @@ test('mobile visitors see the newest release with their installable file', () =>
     const link = doc.det.parts['.list'].children[0].children[0].children[0].children[0];
     assert.equal(link.href, REPO + '/releases/download/v0.2.0/rusttalk-0.2.0-' + file);
   }
+});
+
+test('releases.json keeps stable versioned installers with only the fields the page reads', () => {
+  const { trim } = require('../scripts/releases.cjs');
+  const r = release('v1.2.0', [...files('1.2.0'), 'latest.json', 'RustTalk-windows-x86_64.exe', 'rusttalk-1.1.0-windows-x86_64.exe']);
+  r.assets[0].digest = 'sha256:' + 'b'.repeat(64); r.assets[0].size = 5; r.assets[0].uploader = { login: 'x' };
+  r.assets[1].digest = 'md5:abc'; r.assets[1].size = -1;
+  const out = trim([release('v1.1.0'), r, release('v1.3.0-rc.1', files('1.3.0')), release('v2.0.0', undefined, { draft: true }),
+    release('v1.10.0', []), { ...release('v1.0.0'), assets: [{ name: '<x>', browser_download_url: 'javascript:1' }] }]);
+  assert.deepEqual(tags(out), ['v1.2.0', 'v1.1.0'], 'newest first, no prerelease, draft, empty or hostile releases');
+  assert.deepEqual(out[0].assets.map(a => a.name), files('1.2.0'));
+  assert.deepEqual(Object.keys(out[0].assets[0]).sort(), ['browser_download_url', 'digest', 'name', 'size']);
+  assert.deepEqual(Object.keys(out[0].assets[1]).sort(), ['browser_download_url', 'name'], 'bad digest and size dropped');
+  // The page accepts what the script writes.
+  const doc = documentFixture();
+  api.apply(doc, JSON.parse(JSON.stringify(out)));
+  assert.equal(doc.label.textContent, 'v1.2.0 · ');
 });

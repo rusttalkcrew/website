@@ -11,8 +11,9 @@ Static project website (English, German, Dutch and Japanese; no cookies, no trac
 | `sitemap.xml`, `robots.txt` | Generated sitemap with `hreflang` alternates |
 | `impressum.html`, `datenschutz.html` | Legal notice and privacy policy (required in Germany) |
 | `legal.css`, `lang.js` | Shared style, and the DE/EN switch for the legal pages |
-| `img/` | Screenshots and logo PNGs |
-| `Dockerfile`, `Caddyfile` | Container image (Caddy serving the site on plain HTTP, port 8080) |
+| `img/` | Screenshots (PNG plus WebP at 1280 and 800 px) and logo PNGs |
+| `releases.json`, `scripts/releases.cjs` | Release list for the download pickers, refreshed by the release workflow |
+| `Dockerfile`, `Caddyfile` | Container image (Caddy serving the site on plain HTTP, port 8080, security headers). Each generated page carries a CSP with the hashes of its inline scripts |
 
 Download buttons are static `releases/latest/download/RustTalk-<platform>` links to
 `rusttalkcrew/rusttalk-next`, so they work without JavaScript. The inline release loader
@@ -20,12 +21,13 @@ only fills the version label and the "All files & older versions" pickers: stabl
 releases ordered by numeric version, listing the versioned installers
 (`rusttalk-<version>-<os>-<arch>.<ext>`) with the SHA-256 from the API's `digest` field.
 
-The browser reads the existing GitHub API (disclosed in `datenschutz.html`), using
-at most 10 requests of 100 releases, with a streamed 2 MiB response limit per page
-and a 15-second overall deadline. URLs are constructed locally; pagination links
-are never followed. Errors or malformed responses leave the static links and the
-releases-page link. Listed files must have the exact HTTPS asset URL in
-`rusttalkcrew/rusttalk-next`. No API strings become HTML.
+The page reads `/releases.json` from rusttalk.com, never the GitHub API: the release workflow
+runs `scripts/releases.cjs` (stable `vX.Y.Z` releases, versioned installers, name, URL, size and
+SHA-256 only) before building the image, also every 30 minutes on a schedule, and only pushes a new
+image when the list changed. The committed `releases.json` is a snapshot for local previews.
+The page still checks the file: a 2 MiB streamed limit, at most 1000 releases, a 15-second deadline,
+exact HTTPS asset URLs in `rusttalkcrew/rusttalk-next`, and no strings become HTML. Errors leave the
+static links and the releases-page link.
 
 The server setup steps follow the "Run a server" section of the rusttalk-next README
 and `docs/operations.md`. Keep them in sync when those change.

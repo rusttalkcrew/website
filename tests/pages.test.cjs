@@ -42,3 +42,36 @@ test('strip removes nested elements of other languages and keeps the rest', () =
   assert.equal(strip(src, 'en'), '<p>\n  <span data-l="en">A <span>x</span></span>\n</p>\n');
   assert.throws(() => strip('<p data-l="de">open', 'en'));
 });
+
+test('every inline script is allowed by its own hash, nothing else runs', () => {
+  const crypto = require('node:crypto');
+  for (const { name } of pages) {
+    const html = files[name];
+    const policy = (html.match(/<meta http-equiv="Content-Security-Policy" content="([^"]+)">/) || [])[1];
+    assert.ok(policy, name + ' has a CSP');
+    assert.ok(html.indexOf('http-equiv="Content-Security-Policy"') < html.indexOf('<script'), name + ' CSP comes first');
+    const scriptSrc = policy.split('; ').find(d => d.startsWith('script-src '));
+    assert.ok(!/unsafe|'self'|https?:/.test(scriptSrc), name + ' script-src only hashes');
+    assert.ok(policy.includes("connect-src 'self'") && policy.includes("default-src 'none'"), name);
+    for (const m of html.matchAll(/<script(?: id="[a-z-]+")?>([\s\S]*?)<\/script>/g)) {
+      const hash = "'sha256-" + crypto.createHash('sha256').update(m[1], 'utf8').digest('base64') + "'";
+      assert.ok(scriptSrc.includes(hash), name + ' script allowed');
+    }
+    assert.ok(!/<script[^>]*\ssrc=/.test(html), name + ' loads no script file');
+  }
+});
+
+test('screenshots offer WebP with the PNG as fallback, also under language folders', () => {
+  const fs = require('node:fs');
+  for (const { name, lang, page } of pages.filter(p => p.page === 'index.html')) {
+    const html = files[name], up = lang === 'en' ? '' : '../';
+    const sets = [...html.matchAll(/<source type="image\/webp" srcset="([^"]+)"/g)].map(m => m[1]);
+    assert.equal(sets.length, 5, name);
+    for (const set of sets) for (const c of set.split(', ')) {
+      const file = c.split(' ')[0];
+      assert.ok(file.startsWith(up + 'img/'), name + ' ' + file);
+      assert.ok(fs.existsSync(require('node:path').join(__dirname, '..', file.replace(/^\.\.\//, ''))), file + ' exists');
+    }
+    assert.equal((html.match(/fetchpriority="high"/g) || []).length, 1, name + ' hero first');
+  }
+});

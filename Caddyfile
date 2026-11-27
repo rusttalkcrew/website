@@ -13,12 +13,17 @@
 		Strict-Transport-Security "max-age=31536000"
 		X-Content-Type-Options nosniff
 		Referrer-Policy strict-origin-when-cross-origin
+		# Script and style rules sit in each page's <meta> CSP (with hashes); these only work as headers.
+		Content-Security-Policy "frame-ancestors 'none'; object-src 'none'; base-uri 'none'"
+		X-Frame-Options DENY
+		Cross-Origin-Opener-Policy same-origin
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()"
 		-Server
 	}
 	@img path /img/* /favicon.svg
 	header @img Cache-Control "public, max-age=86400"
 	# Pages, styles and scripts change together; make caches (incl. Cloudflare) revalidate.
 	# When changing legal.css or lang.js, also bump the ?v= on their links.
-	@code path / /de/ /nl/ /ja/ *.html *.css *.js *.xml *.txt
+	@code path / /de/ /nl/ /ja/ *.html *.css *.js *.json *.xml *.txt
 	header @code Cache-Control "no-cache"
 }

@@ -3,6 +3,7 @@
 // English lives at the site root, the others under /de/, /nl/ and /ja/.
 // Usage: node scripts/build.cjs          write the pages
 //        node scripts/build.cjs --check  fail if the committed pages are out of date
+const crypto = require('node:crypto');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -68,6 +69,22 @@ function strip(html, lang) {
   return out + html.slice(pos);
 }
 
+// Inline scripts may only run when their SHA-256 is listed. Styles stay inline (style attributes
+// are used), so they are not hashed. frame-ancestors only works as a header (see Caddyfile).
+function csp(html) {
+  const hashes = [...html.matchAll(/<script>([\s\S]*?)<\/script>|<script id="[a-z-]+">([\s\S]*?)<\/script>/g)]
+    .map(m => "'sha256-" + crypto.createHash('sha256').update(m[1] ?? m[2], 'utf8').digest('base64') + "'");
+  return [
+    "default-src 'none'",
+    'script-src ' + (hashes.length ? [...new Set(hashes)].join(' ') : "'none'"),
+    "style-src 'unsafe-inline'",
+    "img-src 'self' data:",
+    "connect-src 'self'",
+    "base-uri 'none'",
+    "form-action 'none'",
+  ].join('; ');
+}
+
 function replaceOnce(html, re, value, what) {
   if (!re.test(html)) throw new Error('missing ' + what);
   return html.replace(re, value);
@@ -103,10 +120,13 @@ function render(src, page, lang) {
   html = replaceOnce(html, /<script src="lang\.js\?v=\d+"><\/script>/, SWITCH_SCRIPT, 'lang.js include');
   if (lang !== 'en') {
     html = html.replace(/\b(href|src)="([^"]+)"/g, (all, attr, v) => (SHARED.test(v) ? `${attr}="../${v}"` : all));
+    html = html.replace(/\bsrcset="([^"]+)"/g, (all, list) =>
+      'srcset="' + list.split(/,\s*/).map(c => (SHARED.test(c) ? '../' + c : c)).join(', ') + '"');
   }
   html = html.replace(/<button type="button" data-set="([a-z]+)">([^<]*)<\/button>/g, (all, l, label) =>
     `<a href="${href(lang, l, page)}" data-set="${l}" hreflang="${l}" lang="${l}"${l === lang ? ' class="on" aria-current="page"' : ''}>${label}</a>`);
   html = html.replace(/^<!doctype html>\n/i, `<!doctype html>\n<!-- Generated from src/${page} by scripts/build.cjs. Edit the source, then run make build. -->\n`);
+  html = replaceOnce(html, /(<meta charset="utf-8">\n)/, `$1<meta http-equiv="Content-Security-Policy" content="${csp(html)}">\n`, 'charset meta');
   return html;
 }
 
@@ -135,7 +155,7 @@ function outputs() {
   return files;
 }
 
-module.exports = { outputs, strip, render, LANGS, PAGES };
+module.exports = { outputs, strip, render, csp, LANGS, PAGES };
 
 if (require.main === module) {
   const check = process.argv.includes('--check');
