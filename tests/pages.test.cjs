@@ -58,6 +58,13 @@ test('every inline script is allowed by its own hash, nothing else runs', () => 
       assert.ok(scriptSrc.includes(hash), name + ' script allowed');
     }
     assert.ok(!/<script[^>]*\ssrc=/.test(html), name + ' loads no script file');
+    const styleSrc = policy.split('; ').find(d => d.startsWith('style-src '));
+    for (const m of html.matchAll(/<link rel="stylesheet" href="([^"]+)"/g)) {
+      const file = m[1].replace(/^(\.\.\/)?/, '').split('?')[0];
+      assert.ok(/^[a-z0-9-]+\.css$/.test(file), name + ' stylesheet is a local file: ' + m[1]);
+      assert.ok(require('node:fs').existsSync(require('node:path').join(__dirname, '..', file)), file + ' exists');
+      assert.ok(styleSrc.split(' ').includes("'self'"), name + ' CSP allows its stylesheet');
+    }
   }
 });
 

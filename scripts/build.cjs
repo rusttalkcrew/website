@@ -77,7 +77,7 @@ function csp(html) {
   return [
     "default-src 'none'",
     'script-src ' + (hashes.length ? [...new Set(hashes)].join(' ') : "'none'"),
-    "style-src 'unsafe-inline'",
+    "style-src 'self' 'unsafe-inline'",
     "img-src 'self' data:",
     "connect-src 'self'",
     "base-uri 'none'",
