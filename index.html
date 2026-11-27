@@ -3,6 +3,7 @@
 <html lang="en" data-os="other">
 <head>
 <meta charset="utf-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-AUztV3o960bddpkqRguNqf8qSseMbFfu2VMeRINGO8E=' 'sha256-z20tol2vIbH48MMVfXhHZcXH8EnP1uv+O41QiK7laSI=' 'sha256-rhso3QEOBVxQG+7KZJTnVnO0Werj2KtitDR3R7eXEio='; style-src 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; form-action 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="canonical" href="https://rusttalk.com/">
 <link rel="alternate" hreflang="en" href="https://rusttalk.com/">
@@ -266,7 +267,7 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
     </div>
     <div class="ver"><span class="js-ver">v0.2.0 · </span><span data-l="en">Free · <a href="https://github.com/rusttalkcrew/rusttalk-next" rel="noopener">Open source</a> (<a href="https://github.com/rusttalkcrew/rusttalk-next/blob/main/LICENSE" rel="noopener">Apache-2.0</a>) · Windows · Linux · macOS · Android · iOS · Self-hosted</span></div>
     <p class="notice" data-l="en"><b>Early development.</b> RustTalk changes every day. Expect bugs and the odd update that older apps must install before they can connect again. The encryption has not had an independent security audit yet. Use it with friends, and don't rely on it where a mistake would really hurt.</p>
-    <div class="shot-hero"><img src="img/call-stage.png" width="1280" height="800" alt="RustTalk call stage with four people and chat below"></div>
+    <div class="shot-hero"><picture><source type="image/webp" srcset="img/call-stage-800.webp 800w, img/call-stage.webp 1280w" sizes="(max-width: 1020px) calc(100vw - 40px), 980px"><img src="img/call-stage.png" width="1280" height="800" fetchpriority="high" alt="RustTalk call stage with four people and chat below"></picture></div>
   </div>
 </header>
 
@@ -404,13 +405,13 @@ html[lang=ja] :is(h1,h2,h3,b,.lead,.sub){word-break:auto-phrase}
     <h2><span data-l="en">Screenshots</span></h2>
     <p class="sub" data-l="en">Click a screenshot to enlarge it.</p>
     <div class="gallery">
-      <figure><img src="img/call-stage.png" width="1280" height="800" loading="lazy" alt="Four participants on the call stage with chat below">
+      <figure><picture><source type="image/webp" srcset="img/call-stage-800.webp 800w, img/call-stage.webp 1280w" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1120px) calc(50vw - 29px), 531px"><img src="img/call-stage.png" width="1280" height="800" loading="lazy" alt="Four participants on the call stage with chat below"></picture>
         <figcaption><span data-l="en">Voice channel with a call stage and chat below.</span></figcaption></figure>
-      <figure><img src="img/text-chat.png" width="1280" height="800" loading="lazy" alt="Text channel showing emoji, a reply and a mention">
+      <figure><picture><source type="image/webp" srcset="img/text-chat-800.webp 800w, img/text-chat.webp 1280w" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1120px) calc(50vw - 29px), 531px"><img src="img/text-chat.png" width="1280" height="800" loading="lazy" alt="Text channel showing emoji, a reply and a mention"></picture>
         <figcaption><span data-l="en">Text chat with emoji, replies and @mentions.</span></figcaption></figure>
-      <figure><img src="img/appearance.png" width="1280" height="800" loading="lazy" alt="Appearance settings with theme and accent color choices">
+      <figure><picture><source type="image/webp" srcset="img/appearance-800.webp 800w, img/appearance.webp 1280w" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1120px) calc(50vw - 29px), 531px"><img src="img/appearance.png" width="1280" height="800" loading="lazy" alt="Appearance settings with theme and accent color choices"></picture>
         <figcaption><span data-l="en">Appearance settings with light and dark themes and accent colors.</span></figcaption></figure>
-      <figure><img src="img/friends.png" width="1280" height="800" loading="lazy" alt="Friends page showing who is online, away or offline">
+      <figure><picture><source type="image/webp" srcset="img/friends-800.webp 800w, img/friends.webp 1280w" sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1120px) calc(50vw - 29px), 531px"><img src="img/friends.png" width="1280" height="800" loading="lazy" alt="Friends page showing who is online, away or offline"></picture>
         <figcaption><span data-l="en">See who’s online and start a direct message from Friends.</span></figcaption></figure>
     </div>
     <div class="card screenshot-cta">
@@ -590,7 +591,7 @@ echo "rusttalk://&lt;domain&gt;/i/$code#$id"    # domain mode</code></pre>
   var lb=document.getElementById('lb'),lbi=lb.querySelector('img');
   document.querySelectorAll('.gallery img,.shot-hero img').forEach(function(i){
     i.style.cursor='zoom-in';
-    i.addEventListener('click',function(){lbi.src=i.src;lbi.alt=i.alt;lb.classList.add('on')});
+    i.addEventListener('click',function(){lbi.src=i.currentSrc||i.src;lbi.alt=i.alt;lb.classList.add('on')});
   });
   lb.addEventListener('click',function(){lb.classList.remove('on')});
   document.addEventListener('keydown',function(e){if(e.key==='Escape')lb.classList.remove('on')});
@@ -614,10 +615,12 @@ echo "rusttalk://&lt;domain&gt;/i/$code#$id"    # domain mode</code></pre>
 (function (root) {
   'use strict';
   // Static links to releases/latest/download work without this script. It only fills
-  // the version labels and the "All files & older versions" pickers.
+  // the version labels and the "All files & older versions" pickers from /releases.json,
+  // which CI writes from the GitHub releases (scripts/releases.cjs): no third-party request.
   const REPO = 'https://github.com/rusttalkcrew/rusttalk-next';
-  const API = 'https://api.github.com/repos/rusttalkcrew/rusttalk-next/releases?per_page=100&page=';
+  const SOURCE = '/releases.json';
   const LIMIT = 2 * 1024 * 1024;
+  const MAX_RELEASES = 1000;
   const U64 = 18446744073709551615n;
   const FILES = { windows: /^-windows-(?:x86_64|aarch64)\.exe$/, linux: /^-linux-(?:x86_64|aarch64)\.AppImage$/, macos: /^-macos-universal\.dmg$/, android: /^-android-arm64\.apk$/, ios: /^-ios-unsigned\.ipa$/ };
   function tag(value) {
@@ -662,22 +665,15 @@ echo "rusttalk://&lt;domain&gt;/i/$code#$id"    # domain mode</code></pre>
     let offset = 0;
     for (const chunk of chunks) { bytes.set(chunk, offset); offset += chunk.byteLength; }
     const page = JSON.parse(new TextDecoder('utf-8', { fatal: true }).decode(bytes));
-    if (!Array.isArray(page) || page.length > 100 || page.some(r => !r || typeof r.tag_name !== 'string' ||
+    if (!Array.isArray(page) || page.length > MAX_RELEASES || page.some(r => !r || typeof r.tag_name !== 'string' ||
       typeof r.draft !== 'boolean' || typeof r.prerelease !== 'boolean' || !Array.isArray(r.assets) ||
       r.assets.some(a => !a || typeof a.name !== 'string' || typeof a.browser_download_url !== 'string'))) throw Error('Invalid release list');
     return page;
   }
   async function load(fetcher) {
     const controller = new AbortController(), timer = setTimeout(() => controller.abort(), 15000);
-    const releases = [];
     try {
-      for (let page = 1; page <= 10; page++) {
-        const response = await fetcher(API + page, { signal: controller.signal, credentials: 'omit', redirect: 'error' });
-        const items = await readPage(response);
-        releases.push(...items);
-        if (items.length < 100 && !/rel="?next"?/.test(response.headers.get('link') || '')) return releases;
-      }
-      throw Error('Incomplete release list');
+      return await readPage(await fetcher(SOURCE, { signal: controller.signal, credentials: 'omit', redirect: 'error', cache: 'no-cache' }));
     } finally { clearTimeout(timer); }
   }
   function el(doc, name, text, cls) {
@@ -724,7 +720,7 @@ echo "rusttalk://&lt;domain&gt;/i/$code#$id"    # domain mode</code></pre>
       sel.addEventListener('change', show); sel.value = items[0].tag_name; show();
     });
   }
-  const api = { tag, safeAsset, history, load, readPage, apply, LIMIT };
+  const api = { tag, safeAsset, history, load, readPage, apply, LIMIT, MAX_RELEASES, SOURCE };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else load(root.fetch.bind(root)).then(releases => apply(root.document, releases)).catch(() => {});
 })(typeof globalThis !== 'undefined' ? globalThis : this);
